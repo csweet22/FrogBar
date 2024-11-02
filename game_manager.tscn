@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dpp2iv0cdsx74"]
+
+[ext_resource type="Script" path="res://game_manager.gd" id="1_malej"]
+
+[node name="GameManager" type="Node"]
+script = ExtResource("1_malej")
+
+[node name="GameTimer" type="Timer" parent="."]
+wait_time = 240.0

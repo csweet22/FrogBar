@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://em305t33pc75"]
+
+[ext_resource type="Script" path="res://Entities/frog.gd" id="1_ayld7"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_uvtbl"]
+
+[node name="Frog" type="CharacterBody3D"]
+script = ExtResource("1_ayld7")
+can_move = null
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_uvtbl")
+
+[node name="TalkingTimer" type="Timer" parent="."]
+
+[node name="InvincibilityTimer" type="Timer" parent="."]
+
+[node name="MovementTimer" type="Timer" parent="."]
+
+[node name="MainSprite" type="AnimatedSprite3D" parent="."]
+
+[node name="HappyParticles" type="CPUParticles3D" parent="."]
+
+[node name="AngryParticles" type="CPUParticles3D" parent="."]
