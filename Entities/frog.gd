@@ -1,6 +1,5 @@
 extends CharacterBody3D
 
-
 enum DrinkState {NO_DRINK, WANTS_DRINK, HAS_DRINK}
 
 var drink_state: DrinkState = DrinkState.NO_DRINK
@@ -44,7 +43,6 @@ func on_pushed() -> void:
 	bozoing_timer.start(0.0)
 	if drink_state == DrinkState.HAS_DRINK:
 		GameManager.remove_score(5.0)
-		# Lose points
 		pass
 
 func on_interact(tray_drinks: Array[Drinks.DrinkType]) -> Drinks.DrinkType:
@@ -54,5 +52,7 @@ func on_interact(tray_drinks: Array[Drinks.DrinkType]) -> Drinks.DrinkType:
 		if drink == drink_want:
 			set_drink_state(DrinkState.HAS_DRINK)
 			return Drinks.DrinkType
+	
+	# Do the "nuh-uh"
 	
 	return Drinks.NO_MATCH
