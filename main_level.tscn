@@ -1,3 +1,10 @@
-[gd_scene format=3 uid="uid://cv2oe30rc31yb"]
+[gd_scene load_steps=3 format=3 uid="uid://cv2oe30rc31yb"]
+
+[ext_resource type="PackedScene" uid="uid://bbbpykewcb80w" path="res://Entities/player.tscn" id="1_0yw4s"]
+[ext_resource type="PackedScene" uid="uid://dt1algih62327" path="res://Menus/hud_menu.tscn" id="2_68xt6"]
 
 [node name="MainLevel" type="Node3D"]
+
+[node name="Player" parent="." instance=ExtResource("1_0yw4s")]
+
+[node name="HudMenu" parent="." instance=ExtResource("2_68xt6")]

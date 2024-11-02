@@ -8,7 +8,7 @@ var score: float = 0.0
 var frogs
 
 signal game_ended
-signal score_changed
+signal score_changed(new_score: float)
 
 func _ready() -> void:
 	# load in all frogs in scene into list
@@ -22,8 +22,8 @@ func add_score(value: float) -> void:
 
 func set_score(value: float) -> void:
 	if score != value:
-		score_changed.emit()
-	score = value
+		score = value
+		score_changed.emit(score)
 
 func get_score() -> float:
 	return score

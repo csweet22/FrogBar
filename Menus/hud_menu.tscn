@@ -1,9 +1,77 @@
-[gd_scene format=3 uid="uid://dt1algih62327"]
+[gd_scene load_steps=3 format=3 uid="uid://dt1algih62327"]
 
-[node name="HudMenu" type="Control"]
+[ext_resource type="Script" path="res://Menus/hud_menu.gd" id="1_dqlh7"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ju0bk"]
+font_size = 50
+
+[node name="HudMenu" type="Control" node_paths=PackedStringArray("score_label")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_dqlh7")
+score_label = NodePath("TipsContainer/Label")
+
+[node name="TipsContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+offset_right = 197.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 15
+
+[node name="Label" type="Label" parent="TipsContainer"]
+layout_mode = 2
+text = "$0.00"
+label_settings = SubResource("LabelSettings_ju0bk")
+
+[node name="Main" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -315.0
+offset_bottom = 85.0
+grow_horizontal = 0
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="TaskContainer" type="VBoxContainer" parent="Main"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Main/TaskContainer"]
+layout_mode = 2
+text = "TASKS"
+
+[node name="MarginContainer" type="MarginContainer" parent="Main/TaskContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 10
+
+[node name="Label" type="Label" parent="Main/TaskContainer/MarginContainer"]
+layout_mode = 2
+text = "[ ] Kick out customer disturbance"
+
+[node name="ControlsContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Label" type="Label" parent="ControlsContainer"]
+layout_mode = 2
+text = "CONTROLS! WAWAWAWA"
