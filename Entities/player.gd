@@ -7,6 +7,7 @@ const JUMP_VELOCITY = 4.5
 var tray_contents: Array[Drinks.DrinkType] = []
 
 
+
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
@@ -28,6 +29,10 @@ func _physics_process(delta: float) -> void:
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 
 	move_and_slide()
+
+func on_push():
+	# Check what frogs are in front in area2D, call their on_pushed()
+	pass
 
 func on_interact():
 	# What am I interacting with?

@@ -2,8 +2,9 @@
 
 [ext_resource type="Script" path="res://game_manager.gd" id="1_malej"]
 
-[node name="GameManager" type="Node"]
+[node name="GameManager" type="Node" node_paths=PackedStringArray("game_timer")]
 script = ExtResource("1_malej")
+game_timer = NodePath("GameTimer")
 
 [node name="GameTimer" type="Timer" parent="."]
 wait_time = 240.0
