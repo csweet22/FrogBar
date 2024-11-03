@@ -11,6 +11,7 @@ var tray_contents: Array[Drinks.DrinkType] = []
 var can_push: bool = true
 
 signal rotated(degrees: float)
+signal pushed()
 
 func _input(event):
 	if event.is_action_pressed("interact"):
@@ -56,7 +57,7 @@ func push():
 		if body.has_method("on_pushed"):
 			body.on_pushed()
 	
-	pass
+	pushed.emit()
 
 func interact():
 	# What am I interacting with?

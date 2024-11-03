@@ -4,9 +4,16 @@ extends Node3D
 
 @export var tilt_speed: float = 1.0
 
+var push_tween: Tween
+
+@onready var tray_cam = $SubViewportContainer/SubViewport/Camera3D
+
+var default_global_position: Vector3
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	$SubViewportContainer/SubViewport/Camera3D.global_position = $".".global_position + offset
+	tray_cam.global_position = global_position + offset
+	default_global_position = tray_cam.global_position
 
 func _process(delta: float) -> void:
 	if Input.is_action_pressed("tray_left"):
@@ -19,3 +26,19 @@ func tilt_tray(amount: float) -> void:
 
 func _on_player_rotated(degrees: float) -> void:
 	tilt_tray(degrees / 10)
+
+
+# move camera to and from (0.0, 0.0, 1.5)
+func on_push():
+	if push_tween:
+		push_tween.kill()
+	push_tween = get_tree().create_tween()
+	push_tween.tween_property(tray_cam, "global_position", global_position + Vector3(0.0, 0.4, 1.3), 0.07)
+	push_tween.set_ease(Tween.EASE_OUT)
+	push_tween.set_trans(Tween.TRANS_QUAD)
+	push_tween.chain().tween_property(tray_cam, "global_position", default_global_position, 0.1)
+	
+
+
+func _on_player_pushed() -> void:
+	on_push()
