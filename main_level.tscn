@@ -1,9 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://cv2oe30rc31yb"]
+[gd_scene load_steps=6 format=3 uid="uid://cv2oe30rc31yb"]
 
 [ext_resource type="PackedScene" uid="uid://bbbpykewcb80w" path="res://Entities/player.tscn" id="1_0yw4s"]
 [ext_resource type="PackedScene" uid="uid://dt1algih62327" path="res://Menus/hud_menu.tscn" id="2_68xt6"]
+[ext_resource type="PackedScene" uid="uid://em305t33pc75" path="res://Entities/frog.tscn" id="3_3qwbp"]
 
 [sub_resource type="Environment" id="Environment_nvwhm"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_5ocl7"]
 
 [node name="MainLevel" type="Node3D"]
 
@@ -24,3 +27,9 @@ size = Vector3(16, 1, 16)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.670564, 0.252909, 0.69741, 0.61303, -0.34051, 0.712915, 0.417778, 0.905588, 0.0732933, 3.47841, 2.61886, 0)
+
+[node name="Frog" parent="." instance=ExtResource("3_3qwbp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6835, 0, -4.9626)
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_5ocl7")

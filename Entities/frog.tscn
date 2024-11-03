@@ -1,23 +1,44 @@
-[gd_scene load_steps=3 format=3 uid="uid://em305t33pc75"]
+[gd_scene load_steps=5 format=3 uid="uid://em305t33pc75"]
 
 [ext_resource type="Script" path="res://Entities/frog.gd" id="1_ayld7"]
+[ext_resource type="Texture2D" uid="uid://dm3tk1yy87s7h" path="res://icon.svg" id="2_onbys"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_uvtbl"]
 
-[node name="Frog" type="CharacterBody3D"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_2bcvu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_onbys")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Frog" type="CharacterBody3D" node_paths=PackedStringArray("movement_timer", "talking_timer", "bozoing_timer")]
 script = ExtResource("1_ayld7")
+movement_timer = NodePath("MovementTimer")
+talking_timer = NodePath("TalkingTimer")
+bozoing_timer = NodePath("InvincibilityTimer")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_uvtbl")
+
+[node name="MovementTimer" type="Timer" parent="."]
 
 [node name="TalkingTimer" type="Timer" parent="."]
 
 [node name="InvincibilityTimer" type="Timer" parent="."]
 
-[node name="MovementTimer" type="Timer" parent="."]
-
 [node name="MainSprite" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(0.732877, 0, 0, 0, 1.38283, 0, 0, 0, 1, 0, 1, 0)
+billboard = 2
+sprite_frames = SubResource("SpriteFrames_2bcvu")
 
 [node name="HappyParticles" type="CPUParticles3D" parent="."]
 
 [node name="AngryParticles" type="CPUParticles3D" parent="."]
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
