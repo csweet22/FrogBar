@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://cv2oe30rc31yb"]
+[gd_scene load_steps=8 format=3 uid="uid://cv2oe30rc31yb"]
 
 [ext_resource type="PackedScene" uid="uid://bbbpykewcb80w" path="res://Entities/player.tscn" id="1_0yw4s"]
 [ext_resource type="Script" path="res://main_level.gd" id="1_xcfvw"]
 [ext_resource type="PackedScene" uid="uid://dt1algih62327" path="res://Menus/hud_menu.tscn" id="2_68xt6"]
 [ext_resource type="PackedScene" uid="uid://em305t33pc75" path="res://Entities/frog.tscn" id="3_3qwbp"]
+[ext_resource type="PackedScene" uid="uid://bn0mrng5e2hc" path="res://tray_scene.tscn" id="5_nllec"]
 
 [sub_resource type="Environment" id="Environment_nvwhm"]
 
@@ -19,6 +20,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.50039, -0.679247)
+cull_mask = 1048573
 environment = SubResource("Environment_nvwhm")
 fov = 90.0
 
@@ -53,3 +55,11 @@ navigation_mesh = SubResource("NavigationMesh_5ocl7")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 use_collision = true
 size = Vector3(16, 1, 16)
+
+[node name="TrayScene" parent="." instance=ExtResource("5_nllec")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 100, 0)
+
+[node name="Camera3D" parent="TrayScene/SubViewportContainer/SubViewport" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.125, 100.066, 0.212)
+
+[editable path="TrayScene"]
