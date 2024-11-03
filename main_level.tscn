@@ -1,10 +1,26 @@
-[gd_scene load_steps=3 format=3 uid="uid://cv2oe30rc31yb"]
+[gd_scene load_steps=4 format=3 uid="uid://cv2oe30rc31yb"]
 
 [ext_resource type="PackedScene" uid="uid://bbbpykewcb80w" path="res://Entities/player.tscn" id="1_0yw4s"]
 [ext_resource type="PackedScene" uid="uid://dt1algih62327" path="res://Menus/hud_menu.tscn" id="2_68xt6"]
 
+[sub_resource type="Environment" id="Environment_nvwhm"]
+
 [node name="MainLevel" type="Node3D"]
 
 [node name="Player" parent="." instance=ExtResource("1_0yw4s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.50039, -0.679247)
+environment = SubResource("Environment_nvwhm")
+fov = 90.0
 
 [node name="HudMenu" parent="." instance=ExtResource("2_68xt6")]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+use_collision = true
+size = Vector3(16, 1, 16)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.670564, 0.252909, 0.69741, 0.61303, -0.34051, 0.712915, 0.417778, 0.905588, 0.0732933, 3.47841, 2.61886, 0)

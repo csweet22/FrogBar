@@ -6,37 +6,51 @@ const JUMP_VELOCITY = 4.5
 
 var tray_contents: Array[Drinks.DrinkType] = []
 
+@export var rotation_speed = 2.0
 
+var can_push: bool = true
+
+func _input(event):
+	if event.is_action_pressed("interact"):
+		interact()
+
+func _process(delta: float) -> void:
+	
+	if Input.is_action_pressed("tray_left") and Input.is_action_pressed("tray_right") and can_push:
+		push()
+	
+	if Input.is_action_just_released("tray_left") || Input.is_action_just_released("tray_right"):
+		can_push = true
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-
-	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
-	# Handle jump.
+	
 	if Input.is_action_just_pressed("ui_accept"):
 		GameManager.add_score(5.00)
-
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	var input_dir := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
-	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	
+	var input_dir := Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	var direction := (transform.basis * Vector3(0, 0, input_dir.y)).normalized()
 	if direction:
 		velocity.x = direction.x * SPEED
 		velocity.z = direction.z * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
+	
+	rotate_y( -input_dir.x * rotation_speed * delta )
 
 	move_and_slide()
 
-func on_push():
+func push():
 	# Check what frogs are in front in area2D, call their on_pushed()
+	print("Push!")
+	can_push = false
+	
 	pass
 
-func on_interact():
+func interact():
 	# What am I interacting with?
+	print("Interact!")
 	pass
