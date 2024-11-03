@@ -8,3 +8,4 @@ game_timer = NodePath("GameTimer")
 
 [node name="GameTimer" type="Timer" parent="."]
 wait_time = 240.0
+one_shot = true
