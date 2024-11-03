@@ -10,6 +10,8 @@ var tray_contents: Array[Drinks.DrinkType] = []
 
 var can_push: bool = true
 
+signal rotated(degrees: float)
+
 func _input(event):
 	if event.is_action_pressed("interact"):
 		interact()
@@ -39,7 +41,10 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 	
-	rotate_y( -input_dir.x * rotation_speed * delta )
+	var rotation_amount: float = -input_dir.x * rotation_speed * delta
+	
+	rotate_y(rotation_amount)
+	rotated.emit(rotation_amount)
 
 	move_and_slide()
 

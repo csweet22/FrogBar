@@ -10,6 +10,12 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if Input.is_action_pressed("tray_left"):
-		$CharacterBody3D.rotate_z(tilt_speed * delta)
+		tilt_tray(tilt_speed * delta)
 	if Input.is_action_pressed("tray_right"):
-		$CharacterBody3D.rotate_z(-tilt_speed * delta)
+		tilt_tray(-tilt_speed * delta)
+
+func tilt_tray(amount: float) -> void:
+		$CharacterBody3D.rotate_z(amount)
+
+func _on_player_rotated(degrees: float) -> void:
+	tilt_tray(degrees / 10)
