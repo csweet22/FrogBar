@@ -10,6 +10,8 @@ var push_tween: Tween
 
 var default_global_position: Vector3
 
+@export var tipping_speed: float = 0.05
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	tray_cam.global_position = global_position + offset
@@ -20,6 +22,11 @@ func _process(delta: float) -> void:
 		tilt_tray(tilt_speed * delta)
 	if Input.is_action_pressed("tray_right"):
 		tilt_tray(-tilt_speed * delta)
+	
+	if $CharacterBody3D.rotation_degrees.z > 0:
+		$CharacterBody3D.rotate_z(delta * tipping_speed)
+	else:
+		$CharacterBody3D.rotate_z(-delta * tipping_speed)
 
 func tilt_tray(amount: float) -> void:
 		$CharacterBody3D.rotate_z(amount)

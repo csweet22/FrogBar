@@ -25,6 +25,7 @@ environment = SubResource("Environment_nvwhm")
 fov = 90.0
 
 [node name="HudMenu" parent="." instance=ExtResource("2_68xt6")]
+z_index = 10
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.670564, 0.252909, 0.69741, 0.61303, -0.34051, 0.712915, 0.417778, 0.905588, 0.0732933, 3.47841, 2.61886, 0)
