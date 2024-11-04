@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://em305t33pc75"]
 
 [ext_resource type="Script" path="res://Entities/frog.gd" id="1_ayld7"]
-[ext_resource type="Texture2D" uid="uid://dm3tk1yy87s7h" path="res://icon.svg" id="2_onbys"]
+[ext_resource type="Texture2D" uid="uid://bvm4dupurs1jc" path="res://Gfx/frog_MAN_relax_TEST.png" id="2_lfkgo"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_uvtbl"]
 
@@ -9,7 +9,7 @@
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_onbys")
+"texture": ExtResource("2_lfkgo")
 }],
 "loop": true,
 "name": &"default",
@@ -46,6 +46,6 @@ unique_name_in_owner = true
 [node name="SpriteOrigin" type="Node3D" parent="."]
 
 [node name="MainSprite" type="AnimatedSprite3D" parent="SpriteOrigin"]
-transform = Transform3D(0.732877, 0, 0, 0, 1.38283, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 1, -0.1, 1, 0)
 billboard = 2
 sprite_frames = SubResource("SpriteFrames_2bcvu")

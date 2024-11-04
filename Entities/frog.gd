@@ -18,6 +18,11 @@ var is_moving: bool = false
 @onready var rng = RandomNumberGenerator.new()
 
 func _ready() -> void:
+	rng.randomize()
+	$SpriteOrigin/MainSprite.flip_h = rng.randi_range(0, 1) == 0
+	if rng.randi_range(0, 1) == 0:
+		$SpriteOrigin/MainSprite.modulate = Color.AQUA
+	
 	# Randomize drink want (cannot be no match)
 	while drink_want == Drinks.DrinkType.NO_MATCH:
 		drink_want = Drinks.DrinkType.values().pick_random()
