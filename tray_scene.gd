@@ -30,6 +30,8 @@ func _process(delta: float) -> void:
 
 func tilt_tray(amount: float) -> void:
 		$CharacterBody3D.rotate_z(amount)
+		
+		$CharacterBody3D.rotation_degrees.z = clampf($CharacterBody3D.rotation_degrees.z, -80, 80)
 
 func _on_player_rotated(degrees: float) -> void:
 	tilt_tray(degrees / 10)
