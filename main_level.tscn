@@ -19,7 +19,7 @@ script = ExtResource("1_xcfvw")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Player"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.50039, -0.679247)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.94268, -0.679247)
 cull_mask = 1048573
 environment = SubResource("Environment_nvwhm")
 fov = 90.0
