@@ -47,11 +47,14 @@ func start_timer():
 
 func on_game_end() -> void:
 	game_ended.emit()
+	stop_timers()
+	load_end_menu()
+
+func stop_timers():
 	$GameTimer.stop()
 	$DrinkRequestTimer.stop()
 	$DisturbanceTimer.stop()
 	
-	load_end_menu()
 
 func load_end_menu() -> void:
 	get_tree().root.add_child(preload("res://Menus/end_menu.tscn").instantiate())

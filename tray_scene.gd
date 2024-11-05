@@ -69,7 +69,7 @@ func remove_drink(drink_type: Drinks.DrinkType):
 
 func _on_bar_spawner_spawn_drink(drink_type: Drinks.DrinkType) -> void:
 	var instance: Node3D = drink_scene.instantiate()
-	instance.position = Vector3(-0.4, 1.0, 0.0)
+	instance.position = Vector3(-0.3 * (1.0 if GameManager.is_right_handed else -1.0), 1.0, 0.0)
 	instance.set_up(drink_type)
 	tray_contents.append(drink_type)
 	instance.fell.connect(remove_drink)
