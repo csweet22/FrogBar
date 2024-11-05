@@ -10,4 +10,3 @@ func set_up(drink_type: Drinks.DrinkType):
 func _process(delta: float) -> void:
 	if position.y < -1.0:
 		fell.emit(drink_type)
-		queue_free()

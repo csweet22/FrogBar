@@ -15,7 +15,7 @@ signal score_changed(new_score: float)
 var tray_scene: Node3D
 
 func _ready() -> void:
-	game_timer.timeout.connect(load_end_menu)
+	game_timer.timeout.connect(on_game_end)
 
 func remove_score(value: float) -> void:
 	set_score(score - value)
@@ -32,21 +32,29 @@ func get_score() -> float:
 	return score
 
 func start_game():
+	set_score(0)
 	# load in all frogs in scene into list
 	frogs = find_nodes_with_script(get_tree().root, load("res://Entities/frog.gd"))
 	tray_scene = find_nodes_with_script(get_tree().root, load("res://tray_scene.gd"))[0]
 	for frog in frogs:
 		frog.drink_gotten.connect(tray_scene.remove_drink)
+	start_timer()
 
 func start_timer():
-	game_timer.start()
+	game_timer.start(0.0)
+	$DrinkRequestTimer.start(0.0)
+	$DrinkRequestTimer.start(0.0)
 
 func on_game_end() -> void:
 	game_ended.emit()
+	$GameTimer.stop()
+	$DrinkRequestTimer.stop()
+	$DisturbanceTimer.stop()
+	
 	load_end_menu()
 
 func load_end_menu() -> void:
-	pass
+	get_tree().root.add_child(preload("res://Menus/end_menu.tscn").instantiate())
 	
 func make_disturbance() -> void:
 	# Loop through all frogs, find one that is not looking for an order

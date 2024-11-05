@@ -113,6 +113,10 @@ func on_interact(interactor: Node3D) -> void:
 			# remove drink from tray with signal
 			drink_gotten.emit(drink_want)
 			get_random_drink()
+			$DrinkingTimer.start()
+			$DrinkingTimer.timeout.connect( func(): 
+				set_drink_state(DrinkState.NO_DRINK)
+			)
 			
 	
 	if not drink_recieved:

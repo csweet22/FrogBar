@@ -74,3 +74,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.6, 0)
 sorting_offset = 1.0
 billboard = 2
 text = "I WANT A"
+
+[node name="DrinkingTimer" type="Timer" parent="."]
+wait_time = 6.0
+one_shot = true
