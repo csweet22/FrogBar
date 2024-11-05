@@ -18,6 +18,8 @@ func _input(event):
 		interact()
 
 func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("main_menu"):
+		get_tree().change_scene_to_file("res://Menus/main_menu.tscn")
 	
 	if Input.is_action_pressed("tray_left") and Input.is_action_pressed("tray_right") and can_push:
 		push()
