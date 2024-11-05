@@ -14,6 +14,8 @@ var default_global_position: Vector3
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	if not GameManager.is_right_handed:
+		offset.x *= -1
 	tray_cam.global_position = global_position + offset
 	default_global_position = tray_cam.global_position
 

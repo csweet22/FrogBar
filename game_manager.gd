@@ -7,6 +7,8 @@ var score: float = 0.0
 # List of all frogs in the scene
 var frogs: Array[Node]
 
+var is_right_handed = true
+
 signal game_ended
 signal score_changed(new_score: float)
 
@@ -31,7 +33,7 @@ func start_game():
 	# load in all frogs in scene into list
 	frogs = find_nodes_with_script(get_tree().root, load("res://Entities/frog.gd"))
 	for frog in frogs:
-		print(frog.name)
+		pass
 
 func start_timer():
 	game_timer.start()
