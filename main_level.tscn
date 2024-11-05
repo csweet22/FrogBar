@@ -10,8 +10,10 @@
 [sub_resource type="Environment" id="Environment_nvwhm"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_5ocl7"]
-vertices = PackedVector3Array(-7.5, 0.5, -7.5, -7.5, 0.5, 7.5, 7.5, 0.5, 7.5, 7.5, 0.5, -7.5)
+vertices = PackedVector3Array(-7.5, 0.2, -7.5, -7.5, 0.2, 7.5, 7.5, 0.2, 7.5, 7.5, 0.2, -7.5)
 polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
+cell_size = 0.1
+cell_height = 0.1
 
 [node name="MainLevel" type="Node3D"]
 script = ExtResource("1_xcfvw")
@@ -20,10 +22,10 @@ script = ExtResource("1_xcfvw")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Player"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -0.679)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -0.679)
 cull_mask = 1048573
 environment = SubResource("Environment_nvwhm")
-fov = 110.0
+fov = 90.0
 
 [node name="HudMenu" parent="." instance=ExtResource("2_68xt6")]
 z_index = 10

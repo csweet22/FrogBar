@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bvm4dupurs1jc"
-path.s3tc="res://.godot/imported/frog_MAN_relax_TEST.png-e1d9b91529228cfa0371f6db3fcdf845.s3tc.ctex"
+uid="uid://blltnvwtyquby"
+path.bptc="res://.godot/imported/MAN RELAX NEUTRAL.png-3ef69084d2ffb5e561538e4876bb9aac.bptc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,13 +11,13 @@ metadata={
 
 [deps]
 
-source_file="res://Gfx/frog_MAN_relax_TEST.png"
-dest_files=["res://.godot/imported/frog_MAN_relax_TEST.png-e1d9b91529228cfa0371f6db3fcdf845.s3tc.ctex"]
+source_file="res://Gfx/MAN RELAX NEUTRAL.png"
+dest_files=["res://.godot/imported/MAN RELAX NEUTRAL.png-3ef69084d2ffb5e561538e4876bb9aac.bptc.ctex"]
 
 [params]
 
 compress/mode=2
-compress/high_quality=false
+compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0

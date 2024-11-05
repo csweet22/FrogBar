@@ -1,0 +1,65 @@
+[gd_resource type="SpriteFrames" load_steps=7 format=3 uid="uid://cyhosoqctpejp"]
+
+[ext_resource type="Texture2D" uid="uid://ca433fwtkm5pl" path="res://Gfx/MAN DRINK ANGRY.png" id="1_e8irh"]
+[ext_resource type="Texture2D" uid="uid://bgpj1gnvc2ck8" path="res://Gfx/MAN RELAX ANGRY.png" id="1_mkohb"]
+[ext_resource type="Texture2D" uid="uid://bks1cbl2jei3d" path="res://Gfx/MAN DRINK NEUTRAL.png" id="1_w17ov"]
+[ext_resource type="Texture2D" uid="uid://blltnvwtyquby" path="res://Gfx/MAN RELAX NEUTRAL.png" id="3_mx2dy"]
+[ext_resource type="Texture2D" uid="uid://csjxyb5ogerri" path="res://Gfx/MAN DRINK TALK.png" id="3_uqpr4"]
+[ext_resource type="Texture2D" uid="uid://b0ctraicetoe7" path="res://Gfx/MAN RELAX TALK.png" id="4_xgdrj"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_e8irh")
+}],
+"loop": true,
+"name": &"drink_angry",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_w17ov")
+}],
+"loop": true,
+"name": &"drink_neutral",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_w17ov")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_uqpr4")
+}],
+"loop": true,
+"name": &"drink_talk",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_mkohb")
+}],
+"loop": true,
+"name": &"relax_angry",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_mx2dy")
+}],
+"loop": true,
+"name": &"relax_neutral",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_mx2dy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_xgdrj")
+}],
+"loop": true,
+"name": &"relax_talk",
+"speed": 5.0
+}]

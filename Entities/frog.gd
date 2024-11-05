@@ -21,9 +21,13 @@ signal drink_gotten(drink_type: Drinks.DrinkType)
 
 func _ready() -> void:
 	rng.randomize()
-	$SpriteOrigin/MainSprite.flip_h = rng.randi_range(0, 1) == 0
-	if rng.randi_range(0, 1) == 0:
-		$SpriteOrigin/MainSprite.modulate = Color.AQUA
+	var flipped = rng.randi_range(0, 1) == 0
+	$SpriteOrigin/MainSprite.flip_h = flipped
+	$SpriteOrigin/Hand.flip_h = flipped
+	
+	if flipped:
+		$SpriteOrigin/MainSprite.position.x *= -1
+		$SpriteOrigin/Hand.position.x *= -1
 	
 	# Randomize drink want (cannot be no match)
 	while drink_want == Drinks.DrinkType.NO_MATCH:
@@ -112,10 +116,13 @@ func on_interact(interactor: Node3D) -> void:
 			$BubbleRoot.visible = false
 			# remove drink from tray with signal
 			drink_gotten.emit(drink)
+			$SpriteOrigin/MainSprite.play("drink_neutral")
 			get_random_drink()
 			$DrinkingTimer.start()
 			$DrinkingTimer.timeout.connect( func(): 
 				set_drink_state(DrinkState.NO_DRINK)
+				$SpriteOrigin/MainSprite.play("relax_neutral")
+				
 			)
 			
 	
@@ -132,3 +139,7 @@ func want_drink():
 	drink_state = DrinkState.WANTS_DRINK
 	$BubbleRoot.visible = true
 	$BubbleRoot/Label3D.text = "I want to drink " + str( Drinks.DrinkType.keys()[drink_want])
+
+
+func _on_main_sprite_animation_changed() -> void:
+	$SpriteOrigin/Hand.visible = ($SpriteOrigin/MainSprite.animation as StringName).containsn("drink")
