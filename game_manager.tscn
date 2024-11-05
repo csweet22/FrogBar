@@ -9,3 +9,14 @@ game_timer = NodePath("GameTimer")
 [node name="GameTimer" type="Timer" parent="."]
 wait_time = 240.0
 one_shot = true
+
+[node name="DrinkRequestTimer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[node name="DisturbanceTimer" type="Timer" parent="."]
+wait_time = 13.0
+autostart = true
+
+[connection signal="timeout" from="DrinkRequestTimer" to="." method="_on_drink_request_timer_timeout"]
+[connection signal="timeout" from="DisturbanceTimer" to="." method="_on_disturbance_timer_timeout"]

@@ -17,6 +17,8 @@ var is_moving: bool = false
 
 @onready var rng = RandomNumberGenerator.new()
 
+signal drink_gotten(drink_type: Drinks.DrinkType)
+
 func _ready() -> void:
 	rng.randomize()
 	$SpriteOrigin/MainSprite.flip_h = rng.randi_range(0, 1) == 0
@@ -62,7 +64,7 @@ func stop_talking() -> void:
 	pass
 
 func become_disturbance() -> void:
-	pass
+	print(name + " wants to become disturbance.")
 
 func set_drink_state(new_state: DrinkState) -> void:
 	drink_state = new_state
@@ -97,14 +99,32 @@ func on_pushed() -> void:
 		GameManager.remove_score(5.0)
 		drink_state = DrinkState.NO_DRINK
 
-func on_interact(tray_drinks: Array[Drinks.DrinkType]) -> Drinks.DrinkType:
+func on_interact(interactor: Node3D) -> void:
+	var drink_recieved = false
+	
 	# Check if tray contains drink they want
 	# If so, change state and drink want.
-	for drink: Drinks.DrinkType in tray_drinks:
+	for drink: Drinks.DrinkType in GameManager.tray_scene.tray_contents:
 		if drink == drink_want:
+			GameManager.add_score(5.0)
 			set_drink_state(DrinkState.HAS_DRINK)
-			return Drinks.DrinkType
+			drink_recieved = true
+			$BubbleRoot.visible = false
+			# remove drink from tray with signal
+			drink_gotten.emit(drink_want)
+			get_random_drink()
+			
 	
-	# Do the "nuh-uh"
-	
-	return Drinks.NO_MATCH
+	if not drink_recieved:
+		# Do the "nuh-uh"
+		pass
+
+func get_random_drink():
+	drink_want = Drinks.DrinkType.values().pick_random()
+	while drink_want == Drinks.DrinkType.NO_MATCH:
+		drink_want = Drinks.DrinkType.values().pick_random()
+
+func want_drink():
+	drink_state = DrinkState.WANTS_DRINK
+	$BubbleRoot.visible = true
+	$BubbleRoot/Label3D.text = "I want to drink " + str( Drinks.DrinkType.keys()[drink_want])

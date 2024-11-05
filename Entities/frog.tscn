@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://em305t33pc75"]
+[gd_scene load_steps=7 format=3 uid="uid://em305t33pc75"]
 
 [ext_resource type="Script" path="res://Entities/frog.gd" id="1_ayld7"]
 [ext_resource type="Texture2D" uid="uid://bvm4dupurs1jc" path="res://Gfx/frog_MAN_relax_TEST.png" id="2_lfkgo"]
+[ext_resource type="Texture2D" uid="uid://dm3tk1yy87s7h" path="res://icon.svg" id="3_ha7wd"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_uvtbl"]
 
@@ -15,6 +16,9 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_jdarc"]
+radius = 0.735
 
 [node name="Frog" type="CharacterBody3D" node_paths=PackedStringArray("movement_timer", "talking_timer", "invincibility_timer")]
 script = ExtResource("1_ayld7")
@@ -49,3 +53,24 @@ unique_name_in_owner = true
 transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 1, -0.1, 1, 0)
 billboard = 2
 sprite_frames = SubResource("SpriteFrames_2bcvu")
+
+[node name="InteractionArea" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_jdarc")
+
+[node name="BubbleRoot" type="Node3D" parent="."]
+visible = false
+
+[node name="Bubble" type="Sprite3D" parent="BubbleRoot"]
+transform = Transform3D(1, 0, 0, 0, 0.571189, 0, 0, 0, 1, 0, 2.6, 0)
+modulate = Color(0, 0, 0, 1)
+billboard = 2
+texture = ExtResource("3_ha7wd")
+
+[node name="Label3D" type="Label3D" parent="BubbleRoot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.6, 0)
+sorting_offset = 1.0
+billboard = 2
+text = "I WANT A"

@@ -51,7 +51,27 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.26229, 0, -4.12766)
 can_move = true
 
 [node name="bar_spawner" parent="." instance=ExtResource("3_h8axe")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -7)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -7)
+
+[node name="Label3D" type="Label3D" parent="bar_spawner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0.6)
+text = "DRINK A"
+
+[node name="bar_spawner2" parent="." instance=ExtResource("3_h8axe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7)
+drink_type = 2
+
+[node name="Label3D" type="Label3D" parent="bar_spawner2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0.6)
+text = "DRINK B"
+
+[node name="bar_spawner3" parent="." instance=ExtResource("3_h8axe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -7)
+drink_type = 3
+
+[node name="Label3D" type="Label3D" parent="bar_spawner3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0.6)
+text = "DRINK C"
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_5ocl7")
@@ -67,3 +87,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 100, 0)
 [connection signal="pushed" from="Player" to="TrayScene" method="_on_player_pushed"]
 [connection signal="rotated" from="Player" to="TrayScene" method="_on_player_rotated"]
 [connection signal="spawn_drink" from="bar_spawner" to="TrayScene" method="_on_bar_spawner_spawn_drink"]
+[connection signal="spawn_drink" from="bar_spawner2" to="TrayScene" method="_on_bar_spawner_spawn_drink"]
+[connection signal="spawn_drink" from="bar_spawner3" to="TrayScene" method="_on_bar_spawner_spawn_drink"]

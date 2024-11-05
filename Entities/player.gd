@@ -4,8 +4,6 @@ extends CharacterBody3D
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 
-var tray_contents: Array[Drinks.DrinkType] = []
-
 @export var rotation_speed = 2.0
 
 var can_push: bool = true
@@ -81,10 +79,10 @@ func interact():
 func _on_interaction_area_area_entered(area: Area3D) -> void:
 	if area.owner.has_method("on_interact"):
 		interactables.append(area.owner)
-	print(interactables)
+	#print(interactables)
 
 
 func _on_interaction_area_area_exited(area: Area3D) -> void:
 	if area.owner.has_method("on_interact"):
 		interactables.erase(area.owner)
-	print(interactables)
+	#print(interactables)
