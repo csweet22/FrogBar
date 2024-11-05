@@ -104,14 +104,14 @@ func on_interact(interactor: Node3D) -> void:
 	
 	# Check if tray contains drink they want
 	# If so, change state and drink want.
-	for drink: Drinks.DrinkType in GameManager.tray_scene.tray_contents:
-		if drink == drink_want:
+	for drink in GameManager.tray_scene.drinks:
+		if drink.drink_type == drink_want:
 			GameManager.add_score(5.0)
 			set_drink_state(DrinkState.HAS_DRINK)
 			drink_recieved = true
 			$BubbleRoot.visible = false
 			# remove drink from tray with signal
-			drink_gotten.emit(drink_want)
+			drink_gotten.emit(drink)
 			get_random_drink()
 			$DrinkingTimer.start()
 			$DrinkingTimer.timeout.connect( func(): 

@@ -14,7 +14,6 @@ var default_global_position: Vector3
 
 @onready var drink_scene: PackedScene = preload("res://Entities/drink.tscn")
 
-var tray_contents: Array[Drinks.DrinkType] = []
 var drinks: Array[RigidBody3D]
 
 var current_tilt_delta = 0.0
@@ -80,22 +79,19 @@ func on_push():
 func _on_player_pushed() -> void:
 	on_push()
 
-func remove_drink(drink_type: Drinks.DrinkType):
-	tray_contents.erase(drink_type)
-	for drink in drinks:
-		if drink.drink_type == drink_type:
-			drinks.erase(drink)
-			drink.queue_free()
-			break
+func remove_drink(drink: RigidBody3D):
+	print("Trying to delete " + drink.name)
+	drinks.erase(drink)
+	drink.queue_free()
 
 func _on_bar_spawner_spawn_drink(drink_type: Drinks.DrinkType) -> void:
 	var instance: Node3D = drink_scene.instantiate()
 	instance.position = Vector3(-0.3 * (1.0 if GameManager.is_right_handed else -1.0), 1.0, 0.0)
 	instance.set_up(drink_type)
-	tray_contents.append(drink_type)
-	instance.fell.connect(remove_drink)
-	add_child(instance)
 	drinks.append(instance)
+	add_child(instance)
+	instance.fell.connect(remove_drink)
+	print("Spawned " + instance.name)
 
 
 func _on_tilt_timer_timeout() -> void:

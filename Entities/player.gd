@@ -73,7 +73,7 @@ func interact():
 			closest_interactable = interactable
 			smallest_distance = distance
 	if closest_interactable:
-		print("Interacting with: " + closest_interactable.name)
+		#print("Interacting with: " + closest_interactable.name)
 		closest_interactable.on_interact(self)
 
 
