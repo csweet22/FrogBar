@@ -14,6 +14,9 @@ var tween: Tween
 func _ready() -> void:
 	GameManager.score_changed.connect(on_score_changed)
 
+func _process(delta: float) -> void:
+	$Main/VBoxContainer/TimeRemaining.text = "Time Remaining: " + "%02d:%02d" % [GameManager.game_timer.time_left / 60, fmod(GameManager.game_timer.time_left, 60)]
+
 func on_score_changed(score: float):
 	if tween:
 		tween.kill() # Abort the previous animation.

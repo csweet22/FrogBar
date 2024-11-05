@@ -40,21 +40,30 @@ theme_override_constants/margin_top = 15
 theme_override_constants/margin_right = 15
 theme_override_constants/margin_bottom = 15
 
-[node name="TaskContainer" type="VBoxContainer" parent="Main"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Main"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="TimeRemaining" type="Label" parent="Main/VBoxContainer"]
+layout_mode = 2
+text = "Time Remaining: 3:00"
+
+[node name="TaskContainer" type="VBoxContainer" parent="Main/VBoxContainer"]
 layout_mode = 2
 
-[node name="Title" type="Label" parent="Main/TaskContainer"]
+[node name="Title" type="Label" parent="Main/VBoxContainer/TaskContainer"]
 layout_mode = 2
 text = "TASKS"
+horizontal_alignment = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="Main/TaskContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="Main/VBoxContainer/TaskContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 15
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 15
 theme_override_constants/margin_bottom = 10
 
-[node name="Label" type="Label" parent="Main/TaskContainer/MarginContainer"]
+[node name="Label" type="Label" parent="Main/VBoxContainer/TaskContainer/MarginContainer"]
 layout_mode = 2
 text = "[ ] Kick out customer disturbance"
 

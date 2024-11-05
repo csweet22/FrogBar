@@ -15,6 +15,7 @@ var default_global_position: Vector3
 @onready var drink_scene: PackedScene = preload("res://Entities/drink.tscn")
 
 var tray_contents: Array[Drinks.DrinkType] = []
+var drinks: Array[RigidBody3D]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -59,14 +60,18 @@ func _on_player_pushed() -> void:
 	on_push()
 
 func remove_drink(drink_type: Drinks.DrinkType):
-	print("Trying to remove " + Drinks.DrinkType.keys()[drink_type])
 	tray_contents.erase(drink_type)
-	print("tray_contents" + str(tray_contents))
+	for drink in drinks:
+		if drink.drink_type == drink_type:
+			drinks.erase(drink)
+			drink.queue_free()
+			break
 
 func _on_bar_spawner_spawn_drink(drink_type: Drinks.DrinkType) -> void:
 	var instance: Node3D = drink_scene.instantiate()
 	instance.position = Vector3(-0.4, 1.0, 0.0)
 	instance.set_up(drink_type)
 	tray_contents.append(drink_type)
+	instance.fell.connect(remove_drink)
 	add_child(instance)
-	print("tray_contents" + str(tray_contents))
+	drinks.append(instance)

@@ -76,6 +76,9 @@ func find_nodes_with_script(root: Node, script: Script) -> Array[Node]:
 	
 	return nodes_with_script
 
+func glass_shatter(drink_type: Drinks.DrinkType):
+	# after 1.0 seconds, play the appropriate glass shatter sound
+	pass
 
 func _on_drink_request_timer_timeout() -> void:
 	make_order_request()
