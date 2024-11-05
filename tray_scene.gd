@@ -17,12 +17,21 @@ var default_global_position: Vector3
 var tray_contents: Array[Drinks.DrinkType] = []
 var drinks: Array[RigidBody3D]
 
+var current_tilt_delta = 0.0
+
+@export var min_tilt_time: float = 3.0
+@export var max_tilt_time: float = 8.0
+var tilting_right: bool = true
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	current_tilt_delta = tipping_speed / 2
 	if not GameManager.is_right_handed:
 		offset.x *= -1
 	tray_cam.global_position = global_position + offset
 	default_global_position = tray_cam.global_position
+
+
 
 func _process(delta: float) -> void:
 	if Input.is_action_pressed("tray_left"):
@@ -30,10 +39,21 @@ func _process(delta: float) -> void:
 	if Input.is_action_pressed("tray_right"):
 		tilt_tray(-tilt_speed * delta)
 	
-	if $CharacterBody3D.rotation_degrees.z > 0:
-		$CharacterBody3D.rotate_z(delta * tipping_speed)
+	if tilting_right:
+		current_tilt_delta += tipping_speed * delta
 	else:
-		$CharacterBody3D.rotate_z(-delta * tipping_speed)
+		current_tilt_delta -= tipping_speed * delta
+	
+	current_tilt_delta = clamp(current_tilt_delta, -tipping_speed, tipping_speed)
+	
+	$CharacterBody3D.rotate_z(delta * current_tilt_delta)
+	
+		
+		
+	#if $CharacterBody3D.rotation_degrees.z > 0:
+		#$CharacterBody3D.rotate_z(delta * tipping_speed)
+	#else:
+		#$CharacterBody3D.rotate_z(-delta * tipping_speed)
 
 func tilt_tray(amount: float) -> void:
 		$CharacterBody3D.rotate_z(amount)
@@ -41,7 +61,8 @@ func tilt_tray(amount: float) -> void:
 		$CharacterBody3D.rotation_degrees.z = clampf($CharacterBody3D.rotation_degrees.z, -80, 80)
 
 func _on_player_rotated(degrees: float) -> void:
-	tilt_tray(degrees / 10)
+	pass
+	#tilt_tray(degrees / 10)
 
 
 # move camera to and from (0.0, 0.0, 1.5)
@@ -75,3 +96,8 @@ func _on_bar_spawner_spawn_drink(drink_type: Drinks.DrinkType) -> void:
 	instance.fell.connect(remove_drink)
 	add_child(instance)
 	drinks.append(instance)
+
+
+func _on_tilt_timer_timeout() -> void:
+	tilting_right = not tilting_right
+	$TiltTimer.wait_time = RandomNumberGenerator.new().randf_range(min_tilt_time, max_tilt_time)
