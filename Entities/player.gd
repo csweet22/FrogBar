@@ -10,6 +10,8 @@ var tray_contents: Array[Drinks.DrinkType] = []
 
 var can_push: bool = true
 
+var interactables: Array[Node3D]
+
 signal rotated(degrees: float)
 signal pushed()
 
@@ -62,6 +64,27 @@ func push():
 	pushed.emit()
 
 func interact():
-	# What am I interacting with?
-	print("Interact!")
-	pass
+	# get closest interactable from the list
+	
+	var closest_interactable: Node3D
+	var smallest_distance = 1000
+	for interactable in interactables:
+		var distance = global_position.distance_to(interactable.global_position)
+		if distance < smallest_distance:
+			closest_interactable = interactable
+			smallest_distance = distance
+	if closest_interactable:
+		print("Interacting with: " + closest_interactable.name)
+		closest_interactable.on_interact(self)
+
+
+func _on_interaction_area_area_entered(area: Area3D) -> void:
+	if area.owner.has_method("on_interact"):
+		interactables.append(area.owner)
+	print(interactables)
+
+
+func _on_interaction_area_area_exited(area: Area3D) -> void:
+	if area.owner.has_method("on_interact"):
+		interactables.erase(area.owner)
+	print(interactables)

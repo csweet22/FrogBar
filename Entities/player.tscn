@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bbbpykewcb80w"]
+[gd_scene load_steps=6 format=3 uid="uid://bbbpykewcb80w"]
 
 [ext_resource type="Script" path="res://Entities/player.gd" id="1_wgqbe"]
 
@@ -8,6 +8,9 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_v8aa5"]
 size = Vector3(1, 2, 1)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5qhi6"]
+radius = 0.74
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_wgqbe")
@@ -26,3 +29,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.44081, -1.04182)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PushArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 shape = SubResource("BoxShape3D_v8aa5")
+
+[node name="InteractionArea" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_5qhi6")
+
+[connection signal="area_entered" from="InteractionArea" to="." method="_on_interaction_area_area_entered"]
+[connection signal="area_exited" from="InteractionArea" to="." method="_on_interaction_area_area_exited"]

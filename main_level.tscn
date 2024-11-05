@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://cv2oe30rc31yb"]
+[gd_scene load_steps=9 format=3 uid="uid://cv2oe30rc31yb"]
 
 [ext_resource type="PackedScene" uid="uid://bbbpykewcb80w" path="res://Entities/player.tscn" id="1_0yw4s"]
 [ext_resource type="Script" path="res://main_level.gd" id="1_xcfvw"]
 [ext_resource type="PackedScene" uid="uid://dt1algih62327" path="res://Menus/hud_menu.tscn" id="2_68xt6"]
 [ext_resource type="PackedScene" uid="uid://em305t33pc75" path="res://Entities/frog.tscn" id="3_3qwbp"]
+[ext_resource type="PackedScene" uid="uid://dkkakkw3e65qb" path="res://Entities/bar_spawner.tscn" id="3_h8axe"]
 [ext_resource type="PackedScene" uid="uid://bn0mrng5e2hc" path="res://tray_scene.tscn" id="5_nllec"]
 
 [sub_resource type="Environment" id="Environment_nvwhm"]
@@ -49,6 +50,9 @@ can_move = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.26229, 0, -4.12766)
 can_move = true
 
+[node name="bar_spawner" parent="." instance=ExtResource("3_h8axe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -7)
+
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_5ocl7")
 
@@ -62,3 +66,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 100, 0)
 
 [connection signal="pushed" from="Player" to="TrayScene" method="_on_player_pushed"]
 [connection signal="rotated" from="Player" to="TrayScene" method="_on_player_rotated"]
+[connection signal="spawn_drink" from="bar_spawner" to="TrayScene" method="_on_bar_spawner_spawn_drink"]

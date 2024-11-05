@@ -12,6 +12,8 @@ var default_global_position: Vector3
 
 @export var tipping_speed: float = 0.05
 
+@onready var drink_scene: PackedScene = preload("res://Entities/drink.tscn")
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	if not GameManager.is_right_handed:
@@ -53,3 +55,10 @@ func on_push():
 
 func _on_player_pushed() -> void:
 	on_push()
+
+
+func _on_bar_spawner_spawn_drink(drink_type: Drinks.DrinkType) -> void:
+	var instance: Node3D = drink_scene.instantiate()
+	instance.position = Vector3(-0.4, 1.0, 0.0)
+	instance.set_up(drink_type)
+	add_child(instance)

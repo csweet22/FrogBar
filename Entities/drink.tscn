@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://bbhpvewebu30r"]
+
+[ext_resource type="Script" path="res://Entities/drink.gd" id="1_mubpi"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_1uagd"]
+friction = 0.1
+bounce = 1.0
+absorbent = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_pwwyp"]
+size = Vector2(0.2, 0.4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ya700"]
+size = Vector3(0.2, 0.4, 0.1)
+
+[node name="Drink" type="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.168869, 0.287501, 0)
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+mass = 100.0
+physics_material_override = SubResource("PhysicsMaterial_1uagd")
+center_of_mass_mode = 1
+center_of_mass = Vector3(0, -0.2, 0)
+can_sleep = false
+script = ExtResource("1_mubpi")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("QuadMesh_pwwyp")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_ya700")
