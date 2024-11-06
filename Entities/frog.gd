@@ -178,7 +178,14 @@ func get_random_drink():
 func want_drink():
 	drink_state = DrinkState.WANTS_DRINK
 	$BubbleRoot.visible = true
-	$BubbleRoot/Label3D.text = "I want to drink " + str( Drinks.DrinkType.keys()[drink_want])
+	match drink_want:
+		Drinks.DrinkType.A:
+			$BubbleRoot/Sprite3D.texture = preload("res://Gfx/Martini.png")
+		Drinks.DrinkType.B:
+			$BubbleRoot/Sprite3D.texture = preload("res://Gfx/Rum&Croak_center.png")
+		Drinks.DrinkType.C:
+			$BubbleRoot/Sprite3D.texture = preload("res://Gfx/SwampWater.png")
+	#$BubbleRoot/Label3D.text = "I want to drink " + str( Drinks.DrinkType.keys()[drink_want])
 
 
 func _on_main_sprite_animation_changed() -> void:

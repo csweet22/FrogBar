@@ -1,7 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://bbhpvewebu30r"]
+[gd_scene load_steps=7 format=3 uid="uid://bbhpvewebu30r"]
 
 [ext_resource type="Script" path="res://Entities/drink.gd" id="1_mubpi"]
-[ext_resource type="Texture2D" uid="uid://c701b6623n8nu" path="res://Gfx/Rum&Croak_center.png" id="2_ln2sv"]
+[ext_resource type="Texture2D" uid="uid://c0o6ebbl5dc1u" path="res://Gfx/SwampWater.png" id="2_dwnnv"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_1uagd"]
 friction = 0.1
@@ -12,7 +12,10 @@ absorbent = true
 size = Vector2(0.2, 0.4)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ya700"]
-size = Vector3(0.326172, 0.385669, 0.1)
+size = Vector3(0.224121, 0.237878, 0.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0qbfv"]
+size = Vector3(0.139893, 0.393188, 0.1)
 
 [node name="Drink" type="RigidBody3D"]
 axis_lock_linear_z = true
@@ -30,11 +33,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.209052, 0)
 visible = false
 mesh = SubResource("QuadMesh_pwwyp")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.201886, 0)
+[node name="Rum" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0510254, 0.127991, 0)
+visible = false
 shape = SubResource("BoxShape3D_ya700")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.246072, 0)
 pixel_size = 0.0004
-texture = ExtResource("2_ln2sv")
+texture = ExtResource("2_dwnnv")
+
+[node name="Martini" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.167172, 0)
+shape = SubResource("BoxShape3D_0qbfv")
+
+[node name="SwampWater" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0145264, 0.197262, 0)
+visible = false
+shape = SubResource("BoxShape3D_0qbfv")

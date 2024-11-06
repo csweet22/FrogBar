@@ -74,13 +74,21 @@ shape = SubResource("CapsuleShape3D_jdarc")
 visible = false
 
 [node name="Bubble" type="Sprite3D" parent="BubbleRoot"]
-transform = Transform3D(1, 0, 0, 0, 0.571189, 0, 0, 0, 1, 0, 2.6, 0)
+transform = Transform3D(1, 0, 0, 0, 0.774315, 0, 0, 0, 1, 0, 2.6, 0)
 modulate = Color(0, 0, 0, 1)
 billboard = 2
 texture = ExtResource("3_ha7wd")
 
+[node name="Sprite3D" type="Sprite3D" parent="BubbleRoot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.83609, 0)
+sorting_offset = 1.0
+pixel_size = 0.001
+billboard = 2
+texture = ExtResource("3_p0b3i")
+
 [node name="Label3D" type="Label3D" parent="BubbleRoot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.6, 0)
+visible = false
 sorting_offset = 1.0
 billboard = 2
 text = "I WANT A"
