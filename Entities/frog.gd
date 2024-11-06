@@ -21,6 +21,16 @@ signal drink_gotten(drink_type: Drinks.DrinkType)
 
 func _ready() -> void:
 	rng.randomize()
+	var is_woman = rng.randi_range(0, 1) == 0
+	
+	if is_woman:
+		$SpriteOrigin/MainSprite.sprite_frames = preload("res://Entities/frog_woman_sprites.tres")
+		$SpriteOrigin/Hand.texture = preload("res://Gfx/WOMAN FINGERS.png")
+		$SpriteOrigin/MainSprite/Drink.offset = Vector2(700, 2400)
+		$SpriteOrigin/MainSprite/Drink.flip_h = true
+	else:
+		$SpriteOrigin/MainSprite/Drink.offset = Vector2(-1350, 1500)
+	
 	var flipped = rng.randi_range(0, 1) == 0
 	$SpriteOrigin/MainSprite.flip_h = flipped
 	$SpriteOrigin/Hand.flip_h = flipped
@@ -28,6 +38,8 @@ func _ready() -> void:
 	if flipped:
 		$SpriteOrigin/MainSprite.position.x *= -1
 		$SpriteOrigin/Hand.position.x *= -1
+		$SpriteOrigin/MainSprite/Drink.offset.x *= -1
+		$SpriteOrigin/MainSprite/Drink.flip_h = not $SpriteOrigin/MainSprite/Drink.flip_h
 	
 	# Randomize drink want (cannot be no match)
 	while drink_want == Drinks.DrinkType.NO_MATCH:
@@ -72,6 +84,19 @@ func become_disturbance() -> void:
 
 func set_drink_state(new_state: DrinkState) -> void:
 	drink_state = new_state
+	
+	#var width = $SpriteOrigin/MainSprite.sprite_frames.get_frame_texture("relax_neutral", 0).get_width()
+	#var height = $SpriteOrigin/MainSprite.sprite_frames.get_frame_texture("relax_neutral", 0).get_height()
+	
+	#$SpriteOrigin/MainSprite/Drink.region_rect = Rect2(0, 0, width, height)
+	$SpriteOrigin/MainSprite/Drink.visible = drink_state == DrinkState.HAS_DRINK
+	match drink_want:
+		Drinks.DrinkType.A:
+				$SpriteOrigin/MainSprite/Drink.texture = preload("res://Gfx/Martini.png")
+		Drinks.DrinkType.B:
+				$SpriteOrigin/MainSprite/Drink.texture = preload("res://Gfx/Rum&Croak.png")
+		Drinks.DrinkType.C:
+				$SpriteOrigin/MainSprite/Drink.texture = preload("res://Gfx/SwampWater.png")
 
 func start_moving() -> void:
 	is_moving = true

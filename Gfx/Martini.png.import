@@ -2,22 +2,21 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cg48e0khqqbpq"
-path.bptc="res://.godot/imported/WOMAN RELAX NEUTRAL.png-d5646d54bceb7e3ac8dd5931345fa1ac.bptc.ctex"
+uid="uid://1sjb5nfq2qp2"
+path="res://.godot/imported/Martini.png-57e1d8e31e8cceae6fab70cb12a6aae9.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
-source_file="res://Gfx/WOMAN RELAX NEUTRAL.png"
-dest_files=["res://.godot/imported/WOMAN RELAX NEUTRAL.png-d5646d54bceb7e3ac8dd5931345fa1ac.bptc.ctex"]
+source_file="res://Gfx/Martini.png"
+dest_files=["res://.godot/imported/Martini.png-57e1d8e31e8cceae6fab70cb12a6aae9.ctex"]
 
 [params]
 
-compress/mode=2
-compress/high_quality=true
+compress/mode=0
+compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0

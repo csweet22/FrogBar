@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://em305t33pc75"]
+[gd_scene load_steps=8 format=3 uid="uid://em305t33pc75"]
 
 [ext_resource type="Script" path="res://Entities/frog.gd" id="1_ayld7"]
 [ext_resource type="SpriteFrames" uid="uid://cyhosoqctpejp" path="res://Entities/frog_man_sprites.tres" id="2_n5f1c"]
 [ext_resource type="Texture2D" uid="uid://dhwilqoukx5vr" path="res://Gfx/MAN FINGERS.png" id="3_gb4b3"]
 [ext_resource type="Texture2D" uid="uid://dm3tk1yy87s7h" path="res://icon.svg" id="3_ha7wd"]
+[ext_resource type="Texture2D" uid="uid://1sjb5nfq2qp2" path="res://Gfx/Martini.png" id="3_p0b3i"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_uvtbl"]
 radius = 0.653424
@@ -40,19 +41,28 @@ unique_name_in_owner = true
 
 [node name="SpriteOrigin" type="Node3D" parent="."]
 
+[node name="Hand" type="Sprite3D" parent="SpriteOrigin"]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 1, -0.2, 1, 0)
+visible = false
+sorting_offset = 3.0
+billboard = 2
+texture = ExtResource("3_gb4b3")
+
 [node name="MainSprite" type="AnimatedSprite3D" parent="SpriteOrigin"]
 transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 1, -0.2, 1, 0)
 billboard = 2
 sprite_frames = ExtResource("2_n5f1c")
 animation = &"relax_neutral"
-frame_progress = 0.254903
 
-[node name="Hand" type="Sprite3D" parent="SpriteOrigin"]
-transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 1, -0.2, 1, 0)
+[node name="Drink" type="Sprite3D" parent="SpriteOrigin/MainSprite"]
+transform = Transform3D(6.66667, 0, 0, 0, 6.66667, 0, 0, 0, 1, 0, 0, 0)
 visible = false
 sorting_offset = 1.0
+offset = Vector2(-1350, 1500)
+pixel_size = 0.0005
 billboard = 2
-texture = ExtResource("3_gb4b3")
+texture = ExtResource("3_p0b3i")
+region_rect = Rect2(0, 0, 10000, 1500)
 
 [node name="InteractionArea" type="Area3D" parent="."]
 

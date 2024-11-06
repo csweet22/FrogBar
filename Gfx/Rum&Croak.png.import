@@ -2,22 +2,21 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cg48e0khqqbpq"
-path.bptc="res://.godot/imported/WOMAN RELAX NEUTRAL.png-d5646d54bceb7e3ac8dd5931345fa1ac.bptc.ctex"
+uid="uid://bhuk7lyxljq07"
+path="res://.godot/imported/Rum&Croak.png-58d203172ba77946e8a9342fa8866848.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
-source_file="res://Gfx/WOMAN RELAX NEUTRAL.png"
-dest_files=["res://.godot/imported/WOMAN RELAX NEUTRAL.png-d5646d54bceb7e3ac8dd5931345fa1ac.bptc.ctex"]
+source_file="res://Gfx/Rum&Croak.png"
+dest_files=["res://.godot/imported/Rum&Croak.png-58d203172ba77946e8a9342fa8866848.ctex"]
 
 [params]
 
-compress/mode=2
-compress/high_quality=true
+compress/mode=0
+compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0

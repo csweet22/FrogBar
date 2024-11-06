@@ -1,0 +1,65 @@
+[gd_resource type="SpriteFrames" load_steps=7 format=3 uid="uid://c6w0u6myhh13h"]
+
+[ext_resource type="Texture2D" uid="uid://dxvtj5f71kti8" path="res://Gfx/WOMAN DRINK ANGRY.png" id="1_wu8a3"]
+[ext_resource type="Texture2D" uid="uid://c5f1snyl7do2t" path="res://Gfx/WOMAN DRINK NEUTRAL.png" id="2_vaa8b"]
+[ext_resource type="Texture2D" uid="uid://br4iqhtp1gs42" path="res://Gfx/WOMAN DRINK TALK.png" id="3_orxci"]
+[ext_resource type="Texture2D" uid="uid://dd8fr2qnbt7qp" path="res://Gfx/WOMAN RELAX ANGRY.png" id="4_v13gm"]
+[ext_resource type="Texture2D" uid="uid://cg48e0khqqbpq" path="res://Gfx/WOMAN RELAX NEUTRAL.png" id="5_rl7kh"]
+[ext_resource type="Texture2D" uid="uid://cdt3q4kdv2cxq" path="res://Gfx/WOMAN RELAX TALK.png" id="6_efmfr"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_wu8a3")
+}],
+"loop": true,
+"name": &"drink_angry",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_vaa8b")
+}],
+"loop": true,
+"name": &"drink_neutral",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_vaa8b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_orxci")
+}],
+"loop": true,
+"name": &"drink_talk",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_v13gm")
+}],
+"loop": true,
+"name": &"relax_angry",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_rl7kh")
+}],
+"loop": true,
+"name": &"relax_neutral",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_rl7kh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_efmfr")
+}],
+"loop": true,
+"name": &"relax_talk",
+"speed": 5.0
+}]
