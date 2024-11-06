@@ -33,9 +33,6 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 	
-	if Input.is_action_just_pressed("ui_accept"):
-		GameManager.add_score(5.00)
-	
 	var input_dir := Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	var direction := (transform.basis * Vector3(0, 0, input_dir.y)).normalized()
 	if direction:
