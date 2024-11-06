@@ -1,16 +1,95 @@
-[gd_scene load_steps=8 format=3 uid="uid://em305t33pc75"]
+[gd_scene load_steps=12 format=3 uid="uid://em305t33pc75"]
 
 [ext_resource type="Script" path="res://Entities/frog.gd" id="1_ayld7"]
 [ext_resource type="SpriteFrames" uid="uid://cyhosoqctpejp" path="res://Entities/frog_man_sprites.tres" id="2_n5f1c"]
 [ext_resource type="Texture2D" uid="uid://dhwilqoukx5vr" path="res://Gfx/MAN FINGERS.png" id="3_gb4b3"]
-[ext_resource type="Texture2D" uid="uid://dm3tk1yy87s7h" path="res://icon.svg" id="3_ha7wd"]
 [ext_resource type="Texture2D" uid="uid://1sjb5nfq2qp2" path="res://Gfx/Martini.png" id="3_p0b3i"]
+[ext_resource type="Texture2D" uid="uid://c0o6ebbl5dc1u" path="res://Gfx/SwampWater.png" id="4_sxkev"]
+[ext_resource type="Texture2D" uid="uid://chs6pi6572leg" path="res://Gfx/bubble.png" id="5_xn64t"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_uvtbl"]
 radius = 0.653424
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_jdarc"]
 radius = 0.735
+
+[sub_resource type="Animation" id="Animation_7hfwg"]
+resource_name = "Pushed"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteOrigin:rotation:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, -1.48353, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.2)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SpriteOrigin:rotation:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.2)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SpriteOrigin:rotation:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.2)
+}
+
+[sub_resource type="Animation" id="Animation_t5p0j"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteOrigin:rotation:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SpriteOrigin:rotation:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SpriteOrigin:rotation:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rtemd"]
+_data = {
+"Pushed": SubResource("Animation_7hfwg"),
+"RESET": SubResource("Animation_t5p0j")
+}
 
 [node name="Frog" type="CharacterBody3D" node_paths=PackedStringArray("movement_timer", "talking_timer", "invincibility_timer")]
 script = ExtResource("1_ayld7")
@@ -71,20 +150,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_jdarc")
 
 [node name="BubbleRoot" type="Node3D" parent="."]
-visible = false
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.467423, 0.449785, 0)
 
 [node name="Bubble" type="Sprite3D" parent="BubbleRoot"]
-transform = Transform3D(1, 0, 0, 0, 0.774315, 0, 0, 0, 1, 0, 2.6, 0)
-modulate = Color(0, 0, 0, 1)
-billboard = 2
-texture = ExtResource("3_ha7wd")
-
-[node name="Sprite3D" type="Sprite3D" parent="BubbleRoot"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.83609, 0)
-sorting_offset = 1.0
+transform = Transform3D(1, 0, 0, 0, 0.774315, 0, 0, 0, 1, 0, 2.02674, 0)
 pixel_size = 0.001
 billboard = 2
-texture = ExtResource("3_p0b3i")
+texture = ExtResource("5_xn64t")
+
+[node name="Sprite3D" type="Sprite3D" parent="BubbleRoot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.18607, 0)
+sorting_offset = 1.0
+pixel_size = 0.0005
+billboard = 2
+texture = ExtResource("4_sxkev")
 
 [node name="Label3D" type="Label3D" parent="BubbleRoot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.6, 0)
@@ -96,5 +175,10 @@ text = "I WANT A"
 [node name="DrinkingTimer" type="Timer" parent="."]
 wait_time = 6.0
 one_shot = true
+
+[node name="SpriteAnim" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_rtemd")
+}
 
 [connection signal="animation_changed" from="SpriteOrigin/MainSprite" to="." method="_on_main_sprite_animation_changed"]
