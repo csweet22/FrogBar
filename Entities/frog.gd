@@ -133,6 +133,12 @@ func on_pushed() -> void:
 		drink_state = DrinkState.NO_DRINK
 
 func on_interact(interactor: Node3D) -> void:
+	if drink_state == DrinkState.HAS_DRINK:
+		# make angry face then return
+		$SpriteOrigin/MainSprite.play("relax_angry")
+		$SpriteOrigin/MainSprite.animation_finished.connect(anger)
+		return
+	
 	var drink_recieved = false
 	
 	# Check if tray contains drink they want
@@ -151,13 +157,18 @@ func on_interact(interactor: Node3D) -> void:
 			$DrinkingTimer.timeout.connect( func(): 
 				set_drink_state(DrinkState.NO_DRINK)
 				$SpriteOrigin/MainSprite.play("relax_neutral")
-				
 			)
 			
 	
 	if not drink_recieved:
-		# Do the "nuh-uh"
+		$SpriteOrigin/MainSprite.play("relax_angry")
+		$SpriteOrigin/MainSprite.animation_finished.connect(anger)
 		pass
+
+func anger():
+	if $SpriteOrigin/MainSprite.animation == "relax_angry":
+		$SpriteOrigin/MainSprite.play("relax_neutral")
+	$SpriteOrigin/MainSprite.animation_finished.disconnect(anger)
 
 func get_random_drink():
 	drink_want = Drinks.DrinkType.values().pick_random()

@@ -13,9 +13,9 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("1_wu8a3")
 }],
-"loop": true,
+"loop": false,
 "name": &"drink_angry",
-"speed": 5.0
+"speed": 1.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -40,9 +40,9 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("4_v13gm")
 }],
-"loop": true,
+"loop": false,
 "name": &"relax_angry",
-"speed": 5.0
+"speed": 1.0
 }, {
 "frames": [{
 "duration": 1.0,

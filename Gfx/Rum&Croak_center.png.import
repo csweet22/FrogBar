@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ca433fwtkm5pl"
-path.bptc="res://.godot/imported/MAN DRINK ANGRY.png-9fb6df9b1ffc180d9fe34fe0438d43e5.bptc.ctex"
+uid="uid://c701b6623n8nu"
+path.s3tc="res://.godot/imported/Rum&Croak_center.png-f3fddae7ec95aae037f50ebb81344e54.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,13 +11,13 @@ metadata={
 
 [deps]
 
-source_file="res://Gfx/MAN DRINK ANGRY.png"
-dest_files=["res://.godot/imported/MAN DRINK ANGRY.png-9fb6df9b1ffc180d9fe34fe0438d43e5.bptc.ctex"]
+source_file="res://Gfx/Rum&Croak_center.png"
+dest_files=["res://.godot/imported/Rum&Croak_center.png-f3fddae7ec95aae037f50ebb81344e54.s3tc.ctex"]
 
 [params]
 
 compress/mode=2
-compress/high_quality=true
+compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
