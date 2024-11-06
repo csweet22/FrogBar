@@ -123,7 +123,11 @@ func on_pushed() -> void:
 			$CollisionShape3D.disabled = false
 			$SpriteOrigin/MainSprite.billboard = BaseMaterial3D.BILLBOARD_FIXED_Y
 			$SpriteOrigin.global_rotation_degrees.x = 0.0
+			$SpriteOrigin/MainSprite.play("relax_neutral")
 	)
+	$SpriteOrigin/Hand.visible = false
+	$SpriteOrigin/MainSprite/Drink.visible = false
+	$SpriteOrigin/MainSprite.play("relax_angry")
 	if drink_state == DrinkState.HAS_DRINK:
 		GameManager.remove_score(5.0)
 		drink_state = DrinkState.NO_DRINK
