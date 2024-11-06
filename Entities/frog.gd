@@ -40,6 +40,9 @@ func _ready() -> void:
 		$SpriteOrigin/Hand.position.x *= -1
 		$SpriteOrigin/MainSprite/Drink.offset.x *= -1
 		$SpriteOrigin/MainSprite/Drink.flip_h = not $SpriteOrigin/MainSprite/Drink.flip_h
+		$BubbleRoot/Bubble.flip_h = true
+		$BubbleRoot/Bubble.offset.x *= -1
+		$BubbleRoot/Sprite3D.offset.x *= -1
 	
 	# Randomize drink want (cannot be no match)
 	while drink_want == Drinks.DrinkType.NO_MATCH:
