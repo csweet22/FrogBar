@@ -236,6 +236,7 @@ func want_drink():
 		Drinks.DrinkType.C:
 			$BubbleRoot/Sprite3D.texture = preload("res://Gfx/SwampWater.png")
 	#$BubbleRoot/Label3D.text = "I want to drink " + str( Drinks.DrinkType.keys()[drink_want])
+	return drink_want
 
 
 func _on_main_sprite_animation_changed() -> void:

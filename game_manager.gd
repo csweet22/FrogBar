@@ -16,8 +16,10 @@ var tray_scene: Node3D
 
 var active_order_count: int = 0
 var max_active_order_count: int = 5
+var active_drink_requests: Array[Drinks.DrinkType]
 
 var player: Node3D
+var hud: Control
 
 func _ready() -> void:
 	game_timer.timeout.connect(on_game_end)
@@ -42,11 +44,14 @@ func start_game():
 	frogs = find_nodes_with_script(get_tree().root, load("res://Entities/frog.gd"))
 	tray_scene = find_nodes_with_script(get_tree().root, load("res://tray_scene.gd"))[0]
 	player = find_nodes_with_script(get_tree().root, load("res://Entities/player.gd"))[0]
+	var hud = find_nodes_with_script(get_tree().root, load("res://Menus/hud_menu.gd"))[0]
 	for frog in frogs:
 		frog.drink_gotten.connect(tray_scene.remove_drink)
 		frog.drink_gotten.connect( 
 			func(type):
 				active_order_count -= 1
+				active_drink_requests.erase(type)
+				print(active_drink_requests)
 		)
 	start_timer()
 
@@ -74,7 +79,7 @@ func make_disturbance() -> void:
 	# Loop through all frogs, find one that is not looking for an order
 	for frog in frogs:
 		var random_frog = frogs.pick_random()
-		if random_frog.drink_state == 1 or random_frog.drink_state == 0 and not random_frog.is_pushed:
+		if random_frog.drink_state == 0 and not random_frog.is_pushed:
 			random_frog.become_disturbance()
 			break
 	pass
@@ -86,7 +91,9 @@ func make_order_request() -> void:
 	for frog in frogs:
 		var random_frog = frogs.pick_random()
 		if random_frog.drink_state == 0:
-			random_frog.want_drink()
+			var request: Drinks.DrinkType = random_frog.want_drink()
+			active_drink_requests.append(request)
+			print(active_drink_requests)
 			active_order_count += 1
 			break
 
