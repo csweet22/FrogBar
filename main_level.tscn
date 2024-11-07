@@ -26,6 +26,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 cull_mask = 1048573
 environment = SubResource("Environment_nvwhm")
 fov = 90.0
+near = 0.001
 
 [node name="HudMenu" parent="." instance=ExtResource("2_68xt6")]
 z_index = 10

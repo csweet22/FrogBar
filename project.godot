@@ -22,6 +22,8 @@ Drinks="*res://drinks.gd"
 
 [display]
 
+window/size/viewport_width=1920
+window/size/viewport_height=1040
 window/stretch/mode="canvas_items"
 
 [input]

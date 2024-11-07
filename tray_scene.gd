@@ -27,6 +27,7 @@ func _ready() -> void:
 	current_tilt_delta = tipping_speed / 2
 	if not GameManager.is_right_handed:
 		offset.x *= -1
+		$SubViewportContainer.position.x *= -1
 	tray_cam.global_position = global_position + offset
 	default_global_position = tray_cam.global_position
 
