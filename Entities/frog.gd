@@ -159,6 +159,9 @@ func go_to_billboard(animation_name):
 	$SpriteAnim.animation_finished.disconnect(go_to_billboard)
 
 func on_interact(interactor: Node3D) -> void:
+	if is_pushed:
+		return
+	
 	if drink_state == DrinkState.HAS_DRINK:
 		# make angry face then return
 		$SpriteOrigin/MainSprite.play("relax_angry")
