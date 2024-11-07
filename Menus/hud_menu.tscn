@@ -1,11 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://dt1algih62327"]
+[gd_scene load_steps=4 format=3 uid="uid://dt1algih62327"]
 
 [ext_resource type="Script" path="res://Menus/hud_menu.gd" id="1_dqlh7"]
+[ext_resource type="PackedScene" uid="uid://biq4nppl0wjwe" path="res://drink_order.tscn" id="2_j0jvk"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ju0bk"]
 font_size = 50
 
-[node name="HudMenu" type="Control" node_paths=PackedStringArray("score_label")]
+[node name="HudMenu" type="Control" node_paths=PackedStringArray("score_label", "drinks")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -14,6 +15,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_dqlh7")
 score_label = NodePath("TipsContainer/Label")
+drinks = [NodePath("Main/VBoxContainer/TaskContainer/HBoxContainer/DrinkOrder"), NodePath("Main/VBoxContainer/TaskContainer/HBoxContainer/DrinkOrder2"), NodePath("Main/VBoxContainer/TaskContainer/HBoxContainer/DrinkOrder3"), NodePath("Main/VBoxContainer/TaskContainer/HBoxContainer/DrinkOrder4"), NodePath("Main/VBoxContainer/TaskContainer/HBoxContainer/DrinkOrder5")]
 
 [node name="TipsContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -47,13 +49,14 @@ theme_override_constants/separation = 10
 [node name="TimeRemaining" type="Label" parent="Main/VBoxContainer"]
 layout_mode = 2
 text = "Time Remaining: 3:00"
+horizontal_alignment = 2
 
 [node name="TaskContainer" type="VBoxContainer" parent="Main/VBoxContainer"]
 layout_mode = 2
 
 [node name="Title" type="Label" parent="Main/VBoxContainer/TaskContainer"]
 layout_mode = 2
-text = "TASKS"
+text = "Drink Requests"
 horizontal_alignment = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="Main/VBoxContainer/TaskContainer"]
@@ -63,9 +66,33 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 15
 theme_override_constants/margin_bottom = 10
 
-[node name="Label" type="Label" parent="Main/VBoxContainer/TaskContainer/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Main/VBoxContainer/TaskContainer"]
+custom_minimum_size = Vector2(0, 90)
 layout_mode = 2
-text = "[ ] Kick out customer disturbance"
+size_flags_horizontal = 8
+size_flags_vertical = 10
+size_flags_stretch_ratio = 0.45
+alignment = 2
+
+[node name="DrinkOrder" parent="Main/VBoxContainer/TaskContainer/HBoxContainer" instance=ExtResource("2_j0jvk")]
+visible = false
+layout_mode = 2
+
+[node name="DrinkOrder2" parent="Main/VBoxContainer/TaskContainer/HBoxContainer" instance=ExtResource("2_j0jvk")]
+visible = false
+layout_mode = 2
+
+[node name="DrinkOrder3" parent="Main/VBoxContainer/TaskContainer/HBoxContainer" instance=ExtResource("2_j0jvk")]
+visible = false
+layout_mode = 2
+
+[node name="DrinkOrder4" parent="Main/VBoxContainer/TaskContainer/HBoxContainer" instance=ExtResource("2_j0jvk")]
+visible = false
+layout_mode = 2
+
+[node name="DrinkOrder5" parent="Main/VBoxContainer/TaskContainer/HBoxContainer" instance=ExtResource("2_j0jvk")]
+visible = false
+layout_mode = 2
 
 [node name="ControlsContainer" type="MarginContainer" parent="."]
 layout_mode = 1

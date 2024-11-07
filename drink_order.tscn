@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://biq4nppl0wjwe"]
+
+[ext_resource type="Texture2D" uid="uid://1sjb5nfq2qp2" path="res://Gfx/Martini.png" id="1_iaavm"]
+[ext_resource type="Script" path="res://drink_order.gd" id="1_y7unn"]
+
+[node name="DrinkOrder" type="MarginContainer"]
+custom_minimum_size = Vector2(70, 0)
+script = ExtResource("1_y7unn")
+
+[node name="DrinkImage" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("1_iaavm")
+expand_mode = 3
+stretch_mode = 5

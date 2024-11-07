@@ -16,7 +16,6 @@ var tray_scene: Node3D
 
 var active_order_count: int = 0
 var max_active_order_count: int = 5
-var active_drink_requests: Array[Drinks.DrinkType]
 
 var player: Node3D
 var hud: Control
@@ -44,14 +43,13 @@ func start_game():
 	frogs = find_nodes_with_script(get_tree().root, load("res://Entities/frog.gd"))
 	tray_scene = find_nodes_with_script(get_tree().root, load("res://tray_scene.gd"))[0]
 	player = find_nodes_with_script(get_tree().root, load("res://Entities/player.gd"))[0]
-	var hud = find_nodes_with_script(get_tree().root, load("res://Menus/hud_menu.gd"))[0]
+	hud = find_nodes_with_script(get_tree().root, load("res://Menus/hud_menu.gd"))[0]
 	for frog in frogs:
 		frog.drink_gotten.connect(tray_scene.remove_drink)
 		frog.drink_gotten.connect( 
-			func(type):
+			func(drink_scene):
 				active_order_count -= 1
-				active_drink_requests.erase(type)
-				print(active_drink_requests)
+				hud.remove_drink(drink_scene.drink_type)
 		)
 	start_timer()
 
@@ -92,8 +90,7 @@ func make_order_request() -> void:
 		var random_frog = frogs.pick_random()
 		if random_frog.drink_state == 0:
 			var request: Drinks.DrinkType = random_frog.want_drink()
-			active_drink_requests.append(request)
-			print(active_drink_requests)
+			hud.add_drink(request)
 			active_order_count += 1
 			break
 
