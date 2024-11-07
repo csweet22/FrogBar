@@ -152,10 +152,10 @@ func on_pushed() -> void:
 	$SpriteOrigin/MainSprite.play("relax_angry")
 	if drink_state == DrinkState.HAS_DRINK:
 		GameManager.remove_score(5.0)
-		drink_state = DrinkState.NO_DRINK
 	elif drink_state == DrinkState.DISTURBANCE:
 		GameManager.add_score(10.0)
-		set_drink_state(DrinkState.NO_DRINK)
+	
+	set_drink_state(DrinkState.NO_DRINK)
 
 func go_to_billboard(animation_name):
 	$SpriteOrigin/MainSprite.billboard = BaseMaterial3D.BILLBOARD_FIXED_Y
