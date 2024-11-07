@@ -141,7 +141,6 @@ func on_pushed() -> void:
 	$SpriteAnim.play("Pushed")
 	invincibility_timer.timeout.connect(
 		func(): 
-			$CollisionShape3D.disabled = false
 			$SpriteOrigin.global_rotation_degrees.x = 0.0
 			$SpriteOrigin/MainSprite.play("relax_neutral")
 			$SpriteAnim.play("Raise_Pushed")
@@ -161,6 +160,7 @@ func on_pushed() -> void:
 
 func go_to_billboard(animation_name):
 	$SpriteOrigin/MainSprite.billboard = BaseMaterial3D.BILLBOARD_FIXED_Y
+	$CollisionShape3D.disabled = false
 	$SpriteAnim.animation_finished.disconnect(go_to_billboard)
 
 func on_interact(interactor: Node3D) -> void:
