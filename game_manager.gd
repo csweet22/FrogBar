@@ -63,7 +63,7 @@ func make_disturbance() -> void:
 	# Loop through all frogs, find one that is not looking for an order
 	for frog in frogs:
 		var random_frog = frogs.pick_random()
-		if random_frog.drink_state != 1:
+		if random_frog.drink_state == 1 or random_frog.drink_state == 0 and not random_frog.is_pushed:
 			random_frog.become_disturbance()
 			break
 	pass

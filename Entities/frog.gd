@@ -1,6 +1,6 @@
 extends CharacterBody3D
 
-enum DrinkState {NO_DRINK, WANTS_DRINK, HAS_DRINK}
+enum DrinkState {NO_DRINK, WANTS_DRINK, HAS_DRINK, DISTURBANCE}
 
 var drink_state: DrinkState = DrinkState.NO_DRINK
 
@@ -23,6 +23,10 @@ var is_moving: bool = false
 @export var max_talking_duration: float = 7.0
 
 signal drink_gotten(drink_type: Drinks.DrinkType)
+
+var is_pushed: bool = false:
+	get:
+		return $InvincibilityTimer.time_left > 0
 
 func _ready() -> void:
 	rng.randomize()
@@ -91,10 +95,20 @@ func stop_talking() -> void:
 	pass
 
 func become_disturbance() -> void:
-	print(name + " wants to become disturbance.")
+	set_drink_state(DrinkState.DISTURBANCE)
 
 func set_drink_state(new_state: DrinkState) -> void:
 	drink_state = new_state
+	
+	if drink_state == DrinkState.DISTURBANCE:
+		$TalkingTimer.stop()
+		$SpriteOrigin/MainSprite.play("relax_angry")
+		$SpriteOrigin/MainSprite.modulate = Color(1.0, 0.8, 0.8)
+		$BubbleRoot.visible = false
+	else:
+		$SpriteOrigin/MainSprite.modulate = Color.WHITE
+		$TalkingTimer.start()
+		
 	
 	#var width = $SpriteOrigin/MainSprite.sprite_frames.get_frame_texture("relax_neutral", 0).get_width()
 	#var height = $SpriteOrigin/MainSprite.sprite_frames.get_frame_texture("relax_neutral", 0).get_height()
@@ -142,6 +156,9 @@ func on_pushed() -> void:
 	if drink_state == DrinkState.HAS_DRINK:
 		GameManager.remove_score(5.0)
 		drink_state = DrinkState.NO_DRINK
+	elif drink_state == DrinkState.DISTURBANCE:
+		GameManager.add_score(10.0)
+		set_drink_state(DrinkState.NO_DRINK)
 
 func on_interact(interactor: Node3D) -> void:
 	if drink_state == DrinkState.HAS_DRINK:
@@ -149,6 +166,10 @@ func on_interact(interactor: Node3D) -> void:
 		$SpriteOrigin/MainSprite.play("relax_angry")
 		$SpriteOrigin/MainSprite.animation_finished.connect(anger)
 		return
+	
+	if drink_state == DrinkState.DISTURBANCE:
+		return
+		
 	
 	var drink_recieved = false
 	

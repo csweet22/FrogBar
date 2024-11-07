@@ -124,7 +124,7 @@ unique_name_in_owner = true
 [node name="Hand" type="Sprite3D" parent="SpriteOrigin"]
 transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 1, -0.2, 1, 0)
 visible = false
-sorting_offset = 3.0
+sorting_offset = 1.0
 billboard = 2
 texture = ExtResource("3_gb4b3")
 
@@ -137,7 +137,7 @@ animation = &"relax_neutral"
 [node name="Drink" type="Sprite3D" parent="SpriteOrigin/MainSprite"]
 transform = Transform3D(6.66667, 0, 0, 0, 6.66667, 0, 0, 0, 1, 0, 0, 0)
 visible = false
-sorting_offset = 1.0
+sorting_offset = 0.5
 offset = Vector2(-1350, 1500)
 pixel_size = 0.0005
 billboard = 2
