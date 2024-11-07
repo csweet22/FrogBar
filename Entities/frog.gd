@@ -147,7 +147,7 @@ func on_pushed() -> void:
 	)
 	$SpriteOrigin/Hand.visible = false
 	$SpriteOrigin/MainSprite/Drink.visible = false
-	$SpriteOrigin/MainSprite.play("relax_angry")
+	$SpriteOrigin/MainSprite.play("dead")
 	if drink_state == DrinkState.HAS_DRINK:
 		GameManager.remove_score(5.0)
 		set_drink_state(DrinkState.NO_DRINK)

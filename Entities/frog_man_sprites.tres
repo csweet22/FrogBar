@@ -1,5 +1,6 @@
-[gd_resource type="SpriteFrames" load_steps=7 format=3 uid="uid://cyhosoqctpejp"]
+[gd_resource type="SpriteFrames" load_steps=8 format=3 uid="uid://cyhosoqctpejp"]
 
+[ext_resource type="Texture2D" uid="uid://iow0vfau84g3" path="res://Gfx/deadfrog.png" id="1_7w4yq"]
 [ext_resource type="Texture2D" uid="uid://ca433fwtkm5pl" path="res://Gfx/MAN DRINK ANGRY.png" id="1_e8irh"]
 [ext_resource type="Texture2D" uid="uid://bgpj1gnvc2ck8" path="res://Gfx/MAN RELAX ANGRY.png" id="1_mkohb"]
 [ext_resource type="Texture2D" uid="uid://bks1cbl2jei3d" path="res://Gfx/MAN DRINK NEUTRAL.png" id="1_w17ov"]
@@ -9,6 +10,14 @@
 
 [resource]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_7w4yq")
+}],
+"loop": true,
+"name": &"dead",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("1_e8irh")
