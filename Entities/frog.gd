@@ -179,30 +179,32 @@ func on_interact(interactor: Node3D) -> void:
 	
 	var drink_recieved = false
 	
-	# Check if tray contains drink they want
-	# If so, change state and drink want.
-	for drink in GameManager.tray_scene.drinks:
-		if drink.drink_type == drink_want:
-			GameManager.add_score(5.0)
-			set_drink_state(DrinkState.HAS_DRINK)
-			drink_recieved = true
-			$BubbleRoot.visible = false
-			# remove drink from tray with signal
-			drink_gotten.emit(drink)
-			$SpriteOrigin/MainSprite.play("drink_neutral")
-			
-			$SpriteOrigin/MainSprite/GoodOrder.visible = true
-			await get_tree().create_timer(1).timeout.connect(
-				func():
-					$SpriteOrigin/MainSprite/GoodOrder.visible = false
-			)
-			
-			get_random_drink()
-			$DrinkingTimer.start()
-			$DrinkingTimer.timeout.connect( func(): 
-				set_drink_state(DrinkState.NO_DRINK)
-				$SpriteOrigin/MainSprite.play("relax_neutral")
-			)
+	if drink_state == DrinkState.WANTS_DRINK:
+	
+		# Check if tray contains drink they want
+		# If so, change state and drink want.
+		for drink in GameManager.tray_scene.drinks:
+			if drink.drink_type == drink_want:
+				GameManager.add_score(5.0)
+				set_drink_state(DrinkState.HAS_DRINK)
+				drink_recieved = true
+				$BubbleRoot.visible = false
+				# remove drink from tray with signal
+				drink_gotten.emit(drink)
+				$SpriteOrigin/MainSprite.play("drink_neutral")
+				
+				$SpriteOrigin/MainSprite/GoodOrder.visible = true
+				await get_tree().create_timer(1).timeout.connect(
+					func():
+						$SpriteOrigin/MainSprite/GoodOrder.visible = false
+				)
+				
+				get_random_drink()
+				$DrinkingTimer.start()
+				$DrinkingTimer.timeout.connect( func(): 
+					set_drink_state(DrinkState.NO_DRINK)
+					$SpriteOrigin/MainSprite.play("relax_neutral")
+				)
 			
 	
 	if not drink_recieved:
