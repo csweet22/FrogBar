@@ -98,11 +98,13 @@ func set_drink_state(new_state: DrinkState) -> void:
 	drink_state = new_state
 	
 	if drink_state == DrinkState.DISTURBANCE:
+		$SpriteOrigin/MainSprite/Angry.visible = true
 		$TalkingTimer.stop()
 		$SpriteOrigin/MainSprite.play("relax_angry")
 		$SpriteOrigin/MainSprite.modulate = Color(1.0, 0.8, 0.8)
 		$BubbleRoot.visible = false
 	else:
+		$SpriteOrigin/MainSprite/Angry.visible = false
 		$SpriteOrigin/MainSprite.modulate = Color.WHITE
 		$TalkingTimer.start()
 		
@@ -188,6 +190,13 @@ func on_interact(interactor: Node3D) -> void:
 			# remove drink from tray with signal
 			drink_gotten.emit(drink)
 			$SpriteOrigin/MainSprite.play("drink_neutral")
+			
+			$SpriteOrigin/MainSprite/GoodOrder.visible = true
+			await get_tree().create_timer(1).timeout.connect(
+				func():
+					$SpriteOrigin/MainSprite/GoodOrder.visible = false
+			)
+			
 			get_random_drink()
 			$DrinkingTimer.start()
 			$DrinkingTimer.timeout.connect( func(): 
@@ -199,6 +208,11 @@ func on_interact(interactor: Node3D) -> void:
 	if not drink_recieved:
 		$SpriteOrigin/MainSprite.play("relax_angry")
 		$SpriteOrigin/MainSprite.animation_finished.connect(anger)
+		$SpriteOrigin/MainSprite/WrongOrder.visible = true
+		await get_tree().create_timer(1).timeout.connect(
+			func():
+				$SpriteOrigin/MainSprite/WrongOrder.visible = false
+		)
 		pass
 
 func anger():

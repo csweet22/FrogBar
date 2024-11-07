@@ -1,11 +1,14 @@
-[gd_scene load_steps=13 format=3 uid="uid://em305t33pc75"]
+[gd_scene load_steps=16 format=3 uid="uid://em305t33pc75"]
 
 [ext_resource type="Script" path="res://Entities/frog.gd" id="1_ayld7"]
 [ext_resource type="SpriteFrames" uid="uid://cyhosoqctpejp" path="res://Entities/frog_man_sprites.tres" id="2_n5f1c"]
 [ext_resource type="Texture2D" uid="uid://dhwilqoukx5vr" path="res://Gfx/MAN FINGERS.png" id="3_gb4b3"]
 [ext_resource type="Texture2D" uid="uid://1sjb5nfq2qp2" path="res://Gfx/Martini.png" id="3_p0b3i"]
 [ext_resource type="Texture2D" uid="uid://c0o6ebbl5dc1u" path="res://Gfx/SwampWater.png" id="4_sxkev"]
+[ext_resource type="Texture2D" uid="uid://bux7lg2hr1y8r" path="res://Gfx/order_recieved.png" id="5_qdq2p"]
 [ext_resource type="Texture2D" uid="uid://chs6pi6572leg" path="res://Gfx/bubble.png" id="5_xn64t"]
+[ext_resource type="Texture2D" uid="uid://bo00yu4x2o240" path="res://Gfx/disturbed.png" id="6_4a6ci"]
+[ext_resource type="Texture2D" uid="uid://ca6w3yygludom" path="res://Gfx/order_wrong.png" id="7_jhc0q"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_uvtbl"]
 radius = 0.653424
@@ -96,10 +99,6 @@ wait_time = 3.0
 wait_time = 3.0
 one_shot = true
 
-[node name="HappyParticles" type="CPUParticles3D" parent="."]
-
-[node name="AngryParticles" type="CPUParticles3D" parent="."]
-
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 unique_name_in_owner = true
 
@@ -130,6 +129,33 @@ pixel_size = 0.0005
 billboard = 2
 texture = ExtResource("3_p0b3i")
 region_rect = Rect2(0, 0, 10000, 1500)
+
+[node name="GoodOrder" type="Sprite3D" parent="SpriteOrigin/MainSprite"]
+visible = false
+sorting_offset = 0.1
+centered = false
+offset = Vector2(-600, 600)
+flip_h = true
+billboard = 2
+texture = ExtResource("5_qdq2p")
+
+[node name="Angry" type="Sprite3D" parent="SpriteOrigin/MainSprite"]
+visible = false
+sorting_offset = 0.1
+centered = false
+offset = Vector2(-600, 600)
+flip_h = true
+billboard = 2
+texture = ExtResource("6_4a6ci")
+
+[node name="WrongOrder" type="Sprite3D" parent="SpriteOrigin/MainSprite"]
+visible = false
+sorting_offset = 0.1
+centered = false
+offset = Vector2(-400, 550)
+flip_h = true
+billboard = 2
+texture = ExtResource("7_jhc0q")
 
 [node name="InteractionArea" type="Area3D" parent="."]
 
