@@ -143,13 +143,15 @@ func on_pushed() -> void:
 	$SpriteOrigin/MainSprite.billboard = BaseMaterial3D.BILLBOARD_DISABLED
 	var camera: Camera3D = get_viewport().get_camera_3d()
 	$SpriteOrigin.global_rotation_degrees.y = camera.global_rotation_degrees.y
-	$SpriteOrigin.global_rotation_degrees.x = -85.0
+	#$SpriteOrigin.global_rotation_degrees.x = -85.0
+	$SpriteAnim.play("Pushed")
 	invincibility_timer.timeout.connect(
 		func(): 
 			$CollisionShape3D.disabled = false
-			$SpriteOrigin/MainSprite.billboard = BaseMaterial3D.BILLBOARD_FIXED_Y
 			$SpriteOrigin.global_rotation_degrees.x = 0.0
 			$SpriteOrigin/MainSprite.play("relax_neutral")
+			$SpriteAnim.play("Raise_Pushed")
+			$SpriteAnim.animation_finished.connect(go_to_billboard)
 			if drink_state == DrinkState.WANTS_DRINK:
 				$BubbleRoot.visible = true
 	)
@@ -162,6 +164,10 @@ func on_pushed() -> void:
 	elif drink_state == DrinkState.DISTURBANCE:
 		GameManager.add_score(10.0)
 		set_drink_state(DrinkState.NO_DRINK)
+
+func go_to_billboard(animation_name):
+	$SpriteOrigin/MainSprite.billboard = BaseMaterial3D.BILLBOARD_FIXED_Y
+	$SpriteAnim.animation_finished.disconnect(go_to_billboard)
 
 func on_interact(interactor: Node3D) -> void:
 	if drink_state == DrinkState.HAS_DRINK:
@@ -224,7 +230,6 @@ func want_drink():
 
 
 func _on_main_sprite_animation_changed() -> void:
-	print($SpriteOrigin/MainSprite.animation)
 	$SpriteOrigin/Hand.visible = ($SpriteOrigin/MainSprite.animation as StringName).containsn("drink")
 
 
