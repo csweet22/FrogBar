@@ -168,13 +168,13 @@ func on_interact(interactor: Node3D) -> void:
 		return
 	
 	if drink_state == DrinkState.HAS_DRINK:
-		$SpriteOrigin/MainSprite.play("drink_angry")
-		$SpriteOrigin/MainSprite.animation_finished.connect(anger_end)
-		$SpriteOrigin/MainSprite/WrongOrder.visible = true
-		await get_tree().create_timer(1).timeout.connect(
-			func():
-				$SpriteOrigin/MainSprite/WrongOrder.visible = false
-		)
+		#$SpriteOrigin/MainSprite.play("drink_angry")
+		#$SpriteOrigin/MainSprite.animation_finished.connect(anger_end)
+		#$SpriteOrigin/MainSprite/WrongOrder.visible = true
+		#await get_tree().create_timer(1).timeout.connect(
+			#func():
+				#$SpriteOrigin/MainSprite/WrongOrder.visible = false
+		#)
 		return
 	
 	if drink_state == DrinkState.DISTURBANCE:
