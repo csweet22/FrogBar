@@ -14,6 +14,9 @@ signal score_changed(new_score: float)
 
 var tray_scene: Node3D
 
+var active_order_count: int = 0
+var max_active_order_count: int = 5
+
 func _ready() -> void:
 	game_timer.timeout.connect(on_game_end)
 
@@ -38,6 +41,10 @@ func start_game():
 	tray_scene = find_nodes_with_script(get_tree().root, load("res://tray_scene.gd"))[0]
 	for frog in frogs:
 		frog.drink_gotten.connect(tray_scene.remove_drink)
+		frog.drink_gotten.connect( 
+			func():
+				active_order_count -= 1
+		)
 	start_timer()
 
 func start_timer():
@@ -70,11 +77,14 @@ func make_disturbance() -> void:
 	pass
 
 func make_order_request() -> void:
+	if active_order_count >= max_active_order_count:
+		return
 	# Loop through all frogs, find one that is either neutral or has a drink 
 	for frog in frogs:
 		var random_frog = frogs.pick_random()
 		if random_frog.drink_state == 0:
 			random_frog.want_drink()
+			active_order_count += 1
 			break
 
 func find_nodes_with_script(root: Node, script: Script) -> Array[Node]:

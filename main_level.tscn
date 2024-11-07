@@ -52,6 +52,18 @@ can_move = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.26229, 0, -4.12766)
 can_move = true
 
+[node name="Frog6" parent="." instance=ExtResource("3_3qwbp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.93183, 0, 3.46778)
+can_move = true
+
+[node name="Frog7" parent="." instance=ExtResource("3_3qwbp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.30607, 0, 5.35702)
+can_move = true
+
+[node name="Frog8" parent="." instance=ExtResource("3_3qwbp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.01728, 0, 5.03952)
+can_move = true
+
 [node name="bar_spawner" parent="." instance=ExtResource("3_h8axe")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -7)
 

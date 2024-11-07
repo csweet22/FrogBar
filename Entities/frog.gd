@@ -88,12 +88,6 @@ func _physics_process(delta: float) -> void:
 	velocity = current_agent_position.direction_to(next_path_position) * 1.0
 	move_and_slide()
 
-func start_talking() -> void:
-	pass
-
-func stop_talking() -> void:
-	pass
-
 func become_disturbance() -> void:
 	set_drink_state(DrinkState.DISTURBANCE)
 
@@ -109,11 +103,6 @@ func set_drink_state(new_state: DrinkState) -> void:
 		$SpriteOrigin/MainSprite.modulate = Color.WHITE
 		$TalkingTimer.start()
 		
-	
-	#var width = $SpriteOrigin/MainSprite.sprite_frames.get_frame_texture("relax_neutral", 0).get_width()
-	#var height = $SpriteOrigin/MainSprite.sprite_frames.get_frame_texture("relax_neutral", 0).get_height()
-	
-	#$SpriteOrigin/MainSprite/Drink.region_rect = Rect2(0, 0, width, height)
 	$SpriteOrigin/MainSprite/Drink.visible = drink_state == DrinkState.HAS_DRINK
 	match drink_want:
 		Drinks.DrinkType.A:
