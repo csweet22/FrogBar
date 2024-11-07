@@ -141,12 +141,9 @@ func on_pushed() -> void:
 	$SpriteAnim.play("Pushed")
 	invincibility_timer.timeout.connect(
 		func(): 
-			$SpriteOrigin.global_rotation_degrees.x = 0.0
 			$SpriteOrigin/MainSprite.play("relax_neutral")
 			$SpriteAnim.play("Raise_Pushed")
 			$SpriteAnim.animation_finished.connect(go_to_billboard)
-			if drink_state == DrinkState.WANTS_DRINK:
-				$BubbleRoot.visible = true
 	)
 	$SpriteOrigin/Hand.visible = false
 	$SpriteOrigin/MainSprite/Drink.visible = false
@@ -159,18 +156,25 @@ func on_pushed() -> void:
 		set_drink_state(DrinkState.NO_DRINK)
 
 func go_to_billboard(animation_name):
+	$SpriteOrigin.global_rotation_degrees.x = 0.0
 	$SpriteOrigin/MainSprite.billboard = BaseMaterial3D.BILLBOARD_FIXED_Y
 	$CollisionShape3D.disabled = false
 	$SpriteAnim.animation_finished.disconnect(go_to_billboard)
+	if drink_state == DrinkState.WANTS_DRINK:
+		$BubbleRoot.visible = true
 
 func on_interact(interactor: Node3D) -> void:
 	if is_pushed:
 		return
 	
 	if drink_state == DrinkState.HAS_DRINK:
-		# make angry face then return
-		$SpriteOrigin/MainSprite.play("relax_angry")
-		$SpriteOrigin/MainSprite.animation_finished.connect(anger)
+		$SpriteOrigin/MainSprite.play("drink_angry")
+		$SpriteOrigin/MainSprite.animation_finished.connect(anger_end)
+		$SpriteOrigin/MainSprite/WrongOrder.visible = true
+		await get_tree().create_timer(1).timeout.connect(
+			func():
+				$SpriteOrigin/MainSprite/WrongOrder.visible = false
+		)
 		return
 	
 	if drink_state == DrinkState.DISTURBANCE:
@@ -209,7 +213,7 @@ func on_interact(interactor: Node3D) -> void:
 	
 	if not drink_recieved:
 		$SpriteOrigin/MainSprite.play("relax_angry")
-		$SpriteOrigin/MainSprite.animation_finished.connect(anger)
+		$SpriteOrigin/MainSprite.animation_finished.connect(anger_end)
 		$SpriteOrigin/MainSprite/WrongOrder.visible = true
 		await get_tree().create_timer(1).timeout.connect(
 			func():
@@ -217,10 +221,12 @@ func on_interact(interactor: Node3D) -> void:
 		)
 		pass
 
-func anger():
+func anger_end():
 	if $SpriteOrigin/MainSprite.animation == "relax_angry":
 		$SpriteOrigin/MainSprite.play("relax_neutral")
-	$SpriteOrigin/MainSprite.animation_finished.disconnect(anger)
+	if $SpriteOrigin/MainSprite.animation == "drink_angry":
+		$SpriteOrigin/MainSprite.play("drink_neutral")
+	$SpriteOrigin/MainSprite.animation_finished.disconnect(anger_end)
 
 func get_random_drink():
 	drink_want = Drinks.DrinkType.values().pick_random()

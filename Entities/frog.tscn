@@ -79,6 +79,7 @@ _data = {
 }
 
 [node name="Frog" type="CharacterBody3D" node_paths=PackedStringArray("movement_timer", "talking_timer", "invincibility_timer")]
+collision_layer = 2
 script = ExtResource("1_ayld7")
 movement_timer = NodePath("MovementTimer")
 talking_timer = NodePath("TalkingTimer")
@@ -122,7 +123,7 @@ animation = &"relax_neutral"
 [node name="Drink" type="Sprite3D" parent="SpriteOrigin/MainSprite"]
 transform = Transform3D(6.66667, 0, 0, 0, 6.66667, 0, 0, 0, 1, 0, 0, 0)
 visible = false
-sorting_offset = 0.5
+sorting_offset = 1.1
 sorting_use_aabb_center = false
 offset = Vector2(-1350, 1500)
 pixel_size = 0.0005
@@ -132,7 +133,7 @@ region_rect = Rect2(0, 0, 10000, 1500)
 
 [node name="GoodOrder" type="Sprite3D" parent="SpriteOrigin/MainSprite"]
 visible = false
-sorting_offset = 0.1
+sorting_offset = 1.1
 centered = false
 offset = Vector2(-600, 600)
 flip_h = true
@@ -141,7 +142,7 @@ texture = ExtResource("5_qdq2p")
 
 [node name="Angry" type="Sprite3D" parent="SpriteOrigin/MainSprite"]
 visible = false
-sorting_offset = 0.1
+sorting_offset = 1.1
 centered = false
 offset = Vector2(-600, 600)
 flip_h = true
@@ -150,7 +151,7 @@ texture = ExtResource("6_4a6ci")
 
 [node name="WrongOrder" type="Sprite3D" parent="SpriteOrigin/MainSprite"]
 visible = false
-sorting_offset = 0.1
+sorting_offset = 1.1
 centered = false
 offset = Vector2(-400, 550)
 flip_h = true
