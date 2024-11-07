@@ -70,7 +70,7 @@ func on_push():
 	if push_tween:
 		push_tween.kill()
 	push_tween = get_tree().create_tween()
-	push_tween.tween_property(tray_cam, "global_position", global_position + Vector3(0.0, 0.4, 1.3), 0.07)
+	push_tween.tween_property(tray_cam, "global_position", global_position + Vector3(0.0, 0.0, 2), 0.07)
 	push_tween.set_ease(Tween.EASE_OUT)
 	push_tween.set_trans(Tween.TRANS_QUAD)
 	push_tween.chain().tween_property(tray_cam, "global_position", default_global_position, 0.1)
