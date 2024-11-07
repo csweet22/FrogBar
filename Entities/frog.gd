@@ -17,6 +17,11 @@ var is_moving: bool = false
 
 @onready var rng = RandomNumberGenerator.new()
 
+@export var min_silent_duration: float = 1.0
+@export var max_silent_duration: float = 7.0
+@export var min_talking_duration: float = 1.0
+@export var max_talking_duration: float = 7.0
+
 signal drink_gotten(drink_type: Drinks.DrinkType)
 
 func _ready() -> void:
@@ -52,6 +57,9 @@ func _ready() -> void:
 		movement_timer.wait_time = rng.randf_range(1.0, 5.0)
 		movement_timer.timeout.connect(start_moving)
 		nav_setup.call_deferred()
+	
+	talking_timer.wait_time = rng.randf_range(0.0, max_silent_duration)
+	talking_timer.start()
 
 func nav_setup():
 	nav.path_desired_distance = 0.1
@@ -192,4 +200,24 @@ func want_drink():
 
 
 func _on_main_sprite_animation_changed() -> void:
+	print($SpriteOrigin/MainSprite.animation)
 	$SpriteOrigin/Hand.visible = ($SpriteOrigin/MainSprite.animation as StringName).containsn("drink")
+
+
+func _on_talking_timer_timeout() -> void:
+	
+	if ($SpriteOrigin/MainSprite.animation as StringName).containsn("talk"):
+		talking_timer.wait_time = rng.randf_range(min_silent_duration, max_silent_duration)
+		if ($SpriteOrigin/MainSprite.animation as StringName).containsn("drink"):
+			$SpriteOrigin/MainSprite.play("drink_neutral")
+		if ($SpriteOrigin/MainSprite.animation as StringName).containsn("relax"):
+			$SpriteOrigin/MainSprite.play("relax_neutral")
+	elif ($SpriteOrigin/MainSprite.animation as StringName).containsn("neutral"):
+		talking_timer.wait_time = rng.randf_range(min_talking_duration, max_talking_duration)
+		if ($SpriteOrigin/MainSprite.animation as StringName).containsn("drink"):
+			$SpriteOrigin/MainSprite.play("drink_talk")
+		else:
+			$SpriteOrigin/MainSprite.play("relax_talk")
+
+	
+		

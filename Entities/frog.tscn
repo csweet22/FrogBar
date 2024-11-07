@@ -106,6 +106,7 @@ one_shot = true
 autostart = true
 
 [node name="TalkingTimer" type="Timer" parent="."]
+wait_time = 3.0
 
 [node name="InvincibilityTimer" type="Timer" parent="."]
 wait_time = 3.0
@@ -183,4 +184,5 @@ libraries = {
 "": SubResource("AnimationLibrary_rtemd")
 }
 
+[connection signal="timeout" from="TalkingTimer" to="." method="_on_talking_timer_timeout"]
 [connection signal="animation_changed" from="SpriteOrigin/MainSprite" to="." method="_on_main_sprite_animation_changed"]
