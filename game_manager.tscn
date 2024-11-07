@@ -12,7 +12,7 @@ one_shot = true
 autostart = true
 
 [node name="DrinkRequestTimer" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 10.0
 autostart = true
 
 [node name="DisturbanceTimer" type="Timer" parent="."]

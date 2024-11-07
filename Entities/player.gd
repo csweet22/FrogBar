@@ -13,6 +13,8 @@ var interactables: Array[Node3D]
 signal rotated(degrees: float)
 signal pushed()
 
+var movement_disabled = false
+
 func _input(event):
 	if event.is_action_pressed("interact"):
 		interact()
@@ -47,7 +49,8 @@ func _physics_process(delta: float) -> void:
 	rotate_y(rotation_amount)
 	rotated.emit(rotation_amount)
 
-	move_and_slide()
+	if not movement_disabled:
+		move_and_slide()
 
 func push():
 	# Check what frogs are in front in area2D, call their on_pushed()

@@ -47,6 +47,7 @@ func start_timer():
 
 func on_game_end() -> void:
 	game_ended.emit()
+	#player.movement_disabled = true
 	stop_timers()
 	load_end_menu()
 
