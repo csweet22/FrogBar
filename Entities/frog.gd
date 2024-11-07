@@ -138,6 +138,7 @@ func stop_moving() -> void:
 
 func on_pushed() -> void:
 	invincibility_timer.start(0.0)
+	$BubbleRoot.visible = false
 	$CollisionShape3D.disabled = true
 	$SpriteOrigin/MainSprite.billboard = BaseMaterial3D.BILLBOARD_DISABLED
 	var camera: Camera3D = get_viewport().get_camera_3d()
@@ -149,6 +150,8 @@ func on_pushed() -> void:
 			$SpriteOrigin/MainSprite.billboard = BaseMaterial3D.BILLBOARD_FIXED_Y
 			$SpriteOrigin.global_rotation_degrees.x = 0.0
 			$SpriteOrigin/MainSprite.play("relax_neutral")
+			if drink_state == DrinkState.WANTS_DRINK:
+				$BubbleRoot.visible = true
 	)
 	$SpriteOrigin/Hand.visible = false
 	$SpriteOrigin/MainSprite/Drink.visible = false
