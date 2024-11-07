@@ -37,6 +37,9 @@ func _ready() -> void:
 		$SpriteOrigin/Hand.texture = preload("res://Gfx/WOMAN FINGERS.png")
 		$SpriteOrigin/MainSprite/Drink.offset = Vector2(700, 2400)
 		$SpriteOrigin/MainSprite/Drink.flip_h = true
+		$SpriteOrigin/Hand.position.y += 0.1
+		$SpriteOrigin/MainSprite.position.y += 0.1
+		$SpriteOrigin/MainSprite/Drink.position.y += 0.1
 	else:
 		$SpriteOrigin/MainSprite/Drink.offset = Vector2(-1350, 1500)
 	
