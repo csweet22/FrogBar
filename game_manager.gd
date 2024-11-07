@@ -56,7 +56,7 @@ func start_game():
 func start_timer():
 	game_timer.start(0.0)
 	$DrinkRequestTimer.start(0.0)
-	$DrinkRequestTimer.start(0.0)
+	$DisturbanceTimer.start(0.0)
 
 func on_game_end() -> void:
 	game_ended.emit()
@@ -88,7 +88,7 @@ func make_order_request() -> void:
 	# Loop through all frogs, find one that is either neutral or has a drink 
 	for frog in frogs:
 		var random_frog = frogs.pick_random()
-		if random_frog.drink_state == 0:
+		if random_frog.drink_state == 0 && not random_frog.is_pushed:
 			var request: Drinks.DrinkType = random_frog.want_drink()
 			hud.add_drink(request)
 			active_order_count += 1
