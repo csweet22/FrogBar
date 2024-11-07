@@ -66,6 +66,10 @@ func push():
 func interact():
 	# get closest interactable from the list
 	
+	for interactable in interactables:
+		interactable.on_interact(self)
+	return
+	
 	var closest_interactable: Node3D
 	var smallest_distance = 1000
 	for interactable in interactables:

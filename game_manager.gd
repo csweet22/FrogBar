@@ -45,7 +45,7 @@ func start_game():
 	for frog in frogs:
 		frog.drink_gotten.connect(tray_scene.remove_drink)
 		frog.drink_gotten.connect( 
-			func():
+			func(type):
 				active_order_count -= 1
 		)
 	start_timer()
