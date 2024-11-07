@@ -17,6 +17,8 @@ var tray_scene: Node3D
 var active_order_count: int = 0
 var max_active_order_count: int = 5
 
+var player: Node3D
+
 func _ready() -> void:
 	game_timer.timeout.connect(on_game_end)
 
@@ -39,6 +41,7 @@ func start_game():
 	# load in all frogs in scene into list
 	frogs = find_nodes_with_script(get_tree().root, load("res://Entities/frog.gd"))
 	tray_scene = find_nodes_with_script(get_tree().root, load("res://tray_scene.gd"))[0]
+	player = find_nodes_with_script(get_tree().root, load("res://Entities/player.gd"))[0]
 	for frog in frogs:
 		frog.drink_gotten.connect(tray_scene.remove_drink)
 		frog.drink_gotten.connect( 
@@ -54,7 +57,7 @@ func start_timer():
 
 func on_game_end() -> void:
 	game_ended.emit()
-	#player.movement_disabled = true
+	player.movement_disabled = true
 	stop_timers()
 	load_end_menu()
 

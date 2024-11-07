@@ -31,6 +31,8 @@ func _process(delta: float) -> void:
 		can_push = true
 
 func _physics_process(delta: float) -> void:
+	if movement_disabled:
+		return
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -49,8 +51,7 @@ func _physics_process(delta: float) -> void:
 	rotate_y(rotation_amount)
 	rotated.emit(rotation_amount)
 
-	if not movement_disabled:
-		move_and_slide()
+	move_and_slide()
 
 func push():
 	# Check what frogs are in front in area2D, call their on_pushed()
