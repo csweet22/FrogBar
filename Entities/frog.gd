@@ -102,6 +102,7 @@ func set_drink_state(new_state: DrinkState) -> void:
 		$SpriteOrigin/MainSprite/Angry.visible = true
 		$TalkingTimer.stop()
 		$SpriteOrigin/MainSprite.play("relax_angry")
+		$SpriteAnim.play("disturbing")
 		$SpriteOrigin/MainSprite.modulate = Color(1.0, 0.8, 0.8)
 		$BubbleRoot.visible = false
 		$Disturbance.play()
