@@ -25,14 +25,14 @@ var hud: Control
 
 var first_drink_delivered: bool = false:
 	set(value):
-		first_drink_delivered = value
-		if first_drink_delivered:
+		if value and not first_drink_delivered:
 			make_disturbance()
+		first_drink_delivered = value
 var first_disturbance_ended: bool = false:
 	set(value):
-		first_disturbance_ended = value
-		if first_disturbance_ended:
+		if value and not first_disturbance_ended:
 			start_timer()
+		first_disturbance_ended = value
 
 func _ready() -> void:
 	game_timer.timeout.connect(on_game_end)
@@ -71,7 +71,6 @@ func start_game():
 		frog.drink_gotten.connect( 
 			func(drink_scene):
 				first_drink_delivered = true
-				hud.remove_drink(drink_scene.drink_type)
 				tray_scene.spawn_money(2)
 				$chaching.play()
 		)
@@ -124,7 +123,6 @@ func make_order_request() -> void:
 		var random_frog = frogs.pick_random()
 		if random_frog.drink_state == 0 && not random_frog.is_pushed:
 			var request: Drinks.DrinkType = random_frog.want_drink()
-			hud.add_drink(request)
 			break
 
 func find_nodes_with_script(root: Node, script: Script) -> Array[Node]:

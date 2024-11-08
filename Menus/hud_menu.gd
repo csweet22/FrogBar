@@ -22,7 +22,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	$Main/VBoxContainer/TimeRemaining.text = "Time Remaining: " + "%02d:%02d" % [GameManager.game_timer.time_left / 60, fmod(GameManager.game_timer.time_left, 60)]
 
-func add_drink(type: Drinks.DrinkType):
+func add_drink(type: Drinks.DrinkType) -> Control:
 	var instance = drink_order_scene.instantiate()
 	
 	match type:
@@ -34,19 +34,10 @@ func add_drink(type: Drinks.DrinkType):
 			instance.activate(preload("res://Gfx/SwampWater.png"), Drinks.DrinkType.C)
 	drink_orders.append(instance)
 	$Main/VBoxContainer/TaskContainer/HBoxContainer.add_child(instance)
+	return instance
 
-func remove_drink(type: Drinks.DrinkType):
-	var found_drink_to_remove = false
-	
-	for drink in drink_orders:
-		if drink.drink_type == type:
-			drink.deactivate()
-			drink_orders.erase(drink)
-			found_drink_to_remove = true
-			break
-	
-	if not found_drink_to_remove:
-		print("ISSUE AROSE: COULD NOT REMOVE DRINK")
+func remove_drink(drink_order: Control):
+	drink_order.queue_free()
 
 func on_score_changed(score: float):
 	if tween:

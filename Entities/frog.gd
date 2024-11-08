@@ -24,6 +24,8 @@ var is_moving: bool = false
 
 signal drink_gotten(drink_type: Drinks.DrinkType)
 
+var my_drink_order: Control
+
 var is_pushed: bool = false:
 	get:
 		return $InvincibilityTimer.time_left > 0
@@ -202,6 +204,7 @@ func on_interact(interactor: Node3D) -> void:
 		for drink in GameManager.tray_scene.drinks:
 			if drink.drink_type == drink_want:
 				GameManager.add_score(rng.randf_range(3.0, 5.0))
+				GameManager.hud.remove_drink(my_drink_order)
 				set_drink_state(DrinkState.HAS_DRINK)
 				drink_recieved = true
 				$BubbleRoot.visible = false
@@ -250,6 +253,7 @@ func get_random_drink():
 func want_drink():
 	$OrderUp.play()
 	set_drink_state(DrinkState.WANTS_DRINK)
+	my_drink_order = GameManager.hud.add_drink(drink_want)
 	GameManager.active_order_count += 1
 	$BubbleRoot.visible = true
 	match drink_want:
