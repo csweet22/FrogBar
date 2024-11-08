@@ -15,9 +15,16 @@ signal pushed()
 
 var movement_disabled = false
 
+var can_interact: bool = true
+
 func _input(event):
-	if event.is_action_pressed("interact"):
-		interact()
+	if event.get_action_strength("interact") > 0.6:
+		if can_interact:
+			can_interact = false
+			interact()
+	if event.get_action_strength("interact") < 0.4:
+		can_interact = true
+		
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("main_menu"):
