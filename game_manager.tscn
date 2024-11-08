@@ -19,7 +19,7 @@ wait_time = 60.0
 one_shot = true
 
 [node name="DrinkRequestTimer" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 6.0
 
 [node name="DisturbanceTimer" type="Timer" parent="."]
 wait_time = 13.0
