@@ -103,10 +103,12 @@ func set_drink_state(new_state: DrinkState) -> void:
 		$SpriteOrigin/MainSprite.play("relax_angry")
 		$SpriteOrigin/MainSprite.modulate = Color(1.0, 0.8, 0.8)
 		$BubbleRoot.visible = false
+		$Disturbance.play()
 	else:
 		$SpriteOrigin/MainSprite/Angry.visible = false
 		$SpriteOrigin/MainSprite.modulate = Color.WHITE
 		$TalkingTimer.start()
+		$Disturbance.stop()
 		
 	$SpriteOrigin/MainSprite/Drink.visible = drink_state == DrinkState.HAS_DRINK
 	match drink_want:
@@ -215,6 +217,7 @@ func on_interact(interactor: Node3D) -> void:
 			
 	
 	if not drink_recieved:
+		$nuhuh.play()
 		$SpriteOrigin/MainSprite.play("relax_angry")
 		$SpriteOrigin/MainSprite.animation_finished.connect(anger_end)
 		$SpriteOrigin/MainSprite/WrongOrder.visible = true
@@ -268,6 +271,3 @@ func _on_talking_timer_timeout() -> void:
 			$SpriteOrigin/MainSprite.play("drink_talk")
 		else:
 			$SpriteOrigin/MainSprite.play("relax_talk")
-
-	
-		

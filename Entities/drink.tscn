@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://bbhpvewebu30r"]
+[gd_scene load_steps=8 format=3 uid="uid://bbhpvewebu30r"]
 
 [ext_resource type="Script" path="res://Entities/drink.gd" id="1_mubpi"]
 [ext_resource type="Texture2D" uid="uid://c0o6ebbl5dc1u" path="res://Gfx/SwampWater.png" id="2_dwnnv"]
+[ext_resource type="AudioStream" uid="uid://c5ind1a3ykems" path="res://Sounds/clink_A.mp3" id="3_6g11n"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_1uagd"]
 friction = 0.07
@@ -23,6 +24,7 @@ physics_material_override = SubResource("PhysicsMaterial_1uagd")
 center_of_mass_mode = 1
 center_of_mass = Vector3(0, -0.01, 0)
 can_sleep = false
+contact_monitor = true
 linear_damp = 5.0
 angular_damp = 2.0
 script = ExtResource("1_mubpi")
@@ -51,3 +53,9 @@ shape = SubResource("BoxShape3D_0qbfv")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0145264, 0.191235, 0)
 visible = false
 shape = SubResource("BoxShape3D_0qbfv")
+
+[node name="Clink" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_6g11n")
+volume_db = -5.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

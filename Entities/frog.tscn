@@ -209,5 +209,9 @@ volume_db = -9.0
 stream = ExtResource("11_78567")
 volume_db = -12.0
 
+[node name="nuhuh" type="AudioStreamPlayer3D" parent="."]
+
+[node name="Disturbance" type="AudioStreamPlayer3D" parent="."]
+
 [connection signal="timeout" from="TalkingTimer" to="." method="_on_talking_timer_timeout"]
 [connection signal="animation_changed" from="SpriteOrigin/MainSprite" to="." method="_on_main_sprite_animation_changed"]
