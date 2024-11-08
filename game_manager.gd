@@ -122,3 +122,19 @@ func _on_drink_request_timer_timeout() -> void:
 
 func _on_disturbance_timer_timeout() -> void:
 	make_disturbance()
+
+func clink_glass():
+	if RandomNumberGenerator.new().randi_range(0, 1) == 0:
+		if not $ClinkA.playing:
+			$ClinkA.play()
+	else:
+		if not $ClinkB.playing:
+			$ClinkB.play()
+
+func break_glass():
+	if RandomNumberGenerator.new().randi_range(0, 1) == 0:
+		if not $BreakA.playing:
+			$BreakA.play()
+	else:
+		if not $BreakB.playing:
+			$BreakB.play()

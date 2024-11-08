@@ -27,3 +27,4 @@ func _process(delta: float) -> void:
 		to_be_freed = true
 		print(name + " has fallen.")
 		fell.emit(self)
+		await get_tree().create_timer(0.1).timeout.connect(GameManager.break_glass)

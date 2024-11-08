@@ -1,10 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://dpp2iv0cdsx74"]
+[gd_scene load_steps=10 format=3 uid="uid://dpp2iv0cdsx74"]
 
 [ext_resource type="Script" path="res://game_manager.gd" id="1_malej"]
 [ext_resource type="AudioStream" uid="uid://d3gxb3eir11pk" path="res://Sounds/ambience_looping.mp3" id="2_rq8yg"]
 [ext_resource type="AudioStream" uid="uid://bdiu6eg1xe3s4" path="res://Sounds/frog_ribbit.mp3" id="3_d0lqy"]
 [ext_resource type="AudioStream" uid="uid://bwb1bgihyp4cx" path="res://Sounds/temp_music.mp3" id="4_qacvb"]
 [ext_resource type="AudioStream" uid="uid://dj1std5erjqdq" path="res://Sounds/money_get.mp3" id="5_epa62"]
+[ext_resource type="AudioStream" uid="uid://c5ind1a3ykems" path="res://Sounds/clink_A.mp3" id="6_uvsqw"]
+[ext_resource type="AudioStream" uid="uid://df63bjxxrpwn7" path="res://Sounds/clink_B.mp3" id="7_cvac1"]
+[ext_resource type="AudioStream" uid="uid://bpk8pbjjrdc18" path="res://Sounds/break_A.mp3" id="8_i005p"]
+[ext_resource type="AudioStream" uid="uid://qju8ersjc0cv" path="res://Sounds/break_B.mp3" id="9_jci7v"]
 
 [node name="GameManager" type="Node" node_paths=PackedStringArray("game_timer")]
 script = ExtResource("1_malej")
@@ -40,6 +44,22 @@ autoplay = true
 [node name="chaching" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_epa62")
 volume_db = -3.0
+
+[node name="ClinkA" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_uvsqw")
+volume_db = -6.0
+
+[node name="ClinkB" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_cvac1")
+volume_db = -6.0
+
+[node name="BreakA" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_i005p")
+volume_db = -6.0
+
+[node name="BreakB" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_jci7v")
+volume_db = -6.0
 
 [connection signal="timeout" from="DrinkRequestTimer" to="." method="_on_drink_request_timer_timeout"]
 [connection signal="timeout" from="DisturbanceTimer" to="." method="_on_disturbance_timer_timeout"]
