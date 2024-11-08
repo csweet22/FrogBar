@@ -32,7 +32,11 @@ func _ready() -> void:
 	tray_cam.global_position = global_position + offset
 	default_global_position = tray_cam.global_position
 
-
+var time: float = 0.0
+@export var pan_speed: float = 1.0
+func _physics_process(delta: float) -> void:
+	time += delta
+	$SpawnPoint.position.x = 0.3 * sin(time * pan_speed)
 
 func _process(delta: float) -> void:
 	if Input.is_action_pressed("tray_left"):
@@ -94,13 +98,26 @@ func spawn_money(count: float):
 		get_tree().create_timer(0.5).timeout.connect(
 			func():
 				var instance: Node3D = money_scene.instantiate()
-				instance.position = Vector3(-0.3 * (1.0 if GameManager.is_right_handed else -1.0), 1.5, 0.0)
+				instance.position = Vector3(-0.3 * (1.0 if GameManager.is_right_handed else -1.0), 1.0, 0.0)
 				add_child(instance)
 		)
 
+func show_preview(drink_type: Drinks.DrinkType):
+	match drink_type:
+		Drinks.DrinkType.A:
+			$SpawnPoint/DrinkPreview.texture = preload("res://Gfx/Martini.png")
+		Drinks.DrinkType.B:
+			$SpawnPoint/DrinkPreview.texture = preload("res://Gfx/Rum&Croak_center.png")
+		Drinks.DrinkType.C:
+			$SpawnPoint/DrinkPreview.texture = preload("res://Gfx/SwampWater.png")
+	$SpawnPoint.visible = true
+
+func hide_preview():
+	$SpawnPoint.visible = false
+
 func _on_bar_spawner_spawn_drink(drink_type: Drinks.DrinkType) -> void:
 	var instance: Node3D = drink_scene.instantiate()
-	instance.position = Vector3(-0.3 * (1.0 if GameManager.is_right_handed else -1.0), 1.0, 0.0)
+	instance.position = $SpawnPoint.position
 	instance.set_up(drink_type)
 	drinks.append(instance)
 	add_child(instance)

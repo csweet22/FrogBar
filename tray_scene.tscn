@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://bn0mrng5e2hc"]
+[gd_scene load_steps=10 format=3 uid="uid://bn0mrng5e2hc"]
 
 [ext_resource type="Script" path="res://tray_scene.gd" id="1_qo3y6"]
 [ext_resource type="PackedScene" uid="uid://bqedbi8c8g2ca" path="res://Models/Lilypad tray.glb" id="2_8y6ho"]
 [ext_resource type="AudioStream" uid="uid://mhvtkb7ee4xo" path="res://Sounds/swish.mp3" id="3_gjd1v"]
+[ext_resource type="Texture2D" uid="uid://1sjb5nfq2qp2" path="res://Gfx/Martini.png" id="4_jyvg7"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_3rnvy"]
 height = 0.150938
@@ -72,5 +73,14 @@ autostart = true
 [node name="Swish" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_gjd1v")
 volume_db = -6.55
+
+[node name="SpawnPoint" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+visible = false
+
+[node name="DrinkPreview" type="Sprite3D" parent="SpawnPoint"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.246, 0)
+pixel_size = 0.0004
+texture = ExtResource("4_jyvg7")
 
 [connection signal="timeout" from="TiltTimer" to="." method="_on_tilt_timer_timeout"]
