@@ -56,6 +56,7 @@ func start_game():
 				active_order_count -= 1
 				hud.remove_drink(drink_scene.drink_type)
 				tray_scene.spawn_money(2)
+				$chaching.play()
 		)
 	start_timer()
 
