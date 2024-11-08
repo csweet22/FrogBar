@@ -10,7 +10,7 @@ var push_tween: Tween
 
 var default_global_position: Vector3
 
-@export var tipping_speed: float = 0.1
+@export var tipping_speed: float = 0.4
 
 @onready var drink_scene: PackedScene = preload("res://Entities/drink.tscn")
 @onready var money_scene: PackedScene = preload("res://Entities/money_scene.tscn")
@@ -47,7 +47,7 @@ func _process(delta: float) -> void:
 	
 	current_tilt_delta = clamp(current_tilt_delta, -tipping_speed, tipping_speed)
 	
-	$CharacterBody3D.rotate_z(delta * current_tilt_delta)
+	tilt_tray(delta * current_tilt_delta)
 	
 		
 		
