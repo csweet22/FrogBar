@@ -81,6 +81,15 @@ func load_end_menu() -> void:
 	get_tree().root.add_child(preload("res://Menus/end_menu.tscn").instantiate())
 	
 func make_disturbance() -> void:
+	var already_disturbed = false
+	for frog in frogs:
+		if frog.drink_state == 3:
+			already_disturbed = true
+			break
+	
+	if already_disturbed:
+		return
+	
 	# Loop through all frogs, find one that is not looking for an order
 	for frog in frogs:
 		var random_frog = frogs.pick_random()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://em305t33pc75"]
+[gd_scene load_steps=20 format=3 uid="uid://em305t33pc75"]
 
 [ext_resource type="Script" path="res://Entities/frog.gd" id="1_ayld7"]
 [ext_resource type="SpriteFrames" uid="uid://cyhosoqctpejp" path="res://Entities/frog_man_sprites.tres" id="2_n5f1c"]
@@ -11,6 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://ca6w3yygludom" path="res://Gfx/order_wrong.png" id="7_jhc0q"]
 [ext_resource type="AudioStream" uid="uid://c81wkboligt71" path="res://Sounds/hit.mp3" id="10_pwdey"]
 [ext_resource type="AudioStream" uid="uid://bdiu6eg1xe3s4" path="res://Sounds/frog_ribbit.mp3" id="11_78567"]
+[ext_resource type="AudioStream" uid="uid://cfyfrmetvanm5" path="res://Sounds/nuh_uh_A.mp3" id="12_x8va1"]
+[ext_resource type="AudioStream" uid="uid://c7m0kni5vy5od" path="res://Sounds/disturbance_A.mp3" id="13_5mpu1"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_uvtbl"]
 radius = 0.653424
@@ -210,8 +212,14 @@ stream = ExtResource("11_78567")
 volume_db = -12.0
 
 [node name="nuhuh" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("12_x8va1")
+volume_db = -11.0
 
 [node name="Disturbance" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("13_5mpu1")
+volume_db = -12.0
 
 [connection signal="timeout" from="TalkingTimer" to="." method="_on_talking_timer_timeout"]
 [connection signal="animation_changed" from="SpriteOrigin/MainSprite" to="." method="_on_main_sprite_animation_changed"]
+[connection signal="finished" from="nuhuh" to="." method="_on_nuhuh_finished"]
+[connection signal="finished" from="Disturbance" to="." method="_on_disturbance_finished"]

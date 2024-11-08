@@ -29,6 +29,7 @@ var is_pushed: bool = false:
 		return $InvincibilityTimer.time_left > 0
 
 func _ready() -> void:
+	_on_nuhuh_finished()
 	rng.randomize()
 	var is_woman = rng.randi_range(0, 1) == 0
 	
@@ -157,6 +158,7 @@ func on_pushed() -> void:
 		set_drink_state(DrinkState.NO_DRINK)
 	elif drink_state == DrinkState.DISTURBANCE:
 		GameManager.add_score(10.0)
+		$Disturbance.stop()
 		set_drink_state(DrinkState.NO_DRINK)
 
 func go_to_billboard(animation_name):
@@ -271,3 +273,30 @@ func _on_talking_timer_timeout() -> void:
 			$SpriteOrigin/MainSprite.play("drink_talk")
 		else:
 			$SpriteOrigin/MainSprite.play("relax_talk")
+
+
+func _on_nuhuh_finished() -> void:
+	$nuhuh.pitch_scale = RandomNumberGenerator.new().randf_range(0.9, 1.1)
+	match RandomNumberGenerator.new().randi_range(0, 2):
+		0:
+			$nuhuh.stream = preload("res://Sounds/nuh_uh_A.mp3")
+		1:
+			$nuhuh.stream = preload("res://Sounds/nuh_uh_B.mp3")
+		2:
+			$nuhuh.stream = preload("res://Sounds/nuh_uh_C.mp3")
+
+
+func _on_disturbance_finished() -> void:
+	match RandomNumberGenerator.new().randi_range(0, 4):
+		0:
+			$Disturbance.stream = preload("res://Sounds/disturbance_A.mp3")
+		1:
+			$Disturbance.stream = preload("res://Sounds/disturbance_B.mp3")
+		2:
+			$Disturbance.stream = preload("res://Sounds/disturbance_C.mp3")
+		3:
+			$Disturbance.stream = preload("res://Sounds/disturbance_D.mp3")
+		4:
+			$Disturbance.stream = preload("res://Sounds/disturbance_E.mp3")
+	if drink_state == DrinkState.DISTURBANCE:
+		$Disturbance.play()
