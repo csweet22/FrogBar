@@ -23,6 +23,17 @@ var max_active_order_count: int = 5
 var player: Node3D
 var hud: Control
 
+var first_drink_delivered: bool = false:
+	set(value):
+		first_drink_delivered = value
+		if first_drink_delivered:
+			make_disturbance()
+var first_disturbance_ended: bool = false:
+	set(value):
+		first_disturbance_ended = value
+		if first_disturbance_ended:
+			start_timer()
+
 func _ready() -> void:
 	game_timer.timeout.connect(on_game_end)
 	$ribbit/RibbitTimer.timeout.connect(
@@ -46,6 +57,8 @@ func get_score() -> float:
 	return score
 
 func start_game():
+	first_drink_delivered = false
+	first_disturbance_ended = false
 	active_order_count = 0
 	set_score(0)
 	# load in all frogs in scene into list
@@ -57,11 +70,12 @@ func start_game():
 		frog.drink_gotten.connect(tray_scene.remove_drink)
 		frog.drink_gotten.connect( 
 			func(drink_scene):
+				first_drink_delivered = true
 				hud.remove_drink(drink_scene.drink_type)
 				tray_scene.spawn_money(2)
 				$chaching.play()
 		)
-	start_timer()
+	get_tree().create_timer(1).timeout.connect(make_order_request)
 
 func start_timer():
 	game_timer.start(0.0)

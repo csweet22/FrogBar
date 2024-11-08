@@ -156,11 +156,12 @@ func on_pushed() -> void:
 	$SpriteOrigin/MainSprite/Drink.visible = false
 	$SpriteOrigin/MainSprite.play("dead")
 	if drink_state == DrinkState.HAS_DRINK:
-		GameManager.remove_score(5.0)
+		GameManager.remove_score(rng.randf_range(3.0, 5.0))
 		$BreakingGlass.play()
 		set_drink_state(DrinkState.NO_DRINK)
 	elif drink_state == DrinkState.DISTURBANCE:
-		GameManager.add_score(10.0)
+		GameManager.add_score(rng.randf_range(7.0, 11.0))
+		GameManager.first_disturbance_ended = true
 		$Disturbance.stop()
 		$NoMoreDisturb.play()
 		set_drink_state(DrinkState.NO_DRINK)
@@ -200,7 +201,7 @@ func on_interact(interactor: Node3D) -> void:
 		# If so, change state and drink want.
 		for drink in GameManager.tray_scene.drinks:
 			if drink.drink_type == drink_want:
-				GameManager.add_score(5.0)
+				GameManager.add_score(rng.randf_range(3.0, 5.0))
 				set_drink_state(DrinkState.HAS_DRINK)
 				drink_recieved = true
 				$BubbleRoot.visible = false
@@ -247,6 +248,7 @@ func get_random_drink():
 		drink_want = Drinks.DrinkType.values().pick_random()
 
 func want_drink():
+	$OrderUp.play()
 	set_drink_state(DrinkState.WANTS_DRINK)
 	GameManager.active_order_count += 1
 	$BubbleRoot.visible = true

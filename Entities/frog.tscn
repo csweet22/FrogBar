@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://em305t33pc75"]
+[gd_scene load_steps=24 format=3 uid="uid://em305t33pc75"]
 
 [ext_resource type="Script" path="res://Entities/frog.gd" id="1_ayld7"]
 [ext_resource type="SpriteFrames" uid="uid://cyhosoqctpejp" path="res://Entities/frog_man_sprites.tres" id="2_n5f1c"]
@@ -15,6 +15,7 @@
 [ext_resource type="AudioStream" uid="uid://c7m0kni5vy5od" path="res://Sounds/disturbance_A.mp3" id="13_5mpu1"]
 [ext_resource type="AudioStream" uid="uid://byww18aq74wn1" path="res://Sounds/applause.mp3" id="14_o0d1y"]
 [ext_resource type="AudioStream" uid="uid://bpk8pbjjrdc18" path="res://Sounds/break_A.mp3" id="15_p8q63"]
+[ext_resource type="AudioStream" uid="uid://dw34oxobgv8aq" path="res://Sounds/bell.mp3" id="16_5fya3"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_uvtbl"]
 radius = 0.653424
@@ -303,6 +304,9 @@ stream = ExtResource("14_o0d1y")
 [node name="BreakingGlass" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("15_p8q63")
 volume_db = -9.0
+
+[node name="OrderUp" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_5fya3")
 
 [connection signal="timeout" from="TalkingTimer" to="." method="_on_talking_timer_timeout"]
 [connection signal="animation_changed" from="SpriteOrigin/MainSprite" to="." method="_on_main_sprite_animation_changed"]
