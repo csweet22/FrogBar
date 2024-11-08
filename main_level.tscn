@@ -34,6 +34,16 @@
 [ext_resource type="Texture2D" uid="uid://bq2lfaxoe4dse" path="res://textures/birthoffrog.png" id="27_hjrgm"]
 
 [sub_resource type="Environment" id="Environment_nvwhm"]
+background_energy_multiplier = 0.0
+tonemap_mode = 3
+ssao_enabled = true
+ssao_radius = 22.95
+ssao_intensity = 29.75
+sdfgi_enabled = true
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0441
+adjustment_enabled = true
+adjustment_saturation = 1.1
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_5ocl7"]
 vertices = PackedVector3Array(-7.5, 0.2, -7.5, -7.5, 0.2, 7.5, 7.5, 0.2, 7.5, 7.5, 0.2, -7.5)
@@ -96,11 +106,17 @@ environment = SubResource("Environment_nvwhm")
 fov = 90.0
 near = 0.001
 
+[node name="OmniLight3D" type="OmniLight3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.75244, 0)
+light_color = Color(1, 0.586667, 0.2, 1)
+omni_range = 2.445
+
 [node name="HudMenu" parent="." instance=ExtResource("2_68xt6")]
 z_index = 10
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.670564, 0.252909, 0.69741, 0.61303, -0.34051, 0.712915, 0.417778, 0.905588, 0.0732933, 3.47841, 2.61886, 0)
+visible = false
 
 [node name="Frog" parent="." instance=ExtResource("3_3qwbp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6835, 0.189912, -4.9626)
@@ -238,46 +254,55 @@ transform = Transform3D(-0.471579, 0, -0.166171, 0, 0.5, 0, 0.166171, 0, -0.4715
 [node name="Sprite3D" type="Sprite3D" parent="Mesh (Assets)"]
 transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, -5.29694, 1.73352, -6.99864)
 billboard = 2
+shaded = true
 texture = ExtResource("8_fpp5l")
 
 [node name="Sprite3D4" type="Sprite3D" parent="Mesh (Assets)"]
 transform = Transform3D(0.0499263, 0, 0.0027144, 0, 0.05, 0, -0.0027144, 0, 0.0499263, -0.0762078, 1.73352, -6.79147)
 billboard = 2
+shaded = true
 texture = ExtResource("13_pnenf")
 
 [node name="Sprite3D7" type="Sprite3D" parent="Mesh (Assets)"]
 transform = Transform3D(0.0499263, 0, 0.0027144, 0, 0.05, 0, -0.0027144, 0, 0.0499263, 5.0189, 1.73352, -7.25884)
 billboard = 2
+shaded = true
 texture = ExtResource("14_4ug5f")
 
 [node name="Sprite3D8" type="Sprite3D" parent="Mesh (Assets)"]
 transform = Transform3D(0.0499263, 0, 0.0027144, 0, 0.05, 0, -0.0027144, 0, 0.0499263, 5.45394, 1.73352, -7.25884)
 billboard = 2
+shaded = true
 texture = ExtResource("14_4ug5f")
 
 [node name="Sprite3D9" type="Sprite3D" parent="Mesh (Assets)"]
 transform = Transform3D(0.0499263, 0, 0.0027144, 0, 0.05, 0, -0.0027144, 0, 0.0499263, 5.26657, 1.73352, -6.90575)
 billboard = 2
+shaded = true
 texture = ExtResource("14_4ug5f")
 
 [node name="Sprite3D5" type="Sprite3D" parent="Mesh (Assets)"]
 transform = Transform3D(0.0499982, 0, 0.000424983, 0, 0.05, 0, -0.000424983, 0, 0.0499982, 0.254614, 1.73352, -7.08175)
 billboard = 2
+shaded = true
 texture = ExtResource("13_pnenf")
 
 [node name="Sprite3D6" type="Sprite3D" parent="Mesh (Assets)"]
 transform = Transform3D(0.0499982, 0, 0.000424983, 0, 0.05, 0, -0.000424983, 0, 0.0499982, -0.217889, 1.73352, -7.32634)
 billboard = 2
+shaded = true
 texture = ExtResource("13_pnenf")
 
 [node name="Sprite3D2" type="Sprite3D" parent="Mesh (Assets)"]
 transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, -5.07321, 1.73352, -7.35812)
 billboard = 2
+shaded = true
 texture = ExtResource("8_fpp5l")
 
 [node name="Sprite3D3" type="Sprite3D" parent="Mesh (Assets)"]
 transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, -4.82236, 1.73352, -7.08755)
 billboard = 2
+shaded = true
 texture = ExtResource("8_fpp5l")
 
 [node name="rectangular lilypad table" parent="Mesh (Assets)" instance=ExtResource("10_r2ri1")]
@@ -455,7 +480,7 @@ size = Vector3(26.9459, 7.29321, 1.04797)
 material = SubResource("StandardMaterial3D_05h6j")
 
 [node name="CSGBox3D10" type="CSGBox3D" parent="Mesh (Assets)"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.139124, 20.2611, -6.72762)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.139124, 6.58927, -6.72762)
 size = Vector3(25.9372, 1.11584, 23.0602)
 material = SubResource("StandardMaterial3D_48vga")
 
@@ -536,6 +561,158 @@ transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, 
 
 [node name="Door2" parent="Mesh (Assets)" instance=ExtResource("26_rxg3y")]
 transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, -8.42322, 9.53674e-07, -17.2429)
+
+[node name="Lights" type="Node3D" parent="."]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.71132, 3.3255, -2.02382)
+light_color = Color(1, 0.69, 0.4, 1)
+light_energy = 1.711
+shadow_enabled = true
+shadow_blur = 2.075
+omni_range = 6.216
+omni_attenuation = 1.753
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.41727, 3.3255, 1.66713)
+light_color = Color(1, 0.69, 0.4, 1)
+light_energy = 1.711
+shadow_enabled = true
+shadow_blur = 2.075
+omni_range = 6.216
+omni_attenuation = 1.753
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.74613, 3.3255, -2.0548)
+light_color = Color(1, 0.69, 0.4, 1)
+light_energy = 1.711
+shadow_enabled = true
+shadow_blur = 2.075
+omni_range = 6.216
+omni_attenuation = 1.753
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.55402, 3.3255, -6.67005)
+light_color = Color(1, 0.69, 0.4, 1)
+light_energy = 1.711
+shadow_enabled = true
+shadow_blur = 2.075
+omni_range = 6.216
+omni_attenuation = 1.753
+
+[node name="OmniLight3D5" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.5012, 3.3255, -6.68057)
+light_color = Color(1, 0.69, 0.4, 1)
+light_energy = 1.711
+shadow_enabled = true
+shadow_blur = 2.075
+omni_range = 6.216
+omni_attenuation = 1.753
+
+[node name="OmniLight3D6" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.5012, 3.3255, 1.81519)
+light_color = Color(1, 0.69, 0.4, 1)
+light_energy = 1.711
+shadow_enabled = true
+shadow_blur = 2.075
+omni_range = 6.216
+omni_attenuation = 1.753
+
+[node name="OmniLight3D7" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.75261, 3.3255, 1.63362)
+light_color = Color(1, 0.69, 0.4, 1)
+light_energy = 1.711
+shadow_enabled = true
+shadow_blur = 2.075
+omni_range = 6.216
+omni_attenuation = 1.753
+
+[node name="OmniLight3D8" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.80664, 3.20507, -2.05691)
+light_color = Color(1, 0.69, 0.4, 1)
+light_energy = 1.711
+shadow_enabled = true
+shadow_blur = 2.075
+omni_range = 6.216
+omni_attenuation = 1.753
+
+[node name="OmniLight3D9" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.30324, 3.06953, -7.21573)
+light_color = Color(1, 0.69, 0.4, 1)
+light_energy = 1.711
+omni_range = 6.216
+omni_attenuation = 1.753
+
+[node name="OmniLight3D10" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.94924, 3.06953, -6.73574)
+light_color = Color(1, 0.69, 0.4, 1)
+light_energy = 1.711
+omni_range = 6.216
+omni_attenuation = 1.753
+
+[node name="OmniLight3D11" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.55411, 3.06953, -6.73574)
+light_color = Color(1, 0.69, 0.4, 1)
+light_energy = 1.711
+omni_range = 6.216
+omni_attenuation = 1.753
+
+[node name="OmniLight3D12" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.16927, 3.06953, -6.73574)
+light_color = Color(1, 0.69, 0.4, 1)
+light_energy = 1.711
+omni_range = 6.216
+omni_attenuation = 1.753
+
+[node name="OmniLight3D13" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.30324, 3.06953, -8.4757)
+light_color = Color(1, 0.69, 0.4, 1)
+light_energy = 1.711
+omni_range = 1.87
+omni_attenuation = 0.165
+
+[node name="OmniLight3D14" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.14854, 2.62146, -9.89784)
+light_color = Color(1, 0.69, 0.4, 1)
+light_energy = 0.9
+omni_range = 3.78
+
+[node name="OmniLight3D15" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.46722, 2.62146, -9.89784)
+light_color = Color(1, 0.69, 0.4, 1)
+light_energy = 0.9
+omni_range = 3.78
+
+[node name="OmniLight3D16" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.16927, 3.06953, -7.99571)
+light_color = Color(1, 0.69, 0.4, 1)
+light_energy = 1.711
+omni_range = 1.87
+omni_attenuation = 0.165
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -5.01041, 3.59085, -7.16367)
+light_energy = 6.511
+shadow_enabled = true
+spot_range = 3.8362
+spot_angle = 30.63
+spot_angle_attenuation = 2.2974
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.0193324, 3.59085, -7.16367)
+light_energy = 6.511
+shadow_enabled = true
+spot_range = 3.8362
+spot_angle = 30.63
+spot_angle_attenuation = 2.2974
+
+[node name="SpotLight3D3" type="SpotLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 5.1839, 3.59085, -7.16367)
+light_energy = 6.511
+shadow_enabled = true
+spot_range = 3.8362
+spot_angle = 30.63
+spot_angle_attenuation = 2.2974
 
 [connection signal="pushed" from="Player" to="TrayScene" method="_on_player_pushed"]
 [connection signal="rotated" from="Player" to="TrayScene" method="_on_player_rotated"]
