@@ -134,7 +134,7 @@ func on_pushed() -> void:
 	$Hit.play()
 	$Ribbit.play()
 	invincibility_timer.start(0.0)
-	$BubbleRoot.visible = false
+	#$BubbleRoot.visible = false
 	$CollisionShape3D.disabled = true
 	$SpriteOrigin/MainSprite.billboard = BaseMaterial3D.BILLBOARD_DISABLED
 	var camera: Camera3D = get_viewport().get_camera_3d()
@@ -160,10 +160,10 @@ func on_pushed() -> void:
 func go_to_billboard(animation_name):
 	$SpriteOrigin.global_rotation_degrees.x = 0.0
 	$SpriteOrigin/MainSprite.billboard = BaseMaterial3D.BILLBOARD_FIXED_Y
+	#if drink_state == DrinkState.WANTS_DRINK:
+		#$BubbleRoot.visible = true
 	$CollisionShape3D.disabled = false
 	$SpriteAnim.animation_finished.disconnect(go_to_billboard)
-	if drink_state == DrinkState.WANTS_DRINK:
-		$BubbleRoot.visible = true
 
 func on_interact(interactor: Node3D) -> void:
 	if is_pushed:
