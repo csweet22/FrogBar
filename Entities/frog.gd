@@ -159,6 +159,7 @@ func on_pushed() -> void:
 	elif drink_state == DrinkState.DISTURBANCE:
 		GameManager.add_score(10.0)
 		$Disturbance.stop()
+		$NoMoreDisturb.play()
 		set_drink_state(DrinkState.NO_DRINK)
 
 func go_to_billboard(animation_name):
