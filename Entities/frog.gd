@@ -111,6 +111,7 @@ func set_drink_state(new_state: DrinkState) -> void:
 		$TalkingTimer.start()
 		$Disturbance.stop()
 		
+	
 	$SpriteOrigin/MainSprite/Drink.visible = drink_state == DrinkState.HAS_DRINK
 	match drink_want:
 		Drinks.DrinkType.A:
@@ -137,7 +138,7 @@ func on_pushed() -> void:
 	$Hit.play()
 	$Ribbit.play()
 	invincibility_timer.start(0.0)
-	#$BubbleRoot.visible = false
+	$BubbleRoot.visible = false
 	$CollisionShape3D.disabled = true
 	$SpriteOrigin/MainSprite.billboard = BaseMaterial3D.BILLBOARD_DISABLED
 	var camera: Camera3D = get_viewport().get_camera_3d()
@@ -155,6 +156,7 @@ func on_pushed() -> void:
 	$SpriteOrigin/MainSprite.play("dead")
 	if drink_state == DrinkState.HAS_DRINK:
 		GameManager.remove_score(5.0)
+		$BreakingGlass.play()
 		set_drink_state(DrinkState.NO_DRINK)
 	elif drink_state == DrinkState.DISTURBANCE:
 		GameManager.add_score(10.0)
@@ -165,8 +167,8 @@ func on_pushed() -> void:
 func go_to_billboard(animation_name):
 	$SpriteOrigin.global_rotation_degrees.x = 0.0
 	$SpriteOrigin/MainSprite.billboard = BaseMaterial3D.BILLBOARD_FIXED_Y
-	#if drink_state == DrinkState.WANTS_DRINK:
-		#$BubbleRoot.visible = true
+	if drink_state == DrinkState.WANTS_DRINK:
+		$BubbleRoot.visible = true
 	$CollisionShape3D.disabled = false
 	$SpriteAnim.animation_finished.disconnect(go_to_billboard)
 
@@ -243,7 +245,7 @@ func get_random_drink():
 		drink_want = Drinks.DrinkType.values().pick_random()
 
 func want_drink():
-	drink_state = DrinkState.WANTS_DRINK
+	set_drink_state(DrinkState.WANTS_DRINK)
 	$BubbleRoot.visible = true
 	match drink_want:
 		Drinks.DrinkType.A:
