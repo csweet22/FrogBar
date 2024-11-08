@@ -189,12 +189,14 @@ visible = false
 sorting_offset = 1.0
 sorting_use_aabb_center = false
 billboard = 2
+shaded = true
 texture = ExtResource("3_gb4b3")
 
 [node name="MainSprite" type="AnimatedSprite3D" parent="SpriteOrigin"]
 transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 1, -0.2, 1.1, 0)
 sorting_use_aabb_center = false
 billboard = 2
+shaded = true
 sprite_frames = ExtResource("2_n5f1c")
 animation = &"relax_neutral"
 
@@ -206,6 +208,7 @@ sorting_use_aabb_center = false
 offset = Vector2(-1350, 1500)
 pixel_size = 0.0005
 billboard = 2
+shaded = true
 texture = ExtResource("3_p0b3i")
 region_rect = Rect2(0, 0, 10000, 1500)
 
@@ -243,12 +246,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_jdarc")
 
 [node name="BubbleRoot" type="Node3D" parent="."]
-visible = false
 
 [node name="Bubble" type="Sprite3D" parent="BubbleRoot"]
 transform = Transform3D(1, 0, 0, 0, 0.774315, 0, 0, 0, 1, 0, 2.02674, 0)
 sorting_offset = 2.0
 offset = Vector2(600, 500)
+modulate = Color(0.691357, 0.691357, 0.691357, 1)
 pixel_size = 0.001
 billboard = 2
 texture = ExtResource("5_xn64t")
