@@ -26,13 +26,48 @@ func _input(event):
 		can_interact = true
 		
 
+var left_just_pressed: bool = false
+var right_just_pressed: bool = false
+
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("main_menu"):
 		get_tree().change_scene_to_file("res://Menus/main_menu.tscn")
 		GameManager.stop_timers()
 	
-	if Input.is_action_pressed("tray_left") and Input.is_action_pressed("tray_right") and can_push:
-		push()
+	if Input.is_action_just_pressed("tray_left"):
+		if right_just_pressed:
+			push()
+			right_just_pressed = false
+			left_just_pressed = false
+			return
+		
+		if left_just_pressed:
+			return
+		
+		left_just_pressed = true
+		get_tree().create_timer(0.1).timeout.connect(
+			func():
+				left_just_pressed = false
+		)
+	
+	if Input.is_action_just_pressed("tray_right"):
+		if left_just_pressed:
+			push()
+			right_just_pressed = false
+			left_just_pressed = false
+			return
+		
+		if right_just_pressed:
+			return
+		
+		right_just_pressed = true
+		get_tree().create_timer(0.1).timeout.connect(
+			func():
+				right_just_pressed = false
+		)
+	
+	#if Input.is_action_pressed("tray_left") and Input.is_action_pressed("tray_right") and can_push:
+		#push()
 	
 	if Input.is_action_just_released("tray_left") || Input.is_action_just_released("tray_right"):
 		can_push = true
