@@ -6,30 +6,32 @@
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_w41dy"]
 friction = 0.1
+bounce = 0.3
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_dj1tb"]
-height = 0.0408731
-radius = 0.106199
+height = 0.0270299
+radius = 0.0732716
 
 [node name="MoneyScene" type="RigidBody3D"]
+transform = Transform3D(0.75926, -0.650787, 0, 0.650787, 0.75926, 0, 0, 0, 1, 0, 0, 0)
 physics_material_override = SubResource("PhysicsMaterial_w41dy")
-gravity_scale = 1.5
 can_sleep = false
 continuous_cd = true
 angular_velocity = Vector3(0.0240855, 0.0377864, 0.0794125)
 script = ExtResource("1_t7ykx")
 
 [node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="."]
+aabb = AABB(-0.087, -0.037, -0.067, 0.154, 0.055, 0.143)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CylinderShape3D_dj1tb")
 
 [node name="browncoin" parent="." instance=ExtResource("2_yqk27")]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, -0.01, 0)
+transform = Transform3D(0.07, 0, 0, 0, 0.07, 0, 0, 0, 0.07, 0, -0.01, 0)
 visible = false
 
 [node name="graycoin" parent="." instance=ExtResource("3_3h4b5")]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, -0.01, 0)
+transform = Transform3D(0.07, 0, 0, 0, 0.07, 0, 0, 0, 0.07, 0, -0.01, 0)
 visible = false
 
 [connection signal="screen_exited" from="VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_exited"]

@@ -87,16 +87,16 @@ func remove_drink(drink: RigidBody3D):
 	drink.queue_free()
 
 func spawn_money(count: float):
-	var instance: Node3D = money_scene.instantiate()
-	instance.position = Vector3(-0.3 * (1.0 if GameManager.is_right_handed else -1.0), 1.5, 0.0)
-	add_child(instance)
-	#for i in range(0, count):
-		#await get_tree().create_timer(0.1).timeout.connect(
-			#func():
-				#var instance: Node3D = money_scene.instantiate()
-				#instance.position = Vector3(-0.3 * (1.0 if GameManager.is_right_handed else -1.0), 1.5, 0.0)
-				#add_child(instance)
-		#)
+	#var instance: Node3D = money_scene.instantiate()
+	#instance.position = Vector3(-0.3 * (1.0 if GameManager.is_right_handed else -1.0), 1.5, 0.0)
+	#add_child(instance)
+	for i in range(0, count):
+		await get_tree().create_timer(0.5).timeout.connect(
+			func():
+				var instance: Node3D = money_scene.instantiate()
+				instance.position = Vector3(-0.3 * (1.0 if GameManager.is_right_handed else -1.0), 1.5, 0.0)
+				add_child(instance)
+		)
 
 func _on_bar_spawner_spawn_drink(drink_type: Drinks.DrinkType) -> void:
 	var instance: Node3D = drink_scene.instantiate()
