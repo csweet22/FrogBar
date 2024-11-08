@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://game_manager.gd" id="1_malej"]
 [ext_resource type="AudioStream" uid="uid://d3gxb3eir11pk" path="res://Sounds/ambience_looping.mp3" id="2_rq8yg"]
 [ext_resource type="AudioStream" uid="uid://bdiu6eg1xe3s4" path="res://Sounds/frog_ribbit.mp3" id="3_d0lqy"]
-[ext_resource type="AudioStream" uid="uid://bwb1bgihyp4cx" path="res://Sounds/temp_music.mp3" id="4_qacvb"]
+[ext_resource type="AudioStream" uid="uid://lq1joh4nve57" path="res://Sounds/music.mp3" id="4_w5ht0"]
 [ext_resource type="AudioStream" uid="uid://dj1std5erjqdq" path="res://Sounds/money_get.mp3" id="5_epa62"]
 [ext_resource type="AudioStream" uid="uid://c5ind1a3ykems" path="res://Sounds/clink_A.mp3" id="6_uvsqw"]
 [ext_resource type="AudioStream" uid="uid://df63bjxxrpwn7" path="res://Sounds/clink_B.mp3" id="7_cvac1"]
@@ -38,7 +38,7 @@ wait_time = 3.0
 autostart = true
 
 [node name="bgm" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_qacvb")
+stream = ExtResource("4_w5ht0")
 autoplay = true
 
 [node name="chaching" type="AudioStreamPlayer" parent="."]
