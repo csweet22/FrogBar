@@ -68,6 +68,7 @@ func _on_player_rotated(degrees: float) -> void:
 
 # move camera to and from (0.0, 0.0, 1.5)
 func on_push():
+	$"Swish".play()
 	if push_tween:
 		push_tween.kill()
 	push_tween = get_tree().create_tween()
