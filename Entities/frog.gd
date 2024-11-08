@@ -182,7 +182,7 @@ func on_interact(interactor: Node3D) -> void:
 			$SpriteOrigin/MainSprite.play("drink_angry")
 			$SpriteOrigin/MainSprite.animation_finished.connect(anger_end)
 			$SpriteOrigin/MainSprite/WrongOrder.visible = true
-			await get_tree().create_timer(1).timeout.connect(
+			get_tree().create_timer(1).timeout.connect(
 				func():
 					$SpriteOrigin/MainSprite/WrongOrder.visible = false
 			)
@@ -206,10 +206,11 @@ func on_interact(interactor: Node3D) -> void:
 				$BubbleRoot.visible = false
 				# remove drink from tray with signal
 				drink_gotten.emit(drink)
+				GameManager.active_order_count -= 1
 				$SpriteOrigin/MainSprite.play("drink_neutral")
 				
 				$SpriteOrigin/MainSprite/GoodOrder.visible = true
-				await get_tree().create_timer(1).timeout.connect(
+				get_tree().create_timer(1).timeout.connect(
 					func():
 						$SpriteOrigin/MainSprite/GoodOrder.visible = false
 				)
@@ -227,7 +228,7 @@ func on_interact(interactor: Node3D) -> void:
 		$SpriteOrigin/MainSprite.play("relax_angry")
 		$SpriteOrigin/MainSprite.animation_finished.connect(anger_end)
 		$SpriteOrigin/MainSprite/WrongOrder.visible = true
-		await get_tree().create_timer(1).timeout.connect(
+		get_tree().create_timer(1).timeout.connect(
 			func():
 				$SpriteOrigin/MainSprite/WrongOrder.visible = false
 		)
@@ -247,6 +248,7 @@ func get_random_drink():
 
 func want_drink():
 	set_drink_state(DrinkState.WANTS_DRINK)
+	GameManager.active_order_count += 1
 	$BubbleRoot.visible = true
 	match drink_want:
 		Drinks.DrinkType.A:

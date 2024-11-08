@@ -111,17 +111,6 @@ func interact():
 	for interactable in interactables:
 		interactable.on_interact(self)
 	return
-	
-	var closest_interactable: Node3D
-	var smallest_distance = 1000
-	for interactable in interactables:
-		var distance = global_position.distance_to(interactable.global_position)
-		if distance < smallest_distance:
-			closest_interactable = interactable
-			smallest_distance = distance
-	if closest_interactable:
-		#print("Interacting with: " + closest_interactable.name)
-		closest_interactable.on_interact(self)
 
 
 func _on_interaction_area_area_entered(area: Area3D) -> void:

@@ -82,7 +82,6 @@ func _on_player_pushed() -> void:
 	on_push()
 
 func remove_drink(drink: RigidBody3D):
-	print("Trying to delete " + drink.name)
 	drinks.erase(drink)
 	drink.queue_free()
 
@@ -91,7 +90,7 @@ func spawn_money(count: float):
 	#instance.position = Vector3(-0.3 * (1.0 if GameManager.is_right_handed else -1.0), 1.5, 0.0)
 	#add_child(instance)
 	for i in range(0, count):
-		await get_tree().create_timer(0.5).timeout.connect(
+		get_tree().create_timer(0.5).timeout.connect(
 			func():
 				var instance: Node3D = money_scene.instantiate()
 				instance.position = Vector3(-0.3 * (1.0 if GameManager.is_right_handed else -1.0), 1.5, 0.0)
@@ -105,7 +104,6 @@ func _on_bar_spawner_spawn_drink(drink_type: Drinks.DrinkType) -> void:
 	drinks.append(instance)
 	add_child(instance)
 	instance.fell.connect(remove_drink)
-	print("Spawned " + instance.name)
 
 
 func _on_tilt_timer_timeout() -> void:

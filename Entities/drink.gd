@@ -6,12 +6,12 @@ signal fell(drink: RigidBody3D)
 
 var to_be_freed: bool = false
 
-func set_up(drink_type: Drinks.DrinkType):
+func set_up(type: Drinks.DrinkType):
 	max_contacts_reported = 1
 	$Martini.disabled = true
 	$Rum.disabled = true
 	$SwampWater.disabled = true
-	self.drink_type = drink_type
+	self.drink_type = type
 	match self.drink_type:
 		Drinks.DrinkType.A:
 			$Sprite3D.texture = preload("res://Gfx/Martini.png")
@@ -26,13 +26,11 @@ func set_up(drink_type: Drinks.DrinkType):
 func _process(delta: float) -> void:
 	if position.y < -1.0 and not to_be_freed:
 		to_be_freed = true
-		print(name + " has fallen.")
 		fell.emit(self)
-		await get_tree().create_timer(0.1).timeout.connect(GameManager.break_glass)
+		get_tree().create_timer(0.1).timeout.connect(GameManager.break_glass)
 
 
 func _on_body_entered(body: Node) -> void:
-	print("BODY ENTERED")
 	if $Clink.playing:
 		return
 	

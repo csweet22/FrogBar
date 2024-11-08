@@ -14,7 +14,10 @@ signal score_changed(new_score: float)
 
 var tray_scene: Node3D
 
-var active_order_count: int = 0
+var active_order_count: int = 0:
+	set(value):
+		active_order_count = value
+		print("active_order_count: " + str(active_order_count))
 var max_active_order_count: int = 5
 
 var player: Node3D
@@ -43,6 +46,7 @@ func get_score() -> float:
 	return score
 
 func start_game():
+	active_order_count = 0
 	set_score(0)
 	# load in all frogs in scene into list
 	frogs = find_nodes_with_script(get_tree().root, load("res://Entities/frog.gd"))
@@ -53,7 +57,6 @@ func start_game():
 		frog.drink_gotten.connect(tray_scene.remove_drink)
 		frog.drink_gotten.connect( 
 			func(drink_scene):
-				active_order_count -= 1
 				hud.remove_drink(drink_scene.drink_type)
 				tray_scene.spawn_money(2)
 				$chaching.play()
@@ -67,6 +70,7 @@ func start_timer():
 
 func on_game_end() -> void:
 	game_ended.emit()
+	tray_scene.spawn_money(20)
 	player.movement_disabled = true
 	stop_timers()
 	load_end_menu()
@@ -107,7 +111,6 @@ func make_order_request() -> void:
 		if random_frog.drink_state == 0 && not random_frog.is_pushed:
 			var request: Drinks.DrinkType = random_frog.want_drink()
 			hud.add_drink(request)
-			active_order_count += 1
 			break
 
 func find_nodes_with_script(root: Node, script: Script) -> Array[Node]:

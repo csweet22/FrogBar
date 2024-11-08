@@ -34,13 +34,19 @@ func add_drink(type: Drinks.DrinkType):
 			drinks[index].activate(preload("res://Gfx/SwampWater.png"), Drinks.DrinkType.C)
 
 func remove_drink(type: Drinks.DrinkType):
+	var found_drink_to_remove = false
+	
 	var index = 0;
 	for drink in drinks:
 		if drink.drink_type == type:
-			free_spots.append(index)
 			drink.deactivate()
+			free_spots.append(index)
+			found_drink_to_remove = true
 			break
 		index += 1
+	
+	if not found_drink_to_remove:
+		print("ISSUE AROSE: COULD NOT REMOVE DRINK")
 
 func on_score_changed(score: float):
 	if tween:
