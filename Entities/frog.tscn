@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://em305t33pc75"]
+[gd_scene load_steps=18 format=3 uid="uid://em305t33pc75"]
 
 [ext_resource type="Script" path="res://Entities/frog.gd" id="1_ayld7"]
 [ext_resource type="SpriteFrames" uid="uid://cyhosoqctpejp" path="res://Entities/frog_man_sprites.tres" id="2_n5f1c"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://bo00yu4x2o240" path="res://Gfx/disturbed.png" id="6_4a6ci"]
 [ext_resource type="Texture2D" uid="uid://ca6w3yygludom" path="res://Gfx/order_wrong.png" id="7_jhc0q"]
 [ext_resource type="AudioStream" uid="uid://c81wkboligt71" path="res://Sounds/hit.mp3" id="10_pwdey"]
+[ext_resource type="AudioStream" uid="uid://bdiu6eg1xe3s4" path="res://Sounds/frog_ribbit.mp3" id="11_78567"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_uvtbl"]
 radius = 0.653424
@@ -203,6 +204,9 @@ libraries = {
 [node name="Hit" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_pwdey")
 volume_db = -9.0
+
+[node name="Ribbit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_78567")
 
 [connection signal="timeout" from="TalkingTimer" to="." method="_on_talking_timer_timeout"]
 [connection signal="animation_changed" from="SpriteOrigin/MainSprite" to="." method="_on_main_sprite_animation_changed"]

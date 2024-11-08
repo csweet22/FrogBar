@@ -132,6 +132,7 @@ func stop_moving() -> void:
 
 func on_pushed() -> void:
 	$Hit.play()
+	$Ribbit.play()
 	invincibility_timer.start(0.0)
 	$BubbleRoot.visible = false
 	$CollisionShape3D.disabled = true
