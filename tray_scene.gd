@@ -2,7 +2,7 @@ extends Node3D
 
 @export var offset: Vector3
 
-@export var tilt_speed: float = 1.0
+@export var tilt_speed: float = 2.0
 
 var push_tween: Tween
 
