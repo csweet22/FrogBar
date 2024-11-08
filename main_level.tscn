@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cv2oe30rc31yb"]
+[gd_scene load_steps=42 format=3 uid="uid://cv2oe30rc31yb"]
 
 [ext_resource type="PackedScene" uid="uid://bbbpykewcb80w" path="res://Entities/player.tscn" id="1_0yw4s"]
 [ext_resource type="Script" path="res://main_level.gd" id="1_xcfvw"]
@@ -7,11 +7,30 @@
 [ext_resource type="PackedScene" uid="uid://dkkakkw3e65qb" path="res://Entities/bar_spawner.tscn" id="3_h8axe"]
 [ext_resource type="PackedScene" uid="uid://bn0mrng5e2hc" path="res://tray_scene.tscn" id="5_nllec"]
 [ext_resource type="Texture2D" uid="uid://bvqb7uc0hatn1" path="res://textures/CONCRETE.png" id="6_1m2wl"]
+[ext_resource type="Texture2D" uid="uid://d155drhhedbjr" path="res://Models/BRICK.png" id="7_146nd"]
+[ext_resource type="PackedScene" uid="uid://3oybvlfm4dc2" path="res://Models/largeColglb.glb" id="7_220rj"]
+[ext_resource type="Texture2D" uid="uid://dhft5c00mvnta" path="res://textures/red wood texture.png" id="7_bvo8m"]
 [ext_resource type="PackedScene" uid="uid://cmrje141omjg" path="res://Models/circular lilypad table.glb" id="7_e6c3w"]
+[ext_resource type="PackedScene" uid="uid://dogsjvlvifpa" path="res://Models/ringBigCutOff.glb" id="8_cf3iy"]
 [ext_resource type="Texture2D" uid="uid://1sjb5nfq2qp2" path="res://Gfx/Martini.png" id="8_fpp5l"]
 [ext_resource type="PackedScene" uid="uid://bji8n271yrlso" path="res://Models/rectangular lilypad table.glb" id="10_r2ri1"]
 [ext_resource type="PackedScene" uid="uid://dh88oks36xib5" path="res://Models/cattail light.glb" id="11_vwev4"]
 [ext_resource type="PackedScene" uid="uid://go4o7i1yvcj4" path="res://Models/generic ceiling lamp.glb" id="12_efkpu"]
+[ext_resource type="PackedScene" uid="uid://3eip2yr6a74s" path="res://Models/marbleTopROUNDED.glb" id="13_ktc82"]
+[ext_resource type="Texture2D" uid="uid://bhuk7lyxljq07" path="res://Gfx/Rum&Croak.png" id="13_pnenf"]
+[ext_resource type="Texture2D" uid="uid://c0o6ebbl5dc1u" path="res://Gfx/SwampWater.png" id="14_4ug5f"]
+[ext_resource type="PackedScene" uid="uid://bpjbdglr0dl63" path="res://Models/smallRingWhole.glb" id="16_hbnwv"]
+[ext_resource type="PackedScene" uid="uid://u8cpx5558jsj" path="res://Models/concreteBarBase.glb" id="17_vexfk"]
+[ext_resource type="PackedScene" uid="uid://btsqjfsuxuxqq" path="res://Models/smallSuppDarkWood.glb" id="18_25nes"]
+[ext_resource type="PackedScene" uid="uid://b0x287v7qrxdr" path="res://Models/marbleTopSQUARE.glb" id="19_k2y8f"]
+[ext_resource type="PackedScene" uid="uid://bqedbi8c8g2ca" path="res://Models/Lilypad tray.glb" id="20_p1tj3"]
+[ext_resource type="Texture2D" uid="uid://ulfsfp47up3m" path="res://textures/WALL.png" id="21_ami3j"]
+[ext_resource type="Texture2D" uid="uid://b8o8fkofw4vaq" path="res://textures/spruce wood texture.png" id="22_67yav"]
+[ext_resource type="Texture2D" uid="uid://d0mtev4kkcdch" path="res://textures/dark wood texture.png" id="25_h03lk"]
+[ext_resource type="PackedScene" uid="uid://d4c0k0ltiul1l" path="res://Models/woodShelfSingular.glb" id="25_mrnfc"]
+[ext_resource type="PackedScene" uid="uid://b6h154jm640ny" path="res://Models/Door.glb" id="26_rxg3y"]
+[ext_resource type="PackedScene" uid="uid://b2lrcuvuhodhd" path="res://Models/wallAccentTALL.glb" id="27_bvxfg"]
+[ext_resource type="PackedScene" uid="uid://du6re3txxiji3" path="res://Models/wallAccentSHORT.glb" id="27_h0p2d"]
 
 [sub_resource type="Environment" id="Environment_nvwhm"]
 
@@ -23,9 +42,38 @@ cell_height = 0.1
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7ms2y"]
 albedo_texture = ExtResource("6_1m2wl")
+uv1_scale = Vector3(3, 3, 3)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gqh2v"]
+albedo_color = Color(0.0708272, 0.0708272, 0.0708272, 1)
+albedo_texture = ExtResource("21_ami3j")
+uv1_scale = Vector3(10, 1, 10)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fpd3t"]
+albedo_texture = ExtResource("21_ami3j")
+uv1_scale = Vector3(1, 5, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_48vga"]
+albedo_texture = ExtResource("22_67yav")
+uv1_scale = Vector3(5, 5, 5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_isevc"]
+albedo_texture = ExtResource("25_h03lk")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_env28"]
+albedo_texture = ExtResource("7_146nd")
+uv1_scale = Vector3(20, 2, 20)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jsxnk"]
+albedo_texture = ExtResource("7_146nd")
+uv1_scale = Vector3(20, 4, 4)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wy3a6"]
+albedo_texture = ExtResource("7_bvo8m")
 uv1_scale = Vector3(2, 2, 2)
 
 [node name="MainLevel" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0275574, 0, 0.0535107)
 script = ExtResource("1_xcfvw")
 
 [node name="Player" parent="." instance=ExtResource("1_0yw4s")]
@@ -68,15 +116,23 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.93183, 0, 3.46778)
 can_move = true
 
 [node name="Frog7" parent="." instance=ExtResource("3_3qwbp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.30607, 0, 5.35702)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.30607, 0, 3.40124)
+can_move = true
+
+[node name="Frog9" parent="." instance=ExtResource("3_3qwbp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.31054, -0.0122471, -0.803295)
+can_move = true
+
+[node name="Frog10" parent="." instance=ExtResource("3_3qwbp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.30607, 0, -2.99465)
 can_move = true
 
 [node name="Frog8" parent="." instance=ExtResource("3_3qwbp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.01728, 0, 5.03952)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.01728, 0, 3.43863)
 can_move = true
 
 [node name="bar_spawner" parent="." instance=ExtResource("3_h8axe")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -7)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.0546, 0, -7)
 
 [node name="Label3D" type="Label3D" parent="bar_spawner"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0.6)
@@ -91,7 +147,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0.6)
 text = "DRINK B"
 
 [node name="bar_spawner3" parent="." instance=ExtResource("3_h8axe")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -7)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.41586, 0, -7)
 drink_type = 3
 
 [node name="Label3D" type="Label3D" parent="bar_spawner3"]
@@ -102,9 +158,9 @@ text = "DRINK C"
 navigation_mesh = SubResource("NavigationMesh_5ocl7")
 
 [node name="Floor" type="CSGBox3D" parent="NavigationRegion3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.557739, -0.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.42144, -0.5, -8.85117)
 use_collision = true
-size = Vector3(26.1765, 1, 16)
+size = Vector3(24.4491, 1, 28.4547)
 material = SubResource("StandardMaterial3D_7ms2y")
 
 [node name="TrayScene" parent="." instance=ExtResource("5_nllec")]
@@ -112,37 +168,357 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 100, 0)
 
 [node name="Mesh (Assets)" type="Node3D" parent="."]
 
+[node name="wallAccentSHORT" parent="Mesh (Assets)" instance=ExtResource("27_h0p2d")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -10.5005, 0, 1.24187)
+
+[node name="wallAccentSHORT2" parent="Mesh (Assets)" instance=ExtResource("27_h0p2d")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -10.5005, 0, -6.84309)
+
+[node name="wallAccentSHORT3" parent="Mesh (Assets)" instance=ExtResource("27_h0p2d")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -10.5005, 0, -14.9339)
+
+[node name="wallAccentSHORT4" parent="Mesh (Assets)" instance=ExtResource("27_h0p2d")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 10.3703, 0, 1.24187)
+
+[node name="wallAccentSHORT5" parent="Mesh (Assets)" instance=ExtResource("27_h0p2d")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 10.3703, 0, -6.84309)
+
+[node name="wallAccentSHORT6" parent="Mesh (Assets)" instance=ExtResource("27_h0p2d")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 10.3703, 0, -14.9339)
+
+[node name="wallAccentTALL" parent="Mesh (Assets)" instance=ExtResource("27_bvxfg")]
+transform = Transform3D(-0.8, 0, -6.99382e-08, 0, 0.8, 0, 6.99382e-08, 0, -0.8, -9.73431, -2.38419e-07, 5.14203)
+
+[node name="wallAccentTALL2" parent="Mesh (Assets)" instance=ExtResource("27_bvxfg")]
+transform = Transform3D(-0.8, 0, -6.99382e-08, 0, 0.8, 0, 6.99382e-08, 0, -0.8, -6.69137, -2.38419e-07, 5.14203)
+
+[node name="wallAccentTALL3" parent="Mesh (Assets)" instance=ExtResource("27_bvxfg")]
+transform = Transform3D(-0.8, 0, -6.99382e-08, 0, 0.8, 0, 6.99382e-08, 0, -0.8, -3.60513, -2.38419e-07, 5.14203)
+
+[node name="wallAccentTALL4" parent="Mesh (Assets)" instance=ExtResource("27_bvxfg")]
+transform = Transform3D(-0.8, 0, -6.99382e-08, 0, 0.8, 0, 6.99382e-08, 0, -0.8, -0.562193, -2.38419e-07, 5.14203)
+
+[node name="wallAccentTALL5" parent="Mesh (Assets)" instance=ExtResource("27_bvxfg")]
+transform = Transform3D(-0.8, 0, -6.99382e-08, 0, 0.8, 0, 6.99382e-08, 0, -0.8, 2.47993, -2.38419e-07, 5.14203)
+
+[node name="wallAccentTALL6" parent="Mesh (Assets)" instance=ExtResource("27_bvxfg")]
+transform = Transform3D(-0.8, 0, -6.99382e-08, 0, 0.8, 0, 6.99382e-08, 0, -0.8, 5.52287, -2.38419e-07, 5.14203)
+
+[node name="wallAccentTALL7" parent="Mesh (Assets)" instance=ExtResource("27_bvxfg")]
+transform = Transform3D(-0.8, 0, -6.99382e-08, 0, 0.8, 0, 6.99382e-08, 0, -0.8, 8.6091, -2.38419e-07, 5.14203)
+
+[node name="wallAccentTALL8" parent="Mesh (Assets)" instance=ExtResource("27_bvxfg")]
+transform = Transform3D(-0.8, 0, -6.99382e-08, 0, 0.8, 0, 6.99382e-08, 0, -0.8, 10.973, 0, 5.141)
+
 [node name="circular lilypad table" parent="Mesh (Assets)" instance=ExtResource("7_e6c3w")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -6.68697, 0, 1.46137)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -1.80906, 0, 1.50294)
+
+[node name="circular lilypad table3" parent="Mesh (Assets)" instance=ExtResource("7_e6c3w")]
+transform = Transform3D(0.145426, 0, 0.478384, 0, 0.5, 0, -0.478384, 0, 0.145426, 3.9565, 0, 1.58907)
+
+[node name="circular lilypad table5" parent="Mesh (Assets)" instance=ExtResource("7_e6c3w")]
+transform = Transform3D(-0.245345, 0, -0.435667, 0, 0.5, 0, 0.435667, 0, -0.245345, 8.31695, 4.76837e-07, 1.43994)
+
+[node name="circular lilypad table4" parent="Mesh (Assets)" instance=ExtResource("7_e6c3w")]
+transform = Transform3D(0.37229, 0, 0.333767, 0, 0.5, 0, -0.333767, 0, 0.37229, -7.41812, 0, 1.65627)
+
+[node name="circular lilypad table2" parent="Mesh (Assets)" instance=ExtResource("7_e6c3w")]
+transform = Transform3D(-0.471579, 0, -0.166171, 0, 0.5, 0, 0.166171, 0, -0.471579, 9.01334, 0, -6.14486)
 
 [node name="Sprite3D" type="Sprite3D" parent="Mesh (Assets)"]
-transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, -3.96612, 1.37888, -6.97499)
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, -5.29694, 1.73352, -6.99864)
+billboard = 2
+texture = ExtResource("8_fpp5l")
+
+[node name="Sprite3D4" type="Sprite3D" parent="Mesh (Assets)"]
+transform = Transform3D(0.0499263, 0, 0.0027144, 0, 0.05, 0, -0.0027144, 0, 0.0499263, -0.0762078, 1.73352, -6.79147)
+billboard = 2
+texture = ExtResource("13_pnenf")
+
+[node name="Sprite3D7" type="Sprite3D" parent="Mesh (Assets)"]
+transform = Transform3D(0.0499263, 0, 0.0027144, 0, 0.05, 0, -0.0027144, 0, 0.0499263, 5.0189, 1.73352, -7.25884)
+billboard = 2
+texture = ExtResource("14_4ug5f")
+
+[node name="Sprite3D8" type="Sprite3D" parent="Mesh (Assets)"]
+transform = Transform3D(0.0499263, 0, 0.0027144, 0, 0.05, 0, -0.0027144, 0, 0.0499263, 5.45394, 1.73352, -7.25884)
+billboard = 2
+texture = ExtResource("14_4ug5f")
+
+[node name="Sprite3D9" type="Sprite3D" parent="Mesh (Assets)"]
+transform = Transform3D(0.0499263, 0, 0.0027144, 0, 0.05, 0, -0.0027144, 0, 0.0499263, 5.26657, 1.73352, -6.90575)
+billboard = 2
+texture = ExtResource("14_4ug5f")
+
+[node name="Sprite3D5" type="Sprite3D" parent="Mesh (Assets)"]
+transform = Transform3D(0.0499982, 0, 0.000424983, 0, 0.05, 0, -0.000424983, 0, 0.0499982, 0.254614, 1.73352, -7.08175)
+billboard = 2
+texture = ExtResource("13_pnenf")
+
+[node name="Sprite3D6" type="Sprite3D" parent="Mesh (Assets)"]
+transform = Transform3D(0.0499982, 0, 0.000424983, 0, 0.05, 0, -0.000424983, 0, 0.0499982, -0.217889, 1.73352, -7.32634)
+billboard = 2
+texture = ExtResource("13_pnenf")
+
+[node name="Sprite3D2" type="Sprite3D" parent="Mesh (Assets)"]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, -5.07321, 1.73352, -7.35812)
+billboard = 2
+texture = ExtResource("8_fpp5l")
+
+[node name="Sprite3D3" type="Sprite3D" parent="Mesh (Assets)"]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, -4.82236, 1.73352, -7.08755)
 billboard = 2
 texture = ExtResource("8_fpp5l")
 
 [node name="rectangular lilypad table" parent="Mesh (Assets)" instance=ExtResource("10_r2ri1")]
-transform = Transform3D(-0.25, 0, -0.433013, 0, 0.5, 0, 0.433013, 0, -0.25, -0.326966, 0, -1.87192)
-
-[node name="generic ceiling lamp2" parent="Mesh (Assets)" instance=ExtResource("12_efkpu")]
-transform = Transform3D(0.155291, 0, -0.579555, 0, 0.6, 0, 0.579555, 0, 0.155291, -0.741084, 1.55638, -1.09154)
+transform = Transform3D(-0.25, 0, -0.433013, 0, 0.5, 0, 0.433013, 0, -0.25, 1.57799, 0, -2.0028)
 
 [node name="generic ceiling lamp" parent="Mesh (Assets)" instance=ExtResource("12_efkpu")]
-transform = Transform3D(0.155291, 0, -0.579555, 0, 0.6, 0, 0.579555, 0, 0.155291, 0.167873, 1.55136, -2.64811)
+transform = Transform3D(0.599999, 0, 0, 0, 0.6, 0, 0, 0, 0.599999, -4.97502, 2.11025, -2.06056)
+
+[node name="generic ceiling lamp3" parent="Mesh (Assets)" instance=ExtResource("12_efkpu")]
+transform = Transform3D(0.599999, 0, 0, 0, 0.6, 0, 0, 0, 0.599999, 1.68565, 2.11025, -2.06056)
+
+[node name="generic ceiling lamp4" parent="Mesh (Assets)" instance=ExtResource("12_efkpu")]
+transform = Transform3D(0.599999, 0, 0, 0, 0.6, 0, 0, 0, 0.599999, 6.74319, 2.11025, -2.06056)
+
+[node name="generic ceiling lamp2" parent="Mesh (Assets)" instance=ExtResource("12_efkpu")]
+transform = Transform3D(0.599999, 0, 0, 0, 0.6, 0, 0, 0, 0.599999, -3.78826, 2.11025, 1.62412)
+
+[node name="generic ceiling lamp7" parent="Mesh (Assets)" instance=ExtResource("12_efkpu")]
+transform = Transform3D(0.599999, 0, 0, 0, 0.6, 0, 0, 0, 0.599999, -9.4954, 2.11025, 1.62412)
+
+[node name="generic ceiling lamp8" parent="Mesh (Assets)" instance=ExtResource("12_efkpu")]
+transform = Transform3D(0.599999, 0, 0, 0, 0.6, 0, 0, 0, 0.599999, -9.4954, 2.11025, -6.67497)
+
+[node name="generic ceiling lamp9" parent="Mesh (Assets)" instance=ExtResource("12_efkpu")]
+transform = Transform3D(0.599999, 0, 0, 0, 0.6, 0, 0, 0, 0.599999, 9.50872, 2.11025, -6.67497)
+
+[node name="generic ceiling lamp5" parent="Mesh (Assets)" instance=ExtResource("12_efkpu")]
+transform = Transform3D(0.599999, 0, 0, 0, 0.6, 0, 0, 0, 0.599999, 4.44897, 2.11025, 1.62412)
+
+[node name="generic ceiling lamp6" parent="Mesh (Assets)" instance=ExtResource("12_efkpu")]
+transform = Transform3D(0.599999, 0, 0, 0, 0.6, 0, 0, 0, 0.599999, 9.50651, 2.11025, 1.62412)
 
 [node name="cattail light2" parent="Mesh (Assets)" instance=ExtResource("11_vwev4")]
-transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 2.671, 1.52655, -7.27813)
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 2.67988, 1.52655, -7.27813)
 
-[node name="cattail light" parent="Mesh (Assets)" instance=ExtResource("11_vwev4")]
-transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, -2.1713, 1.5301, -7.37419)
+[node name="cattail light3" parent="Mesh (Assets)" instance=ExtResource("11_vwev4")]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 7.25547, 1.52655, -7.27813)
+
+[node name="cattail light4" parent="Mesh (Assets)" instance=ExtResource("11_vwev4")]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, -7.34248, 1.52655, -7.27813)
+
+[node name="cattail light5" parent="Mesh (Assets)" instance=ExtResource("11_vwev4")]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, -2.76689, 1.52655, -7.27813)
 
 [node name="rectangular lilypad table2" parent="Mesh (Assets)" instance=ExtResource("10_r2ri1")]
-transform = Transform3D(0.25, 0, 0.433013, 0, 0.5, 0, -0.433013, 0, 0.25, 3.79176, -4.76837e-07, -1.7663)
+transform = Transform3D(0.25, 0, 0.433013, 0, 0.5, 0, -0.433013, 0, 0.25, 6.54068, -4.76837e-07, -1.96231)
 
 [node name="rectangular lilypad table3" parent="Mesh (Assets)" instance=ExtResource("10_r2ri1")]
-transform = Transform3D(-0.25, 0, 0.433013, 0, 0.5, 0, -0.433013, 0, -0.25, -4.71744, -9.53674e-07, -2.09989)
+transform = Transform3D(-0.25, 0, 0.433013, 0, 0.5, 0, -0.433013, 0, -0.25, -5.0049, -9.53674e-07, -2.02283)
 
 [node name="rectangular lilypad table4" parent="Mesh (Assets)" instance=ExtResource("10_r2ri1")]
-transform = Transform3D(-2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, -10.4702, 0, -2.0142)
+transform = Transform3D(-0.433013, 0, -0.25, 0, 0.5, 0, 0.25, 0, -0.433013, -8.51351, -9.53674e-07, -5.10469)
+
+[node name="marbleTopROUNDED" parent="Mesh (Assets)" instance=ExtResource("13_ktc82")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.37064, 1.25907, -7.30481)
+
+[node name="marbleTopROUNDED3" parent="Mesh (Assets)" instance=ExtResource("13_ktc82")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.94189, 1.258, -7.305)
+
+[node name="marbleTopROUNDED2" parent="Mesh (Assets)" instance=ExtResource("13_ktc82")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -7.28362, 1.25907, -7.30481)
+
+[node name="smallRingWhole" parent="Mesh (Assets)" instance=ExtResource("16_hbnwv")]
+transform = Transform3D(-0.5, 0, -7.54979e-08, 0, 0.5, 0, 7.54979e-08, 0, -0.5, 2.88701, -0.375429, -6.71832)
+
+[node name="concreteBarBase" parent="Mesh (Assets)" instance=ExtResource("17_vexfk")]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, -3.09113, 0.117982, -6.74111)
+
+[node name="concreteBarBase2" parent="Mesh (Assets)" instance=ExtResource("17_vexfk")]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 2.87513, 0.117982, -6.74111)
+
+[node name="concreteBarBase3" parent="Mesh (Assets)" instance=ExtResource("17_vexfk")]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, -3.09113, 0.117982, -7.85669)
+
+[node name="concreteBarBase5" parent="Mesh (Assets)" instance=ExtResource("17_vexfk")]
+transform = Transform3D(-3.27835e-08, 0, 0.75, 0, 0.75, 0, -0.75, 0, -3.27835e-08, -7.49345, 0.117982, -11.151)
+
+[node name="concreteBarBase4" parent="Mesh (Assets)" instance=ExtResource("17_vexfk")]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 2.87513, 0.117982, -7.85669)
+
+[node name="smallSuppDarkWood" parent="Mesh (Assets)" instance=ExtResource("18_25nes")]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 1.4317, -2.82671, -6.74968)
+
+[node name="smallRingWhole5" parent="Mesh (Assets)" instance=ExtResource("16_hbnwv")]
+transform = Transform3D(-0.5, 0, -7.54979e-08, 0, 0.5, 0, 7.54979e-08, 0, -0.5, 5.88502, -0.375429, -6.71832)
+
+[node name="smallSuppDarkWood5" parent="Mesh (Assets)" instance=ExtResource("18_25nes")]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 4.42971, -2.82671, -6.74968)
+
+[node name="smallSuppDarkWood6" parent="Mesh (Assets)" instance=ExtResource("18_25nes")]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 7.37981, -2.82671, -6.74968)
+
+[node name="smallSuppDarkWood7" parent="Mesh (Assets)" instance=ExtResource("18_25nes")]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 7.37981, -2.82671, -7.86374)
+
+[node name="smallRingWhole2" parent="Mesh (Assets)" instance=ExtResource("16_hbnwv")]
+transform = Transform3D(-0.5, 0, -7.54979e-08, 0, 0.5, 0, 7.54979e-08, 0, -0.5, -0.0169978, -0.375429, -6.71832)
+
+[node name="smallSuppDarkWood2" parent="Mesh (Assets)" instance=ExtResource("18_25nes")]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, -1.47231, -2.82671, -6.74968)
+
+[node name="smallRingWhole3" parent="Mesh (Assets)" instance=ExtResource("16_hbnwv")]
+transform = Transform3D(-0.5, 0, -7.54979e-08, 0, 0.5, 0, 7.54979e-08, 0, -0.5, -2.9297, -0.375429, -6.71832)
+
+[node name="smallSuppDarkWood3" parent="Mesh (Assets)" instance=ExtResource("18_25nes")]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, -4.38501, -2.82671, -6.74968)
+
+[node name="smallRingWhole4" parent="Mesh (Assets)" instance=ExtResource("16_hbnwv")]
+transform = Transform3D(-0.5, 0, -7.54979e-08, 0, 0.5, 0, 7.54979e-08, 0, -0.5, -5.83429, -0.375429, -6.71832)
+
+[node name="smallRingWhole6" parent="Mesh (Assets)" instance=ExtResource("16_hbnwv")]
+transform = Transform3D(-5.36422e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -5.36422e-08, -7.41306, -0.375429, -9.32375)
+
+[node name="smallSuppDarkWood4" parent="Mesh (Assets)" instance=ExtResource("18_25nes")]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, -7.2896, -2.82671, -6.74968)
+
+[node name="smallSuppDarkWood8" parent="Mesh (Assets)" instance=ExtResource("18_25nes")]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, -7.2896, -2.82671, -7.86061)
+
+[node name="smallSuppDarkWood9" parent="Mesh (Assets)" instance=ExtResource("18_25nes")]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, -7.2896, -2.82671, -10.808)
+
+[node name="marbleTopSQUARE" parent="Mesh (Assets)" instance=ExtResource("19_k2y8f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.57449, 1.3838, -11.2848)
+
+[node name="marbleTopSQUARE2" parent="Mesh (Assets)" instance=ExtResource("19_k2y8f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.011, 1.383, -11.2844)
+
+[node name="Lilypad tray" parent="Mesh (Assets)" instance=ExtResource("20_p1tj3")]
+transform = Transform3D(0.691424, 0, -0.109239, 0, 0.7, 0, 0.109239, 0, 0.691424, -5.04966, 1.39408, -7.14232)
+
+[node name="Lilypad tray2" parent="Mesh (Assets)" instance=ExtResource("20_p1tj3")]
+transform = Transform3D(0.300519, 0, -0.632209, 0, 0.7, 0, 0.632209, 0, 0.300519, -0.00187254, 1.39408, -7.14232)
+
+[node name="Lilypad tray3" parent="Mesh (Assets)" instance=ExtResource("20_p1tj3")]
+transform = Transform3D(-0.0247349, 0, 0.699563, 0, 0.7, 0, -0.699563, 0, -0.0247349, 5.33197, 1.39408, -7.14232)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Mesh (Assets)"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.444322, 5.46574, -11.399)
+size = Vector3(22.9244, 3.22229, 2.07544)
+material = SubResource("StandardMaterial3D_gqh2v")
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Mesh (Assets)"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0767961, 3.52009, 5.91203)
+size = Vector3(27.6124, 7.11359, 1.40576)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="Mesh (Assets)"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.0235, 3.52009, -4.30864)
+size = Vector3(1.30727, 7.11359, 23.5594)
+material = SubResource("StandardMaterial3D_fpd3t")
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="Mesh (Assets)"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.51753, 3.52009, -15.5289)
+size = Vector3(8.88044, 7.11359, 1.11893)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Mesh (Assets)"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2.70218, 5.95963, -2.4637)
+size = Vector3(19.9038, 2.15967, 1.04797)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="Mesh (Assets)"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -7.96411, 5.95963, -2.4637)
+size = Vector3(19.9038, 2.15967, 1.04797)
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="Mesh (Assets)"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -7.78585, 3.29293, -15.7532)
+size = Vector3(8.57217, 7.4812, 1.04797)
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="Mesh (Assets)"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.22529, 3.29293, -19.419)
+size = Vector3(8.57217, 7.4812, 1.04797)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="Mesh (Assets)"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -10.9731, 3.38692, -5.98473)
+size = Vector3(26.9459, 7.29321, 1.04797)
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="Mesh (Assets)"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.139124, 7.33753, -6.72762)
+size = Vector3(25.9372, 1.11584, 23.0602)
+material = SubResource("StandardMaterial3D_48vga")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Mesh (Assets)"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.70639, 5.95963, -2.4637)
+size = Vector3(19.9038, 2.15967, 1.04797)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Mesh (Assets)"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 8.06882, 5.95963, -2.4637)
+size = Vector3(19.9038, 2.15967, 1.04797)
+material = SubResource("StandardMaterial3D_isevc")
+
+[node name="Floor2" type="CSGBox3D" parent="Mesh (Assets)"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0330634, 0.516542, -7.01013)
+use_collision = true
+size = Vector3(14.4346, 1.58173, 0.253052)
+material = SubResource("StandardMaterial3D_env28")
+
+[node name="Floor5" type="CSGBox3D" parent="Mesh (Assets)"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -7.08994, 0.516542, -14.6239)
+use_collision = true
+size = Vector3(14.4346, 1.58173, 0.253052)
+material = SubResource("StandardMaterial3D_env28")
+
+[node name="Floor4" type="CSGBox3D" parent="Mesh (Assets)"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0630183, 2.82746, -12.0784)
+use_collision = true
+size = Vector3(15.2598, 3.31004, 0.253052)
+material = SubResource("StandardMaterial3D_jsxnk")
+
+[node name="largeColglb" parent="Mesh (Assets)" instance=ExtResource("7_220rj")]
+transform = Transform3D(-0.75, 6.55671e-08, 0, -6.55671e-08, -0.75, 0, 0, 0, 0.75, 2.7357, 6.42297, -11.3193)
+
+[node name="largeColglb2" parent="Mesh (Assets)" instance=ExtResource("7_220rj")]
+transform = Transform3D(-0.75, 6.55671e-08, 0, -6.55671e-08, -0.75, 0, 0, 0, 0.75, 7.94792, 6.42297, -11.3193)
+
+[node name="largeColglb3" parent="Mesh (Assets)" instance=ExtResource("7_220rj")]
+transform = Transform3D(3.27835e-08, -2.86603e-15, 0.75, -6.55671e-08, -0.75, 0, 0.75, -6.55671e-08, -3.27835e-08, 6.90707, 0.101168, -7.35211)
+
+[node name="largeColglb6" parent="Mesh (Assets)" instance=ExtResource("7_220rj")]
+transform = Transform3D(3.27835e-08, -2.86603e-15, 0.75, -6.55671e-08, -0.75, 0, 0.75, -6.55671e-08, -3.27835e-08, -6.03152, 0.101168, -7.35211)
+
+[node name="ringBigCutOff" parent="Mesh (Assets)" instance=ExtResource("8_cf3iy")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -7.15642, 2.51785, -11.196)
+
+[node name="largeColglb4" parent="Mesh (Assets)" instance=ExtResource("7_220rj")]
+transform = Transform3D(-0.75, 6.55671e-08, 0, -6.55671e-08, -0.75, 0, 0, 0, 0.75, -2.68926, 6.42297, -11.3193)
+
+[node name="largeColglb5" parent="Mesh (Assets)" instance=ExtResource("7_220rj")]
+transform = Transform3D(-0.75, 6.55671e-08, 0, -6.55671e-08, -0.75, 0, 0, 0, 0.75, -7.89553, 6.42297, -11.3193)
+
+[node name="largeColglb7" parent="Mesh (Assets)" instance=ExtResource("7_220rj")]
+transform = Transform3D(-0.75, 6.55671e-08, 0, -6.55671e-08, -0.75, 0, 0, 0, 0.75, -7.89553, 6.42297, -11.3193)
+
+[node name="ringBigCutOff2" parent="Mesh (Assets)" instance=ExtResource("8_cf3iy")]
+transform = Transform3D(-0.7, 0, -6.11959e-08, 0, 0.7, 0, 6.11959e-08, 0, -0.7, 7.09811, 2.51785, -11.196)
+
+[node name="Floor3" type="CSGBox3D" parent="Mesh (Assets)"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0397811, 0.516542, -11.2138)
+use_collision = true
+size = Vector3(15.2556, 1.58173, 0.253052)
+material = SubResource("StandardMaterial3D_wy3a6")
+
+[node name="woodShelfSingular" parent="Mesh (Assets)" instance=ExtResource("25_mrnfc")]
+transform = Transform3D(-0.75, 0, -6.55671e-08, 0, 0.75, 0, 6.55671e-08, 0, -0.75, 2.42896, 2.19951, -12.186)
+
+[node name="woodShelfSingular2" parent="Mesh (Assets)" instance=ExtResource("25_mrnfc")]
+transform = Transform3D(-0.75, 0, -6.55671e-08, 0, 0.75, 0, 6.55671e-08, 0, -0.75, -7.71744, 2.19951, -12.186)
+
+[node name="Door" parent="Mesh (Assets)" instance=ExtResource("26_rxg3y")]
+transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, -8.42322, 9.53674e-07, -14.1714)
+
+[node name="Door2" parent="Mesh (Assets)" instance=ExtResource("26_rxg3y")]
+transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, -8.42322, 9.53674e-07, -17.2429)
 
 [connection signal="pushed" from="Player" to="TrayScene" method="_on_player_pushed"]
 [connection signal="rotated" from="Player" to="TrayScene" method="_on_player_rotated"]
