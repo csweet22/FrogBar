@@ -55,6 +55,7 @@ func start_game():
 			func(drink_scene):
 				active_order_count -= 1
 				hud.remove_drink(drink_scene.drink_type)
+				tray_scene.spawn_money(2)
 		)
 	start_timer()
 

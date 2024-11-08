@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dpp2iv0cdsx74"]
+[gd_scene load_steps=5 format=3 uid="uid://dpp2iv0cdsx74"]
 
 [ext_resource type="Script" path="res://game_manager.gd" id="1_malej"]
 [ext_resource type="AudioStream" uid="uid://d3gxb3eir11pk" path="res://Sounds/ambience_looping.mp3" id="2_rq8yg"]
 [ext_resource type="AudioStream" uid="uid://bdiu6eg1xe3s4" path="res://Sounds/frog_ribbit.mp3" id="3_d0lqy"]
+[ext_resource type="AudioStream" uid="uid://bwb1bgihyp4cx" path="res://Sounds/temp_music.mp3" id="4_qacvb"]
 
 [node name="GameManager" type="Node" node_paths=PackedStringArray("game_timer")]
 script = ExtResource("1_malej")
@@ -25,11 +26,15 @@ autoplay = true
 
 [node name="ribbit" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_d0lqy")
-volume_db = -18.208
+volume_db = -28.0
 
 [node name="RibbitTimer" type="Timer" parent="ribbit"]
 wait_time = 3.0
 autostart = true
+
+[node name="bgm" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_qacvb")
+autoplay = true
 
 [connection signal="timeout" from="DrinkRequestTimer" to="." method="_on_drink_request_timer_timeout"]
 [connection signal="timeout" from="DisturbanceTimer" to="." method="_on_disturbance_timer_timeout"]

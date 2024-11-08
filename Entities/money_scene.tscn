@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://cfpa26ttsneuq"]
+
+[ext_resource type="Script" path="res://Entities/money.gd" id="1_t7ykx"]
+[ext_resource type="PackedScene" uid="uid://bnwu2hwdmkb1b" path="res://Models/browncoin.glb" id="2_yqk27"]
+[ext_resource type="PackedScene" uid="uid://7vgpousg0cxp" path="res://Models/graycoin.glb" id="3_3h4b5"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_dj1tb"]
+height = 0.0232518
+radius = 0.100352
+
+[node name="MoneyScene" type="RigidBody3D"]
+can_sleep = false
+continuous_cd = true
+angular_velocity = Vector3(0.0174533, 0.0174533, 0.0174533)
+script = ExtResource("1_t7ykx")
+
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CylinderShape3D_dj1tb")
+
+[node name="browncoin" parent="." instance=ExtResource("2_yqk27")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, -0.01, 0)
+
+[node name="graycoin" parent="." instance=ExtResource("3_3h4b5")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, -0.01, 0)
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_exited"]
