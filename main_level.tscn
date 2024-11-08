@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cv2oe30rc31yb"]
+[gd_scene load_steps=13 format=3 uid="uid://cv2oe30rc31yb"]
 
 [ext_resource type="PackedScene" uid="uid://bbbpykewcb80w" path="res://Entities/player.tscn" id="1_0yw4s"]
 [ext_resource type="Script" path="res://main_level.gd" id="1_xcfvw"]
@@ -6,6 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://em305t33pc75" path="res://Entities/frog.tscn" id="3_3qwbp"]
 [ext_resource type="PackedScene" uid="uid://dkkakkw3e65qb" path="res://Entities/bar_spawner.tscn" id="3_h8axe"]
 [ext_resource type="PackedScene" uid="uid://bn0mrng5e2hc" path="res://tray_scene.tscn" id="5_nllec"]
+[ext_resource type="Texture2D" uid="uid://bvqb7uc0hatn1" path="res://textures/CONCRETE.png" id="6_1m2wl"]
+[ext_resource type="PackedScene" uid="uid://cmrje141omjg" path="res://Models/circular lilypad table.glb" id="7_e6c3w"]
+[ext_resource type="Texture2D" uid="uid://1sjb5nfq2qp2" path="res://Gfx/Martini.png" id="8_fpp5l"]
 
 [sub_resource type="Environment" id="Environment_nvwhm"]
 
@@ -14,6 +17,10 @@ vertices = PackedVector3Array(-7.5, 0.2, -7.5, -7.5, 0.2, 7.5, 7.5, 0.2, 7.5, 7.
 polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
 cell_size = 0.1
 cell_height = 0.1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7ms2y"]
+albedo_texture = ExtResource("6_1m2wl")
+uv1_scale = Vector3(1.5, 1.5, 1.5)
 
 [node name="MainLevel" type="Node3D"]
 script = ExtResource("1_xcfvw")
@@ -95,9 +102,20 @@ navigation_mesh = SubResource("NavigationMesh_5ocl7")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 use_collision = true
 size = Vector3(16, 1, 16)
+material = SubResource("StandardMaterial3D_7ms2y")
 
 [node name="TrayScene" parent="." instance=ExtResource("5_nllec")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 100, 0)
+
+[node name="Mesh (Assets)" type="Node3D" parent="."]
+
+[node name="circular lilypad table" parent="Mesh (Assets)" instance=ExtResource("7_e6c3w")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -3.95018, 0, -0.398198)
+
+[node name="Sprite3D" type="Sprite3D" parent="Mesh (Assets)"]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, -3.96612, 1.73922, -0.387138)
+billboard = 2
+texture = ExtResource("8_fpp5l")
 
 [connection signal="pushed" from="Player" to="TrayScene" method="_on_player_pushed"]
 [connection signal="rotated" from="Player" to="TrayScene" method="_on_player_rotated"]
