@@ -10,7 +10,7 @@ var push_tween: Tween
 
 var default_global_position: Vector3
 
-@export var tipping_speed: float = 0.05
+@export var tipping_speed: float = 0.1
 
 @onready var drink_scene: PackedScene = preload("res://Entities/drink.tscn")
 

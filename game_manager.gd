@@ -22,6 +22,11 @@ var hud: Control
 
 func _ready() -> void:
 	game_timer.timeout.connect(on_game_end)
+	$ribbit/RibbitTimer.timeout.connect(
+		func():
+			$ribbit/RibbitTimer.wait_time = RandomNumberGenerator.new().randf_range(2.0, 10.0)
+			$ribbit.play()
+	)
 
 func remove_score(value: float) -> void:
 	set_score(score - value)
