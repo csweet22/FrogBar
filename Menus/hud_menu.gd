@@ -39,6 +39,7 @@ func remove_drink(type: Drinks.DrinkType):
 		if drink.drink_type == type:
 			free_spots.append(index)
 			drink.deactivate()
+			break
 		index += 1
 
 func on_score_changed(score: float):
