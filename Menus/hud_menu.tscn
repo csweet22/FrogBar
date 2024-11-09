@@ -1,16 +1,21 @@
-[gd_scene load_steps=12 format=3 uid="uid://dt1algih62327"]
+[gd_scene load_steps=14 format=3 uid="uid://dt1algih62327"]
 
 [ext_resource type="Script" path="res://Menus/hud_menu.gd" id="1_dqlh7"]
 [ext_resource type="PackedScene" uid="uid://biq4nppl0wjwe" path="res://drink_order.tscn" id="2_j0jvk"]
 [ext_resource type="Texture2D" uid="uid://bpqnkrcv4il2i" path="res://controlsui/stick.png" id="3_8nn1c"]
+[ext_resource type="LabelSettings" uid="uid://1woxc21tdkvm" path="res://fonts/on_screen_medium.tres" id="3_mgv8i"]
+[ext_resource type="FontFile" uid="uid://c76fh7np3saqc" path="res://fonts/PTSansCaption-Bold.ttf" id="4_42hjg"]
 [ext_resource type="LabelSettings" uid="uid://cpq77cmnkoldp" path="res://fonts/small_text.tres" id="4_j8up3"]
 [ext_resource type="Texture2D" uid="uid://c4atn47g3nuvb" path="res://controlsui/both_up.png" id="5_aj7p7"]
 [ext_resource type="Texture2D" uid="uid://b2iip2drvrqfk" path="res://controlsui/right_down.png" id="6_ju6nu"]
 [ext_resource type="Texture2D" uid="uid://dfwfrnkd6mq6l" path="res://controlsui/left_down.png" id="7_6b58a"]
 [ext_resource type="Texture2D" uid="uid://b65ef25a7h7yg" path="res://controlsui/both_down.png" id="8_slp1o"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_ju0bk"]
-font_size = 50
+[sub_resource type="LabelSettings" id="LabelSettings_yeww3"]
+font = ExtResource("4_42hjg")
+font_size = 30
+shadow_color = Color(0, 0, 0, 0.658824)
+shadow_offset = Vector2(2, 2)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_an7ef"]
 animations = [{
@@ -67,7 +72,7 @@ theme_override_constants/margin_top = 15
 [node name="Label" type="Label" parent="TipsContainer"]
 layout_mode = 2
 text = "$0.00"
-label_settings = SubResource("LabelSettings_ju0bk")
+label_settings = ExtResource("3_mgv8i")
 
 [node name="Main" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -89,12 +94,14 @@ theme_override_constants/separation = 10
 [node name="TimeRemaining" type="Label" parent="Main/VBoxContainer"]
 layout_mode = 2
 text = "Time Remaining: 3:00"
+label_settings = SubResource("LabelSettings_yeww3")
 horizontal_alignment = 2
 
 [node name="TaskContainer" type="VBoxContainer" parent="Main/VBoxContainer"]
 layout_mode = 2
 
 [node name="Title" type="Label" parent="Main/VBoxContainer/TaskContainer"]
+visible = false
 layout_mode = 2
 text = "Drink Requests"
 horizontal_alignment = 2
@@ -227,7 +234,7 @@ position = Vector2(-128, -16)
 scale = Vector2(0.0899795, 0.0899794)
 sprite_frames = SubResource("SpriteFrames_an7ef")
 autoplay = "default"
-frame_progress = 0.657829
+frame_progress = 0.932132
 
 [node name="Control3" type="Control" parent="Control"]
 z_index = 2000
@@ -265,4 +272,4 @@ position = Vector2(-128, -16)
 scale = Vector2(0.0899795, 0.0899794)
 sprite_frames = SubResource("SpriteFrames_2pfky")
 autoplay = "default"
-frame_progress = 0.792907
+frame_progress = 0.0672062

@@ -1,10 +1,9 @@
 [gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://1woxc21tdkvm"]
 
-[ext_resource type="FontFile" uid="uid://ckqdlecorfjcp" path="res://fonts/Bitter-VariableFont_wght.ttf" id="1_w77rx"]
+[ext_resource type="FontFile" uid="uid://c76fh7np3saqc" path="res://fonts/PTSansCaption-Bold.ttf" id="1_el074"]
 
 [resource]
-font = ExtResource("1_w77rx")
+font = ExtResource("1_el074")
 font_size = 51
-outline_size = 2
 shadow_color = Color(0, 0, 0, 0.658824)
 shadow_offset = Vector2(2, 2)

@@ -73,7 +73,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Interact To Spawn Drink"
+text = "Interact To Get Drink"
 label_settings = ExtResource("10_5efm5")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -98,7 +98,7 @@ anchor_bottom = 1.0
 offset_top = 59.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Push the Disturber"
+text = "Push the Angry Customer"
 label_settings = ExtResource("10_5efm5")
 horizontal_alignment = 1
 
