@@ -253,10 +253,10 @@ shape = SubResource("CapsuleShape3D_jdarc")
 visible = false
 
 [node name="Bubble" type="Sprite3D" parent="BubbleRoot"]
-transform = Transform3D(1, 0, 0, 0, 0.774315, 0, 0, 0, 1, 0, 2.02674, 0)
+transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.85, 0.0767529, 2.00481, 0)
 sorting_offset = 2.0
 offset = Vector2(600, 500)
-modulate = Color(0.691357, 0.691357, 0.691357, 1)
+modulate = Color(0.78, 0.74958, 0.6396, 1)
 pixel_size = 0.001
 billboard = 2
 texture = ExtResource("5_xn64t")

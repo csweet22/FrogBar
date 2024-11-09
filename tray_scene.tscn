@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bn0mrng5e2hc"]
+[gd_scene load_steps=8 format=3 uid="uid://bn0mrng5e2hc"]
 
 [ext_resource type="Script" path="res://tray_scene.gd" id="1_qo3y6"]
 [ext_resource type="PackedScene" uid="uid://bqedbi8c8g2ca" path="res://Models/Lilypad tray.glb" id="2_8y6ho"]
@@ -11,15 +11,10 @@ height = 0.150938
 [sub_resource type="CylinderMesh" id="CylinderMesh_e8blj"]
 height = 0.02
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_xavhb"]
-
-[sub_resource type="Sky" id="Sky_tsxua"]
-sky_material = SubResource("ProceduralSkyMaterial_xavhb")
-
 [sub_resource type="Environment" id="Environment_eh6us"]
-background_mode = 2
+background_mode = 1
+background_color = Color(0.77, 0.401683, 0.1386, 1)
 background_energy_multiplier = 0.5
-sky = SubResource("Sky_tsxua")
 
 [node name="TrayScene" type="Node3D"]
 script = ExtResource("1_qo3y6")
