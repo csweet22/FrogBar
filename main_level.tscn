@@ -549,6 +549,12 @@ billboard = 2
 shaded = true
 texture = ExtResource("14_xv7am")
 
+[node name="SpriteBottleB31" type="Sprite3D" parent="Mesh (Assets)"]
+transform = Transform3D(0.06, 0, 0, 0, 0.06, 0, 0, 0, 0.06, -7.52913, 1.81378, 1.83866)
+billboard = 2
+shaded = true
+texture = ExtResource("14_xv7am")
+
 [node name="SpriteBottleB23" type="Sprite3D" parent="Mesh (Assets)"]
 transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, -4.22068, 1.89662, -11.4715)
 billboard = 2
@@ -715,7 +721,7 @@ transform = Transform3D(0.599999, 0, 0, 0, 0.6, 0, 0, 0, 0.599999, -4.97502, 2.1
 transform = Transform3D(0.599999, 0, 0, 0, 0.6, 0, 0, 0, 0.599999, 1.68565, 2.11025, -2.06056)
 
 [node name="generic ceiling lamp4" parent="Mesh (Assets)" instance=ExtResource("12_efkpu")]
-transform = Transform3D(0.599999, 0, 0, 0, 0.6, 0, 0, 0, 0.599999, 6.74319, 2.11025, -2.06056)
+transform = Transform3D(0.599999, 0, 0, 0, 0.6, 0, 0, 0, 0.599999, 6.71207, 2.11025, -2.06056)
 
 [node name="generic ceiling lamp2" parent="Mesh (Assets)" instance=ExtResource("12_efkpu")]
 transform = Transform3D(0.599999, 0, 0, 0, 0.6, 0, 0, 0, 0.599999, -1.84829, 2.11025, 1.62412)
@@ -992,7 +998,7 @@ omni_range = 6.216
 omni_attenuation = 1.753
 
 [node name="OmniLight3D3" type="OmniLight3D" parent="Lights"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.74613, 3.3255, -2.0548)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.69426, 3.3255, -2.0548)
 light_color = Color(1, 0.69, 0.4, 1)
 light_energy = 1.711
 shadow_enabled = true
@@ -1003,7 +1009,7 @@ omni_attenuation = 1.753
 [node name="OmniLight3D4" type="OmniLight3D" parent="Lights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.01597, 3.35774, -8.98892)
 light_color = Color(1, 0.69, 0.4, 1)
-light_energy = 1.711
+light_energy = 0.2
 shadow_enabled = true
 shadow_blur = 2.075
 omni_range = 6.216
@@ -1012,7 +1018,7 @@ omni_attenuation = 1.753
 [node name="OmniLight3D26" type="OmniLight3D" parent="Lights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.01597, 3.35774, 1.66968)
 light_color = Color(1, 0.69, 0.4, 1)
-light_energy = 1.711
+light_energy = 0.5
 shadow_enabled = true
 shadow_blur = 2.075
 omni_range = 6.216
@@ -1021,7 +1027,7 @@ omni_attenuation = 1.753
 [node name="OmniLight3D5" type="OmniLight3D" parent="Lights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.17937, 3.3255, -8.85282)
 light_color = Color(1, 0.69, 0.4, 1)
-light_energy = 1.711
+light_energy = 0.2
 shadow_enabled = true
 shadow_blur = 2.075
 omni_range = 6.216
@@ -1030,7 +1036,7 @@ omni_attenuation = 1.753
 [node name="OmniLight3D6" type="OmniLight3D" parent="Lights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.17896, 3.3255, 1.81519)
 light_color = Color(1, 0.69, 0.4, 1)
-light_energy = 1.711
+light_energy = 0.5
 shadow_enabled = true
 shadow_blur = 2.075
 omni_range = 6.216
