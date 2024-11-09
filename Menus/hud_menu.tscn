@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dt1algih62327"]
+[gd_scene load_steps=15 format=3 uid="uid://dt1algih62327"]
 
 [ext_resource type="Script" path="res://Menus/hud_menu.gd" id="1_dqlh7"]
 [ext_resource type="PackedScene" uid="uid://biq4nppl0wjwe" path="res://drink_order.tscn" id="2_j0jvk"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://b2iip2drvrqfk" path="res://controlsui/right_down.png" id="6_ju6nu"]
 [ext_resource type="Texture2D" uid="uid://dfwfrnkd6mq6l" path="res://controlsui/left_down.png" id="7_6b58a"]
 [ext_resource type="Texture2D" uid="uid://b65ef25a7h7yg" path="res://controlsui/both_down.png" id="8_slp1o"]
+[ext_resource type="Texture2D" uid="uid://b5rwclm88xld5" path="res://controlsui/triggers.png" id="11_e80ug"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_yeww3"]
 font = ExtResource("4_42hjg")
@@ -146,57 +147,13 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -57.0
-offset_top = -57.0
-offset_right = -17.0
-offset_bottom = -17.0
+offset_left = 12.0001
+offset_top = -55.9999
+offset_right = 52.0001
+offset_bottom = -16.0
 grow_horizontal = 0
 grow_vertical = 0
-
-[node name="Control" type="Control" parent="Control"]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -1733.0
-offset_top = -40.0
-offset_right = -1693.0
-grow_horizontal = 0
-grow_vertical = 0
-
-[node name="TextureRect" type="TextureRect" parent="Control/Control"]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -165.0
-offset_top = -80.0
-offset_right = -104.0
-offset_bottom = -36.0
-grow_horizontal = 0
-grow_vertical = 0
-texture = ExtResource("3_8nn1c")
-expand_mode = 1
-
-[node name="Label" type="Label" parent="Control/Control"]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -92.0
-offset_top = -75.0
-offset_right = -29.0
-offset_bottom = -43.0
-grow_horizontal = 0
-grow_vertical = 0
-text = "Move"
-label_settings = ExtResource("4_j8up3")
+scale = Vector2(0.65, 0.65)
 
 [node name="Control2" type="Control" parent="Control"]
 z_index = 2000
@@ -219,10 +176,10 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -91.0
-offset_top = -75.0
-offset_right = 2.0
-offset_bottom = -43.0
+offset_left = -211.0
+offset_top = -36.0
+offset_right = -118.0
+offset_bottom = -4.0
 grow_horizontal = 0
 grow_vertical = 0
 text = "Tilt Tray"
@@ -234,7 +191,7 @@ position = Vector2(-128, -16)
 scale = Vector2(0.0899795, 0.0899794)
 sprite_frames = SubResource("SpriteFrames_an7ef")
 autoplay = "default"
-frame_progress = 0.889103
+frame_progress = 0.854164
 
 [node name="Control3" type="Control" parent="Control"]
 z_index = 2000
@@ -245,13 +202,109 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -283.0
+offset_left = -220.0
 offset_top = -40.0
-offset_right = -243.0
+offset_right = -180.0
 grow_horizontal = 0
 grow_vertical = 0
 
 [node name="Label" type="Label" parent="Control/Control3"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -197.0
+offset_top = -36.0
+offset_right = -104.0
+offset_bottom = -4.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Push"
+label_settings = ExtResource("4_j8up3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Control/Control3"]
+position = Vector2(-128, -16)
+scale = Vector2(0.0899795, 0.0899794)
+sprite_frames = SubResource("SpriteFrames_2pfky")
+autoplay = "default"
+frame_progress = 0.989239
+
+[node name="Control2" type="Control" parent="."]
+z_index = 3000
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+scale = Vector2(0.75, 0.75)
+
+[node name="Control" type="Control" parent="Control2"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 319.0
+offset_top = -57.0
+offset_right = 359.0
+offset_bottom = -17.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="TextureRect" type="TextureRect" parent="Control2/Control"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -165.0
+offset_top = -80.0
+offset_right = -104.0
+offset_bottom = -36.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("3_8nn1c")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="Control2/Control"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -92.0
+offset_top = -75.0
+offset_right = -29.0
+offset_bottom = -43.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Move"
+label_settings = ExtResource("4_j8up3")
+
+[node name="Control4" type="Control" parent="Control2"]
+z_index = 2000
+z_as_relative = false
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 113.0
+offset_top = -57.0
+offset_right = 153.0
+offset_bottom = -17.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Label" type="Label" parent="Control2/Control4"]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -264,12 +317,14 @@ offset_right = 2.0
 offset_bottom = -43.0
 grow_horizontal = 0
 grow_vertical = 0
-text = "Push"
+text = "Interact"
 label_settings = ExtResource("4_j8up3")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Control/Control3"]
-position = Vector2(-128, -16)
-scale = Vector2(0.0899795, 0.0899794)
-sprite_frames = SubResource("SpriteFrames_2pfky")
-autoplay = "default"
-frame_progress = 0.0241765
+[node name="TextureRect" type="TextureRect" parent="Control2/Control4"]
+layout_mode = 0
+offset_left = -112.0
+offset_top = -57.0
+offset_right = 583.0
+offset_bottom = 746.0
+scale = Vector2(0.096913, 0.096913)
+texture = ExtResource("11_e80ug")

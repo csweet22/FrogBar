@@ -4,7 +4,7 @@
 [ext_resource type="FontFile" uid="uid://bflwkulvwjoml" path="res://fonts/Carme-Regular.ttf" id="2_4tmo4"]
 [ext_resource type="Texture2D" uid="uid://drei5r45tkyud" path="res://mainmenu.png" id="2_wabae"]
 [ext_resource type="FontFile" uid="uid://beh5jjxcerf11" path="res://fonts/Felixti.TTF" id="4_ory6s"]
-[ext_resource type="Texture2D" uid="uid://d4c8sdx2cmge3" path="res://logo.png" id="5_na4jk"]
+[ext_resource type="Texture2D" path="res://logo.png" id="5_na4jk"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u5ejf"]
 
