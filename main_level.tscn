@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://cv2oe30rc31yb"]
+[gd_scene load_steps=45 format=3 uid="uid://cv2oe30rc31yb"]
 
 [ext_resource type="PackedScene" uid="uid://bbbpykewcb80w" path="res://Entities/player.tscn" id="1_0yw4s"]
 [ext_resource type="Script" path="res://main_level.gd" id="1_xcfvw"]
@@ -54,10 +54,6 @@ cell_height = 0.1
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7ms2y"]
 albedo_texture = ExtResource("6_1m2wl")
 uv1_scale = Vector3(3, 3, 3)
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_pat7s"]
-radius = 0.748686
-height = 4.59655
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gqh2v"]
 albedo_color = Color(0.909804, 0.917647, 0.92549, 1)
@@ -162,27 +158,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.38093, 0, 3.32046)
 can_move = true
 
 [node name="bar_spawner" parent="." instance=ExtResource("3_h8axe")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.0546, 0, -7)
-
-[node name="Label3D" type="Label3D" parent="bar_spawner"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0.6)
-text = "DRINK A"
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.0546, 0.661656, -6.67489)
 
 [node name="bar_spawner2" parent="." instance=ExtResource("3_h8axe")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.661656, -6.67489)
 drink_type = 2
 
-[node name="Label3D" type="Label3D" parent="bar_spawner2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0.6)
-text = "DRINK B"
-
 [node name="bar_spawner3" parent="." instance=ExtResource("3_h8axe")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.41586, 0, -7)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.41586, 0.661656, -6.67489)
 drink_type = 3
-
-[node name="Label3D" type="Label3D" parent="bar_spawner3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0.6)
-text = "DRINK C"
 
 [node name="NavigationObstacle3D" type="NavigationObstacle3D" parent="."]
 visible = false
@@ -200,52 +184,45 @@ use_collision = true
 size = Vector3(24.4491, 1, 28.4547)
 material = SubResource("StandardMaterial3D_7ms2y")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D"]
-visible = false
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/StaticBody3D"]
-visible = false
-shape = SubResource("CapsuleShape3D_pat7s")
-
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="NavigationRegion3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.76519, 0, 1.44712)
 layers = 0
 use_collision = true
-radius = 0.79991
 height = 3.14845
+sides = 12
 
 [node name="CSGCylinder3D2" type="CSGCylinder3D" parent="NavigationRegion3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.51106, 0, 1.62382)
 layers = 0
 use_collision = true
-radius = 0.79991
 height = 3.14845
+sides = 12
 
 [node name="CSGCylinder3D3" type="CSGCylinder3D" parent="NavigationRegion3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.95768, 0, 1.53941)
 layers = 0
 use_collision = true
-radius = 0.79991
 height = 3.14845
+sides = 12
 
 [node name="CSGCylinder3D4" type="CSGCylinder3D" parent="NavigationRegion3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.10728, 0, 1.38902)
 layers = 0
 use_collision = true
-radius = 0.79991
 height = 3.14845
+sides = 12
 
 [node name="CSGCylinder3D6" type="CSGCylinder3D" parent="NavigationRegion3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.0754, -2.38419e-07, -6.21419)
 layers = 0
 use_collision = true
-radius = 0.79991
 height = 3.14845
+sides = 12
 
 [node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.414562, 0.756592, -20.8909)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.414562, 0.756592, -20.7273)
 layers = 0
-size = Vector3(28.0023, 2.51318, 28.4572)
+size = Vector3(28.0023, 2.51318, 28.7844)
 
 [node name="Node3D" type="Node3D" parent="NavigationRegion3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.86282, 0, -2.56772)
@@ -254,22 +231,25 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.86282, 0, -2.56772)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.741554, 2.38419e-07, 1.16659)
 layers = 0
 use_collision = true
-radius = 0.79991
+radius = 0.512
 height = 3.14845
+sides = 12
 
 [node name="CSGCylinder3D8" type="CSGCylinder3D" parent="NavigationRegion3D/Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.306271, 2.38419e-07, 0.452856)
 layers = 0
 use_collision = true
-radius = 0.79991
+radius = 0.512
 height = 3.14845
+sides = 12
 
 [node name="CSGCylinder3D5" type="CSGCylinder3D" parent="NavigationRegion3D/Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0366826, 2.38419e-07, -0.207627)
 layers = 0
 use_collision = true
-radius = 0.79991
+radius = 0.512
 height = 3.14845
+sides = 12
 
 [node name="Node3D2" type="Node3D" parent="NavigationRegion3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.95242, 0, -2.56772)
@@ -278,22 +258,25 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.95242, 0, -2.56772)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.741554, 2.38419e-07, 1.16659)
 layers = 0
 use_collision = true
-radius = 0.79991
+radius = 0.512
 height = 3.14845
+sides = 12
 
 [node name="CSGCylinder3D8" type="CSGCylinder3D" parent="NavigationRegion3D/Node3D2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.306271, 2.38419e-07, 0.452856)
 layers = 0
 use_collision = true
-radius = 0.79991
+radius = 0.512
 height = 3.14845
+sides = 12
 
 [node name="CSGCylinder3D5" type="CSGCylinder3D" parent="NavigationRegion3D/Node3D2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0366826, 2.38419e-07, -0.207627)
 layers = 0
 use_collision = true
-radius = 0.79991
+radius = 0.512
 height = 3.14845
+sides = 12
 
 [node name="Node3D3" type="Node3D" parent="NavigationRegion3D"]
 transform = Transform3D(0.511008, 0, 0.859576, 0, 1, 0, -0.859576, 0, 0.511008, -5.18282, 0, -2.57188)
@@ -302,22 +285,25 @@ transform = Transform3D(0.511008, 0, 0.859576, 0, 1, 0, -0.859576, 0, 0.511008, 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.741554, 2.38419e-07, 1.16659)
 layers = 0
 use_collision = true
-radius = 0.79991
+radius = 0.512
 height = 3.14845
+sides = 12
 
 [node name="CSGCylinder3D8" type="CSGCylinder3D" parent="NavigationRegion3D/Node3D3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.306271, 2.38419e-07, 0.452856)
 layers = 0
 use_collision = true
-radius = 0.79991
+radius = 0.512
 height = 3.14845
+sides = 12
 
 [node name="CSGCylinder3D5" type="CSGCylinder3D" parent="NavigationRegion3D/Node3D3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0366826, 2.38419e-07, -0.207627)
 layers = 0
 use_collision = true
-radius = 0.79991
+radius = 0.512
 height = 3.14845
+sides = 12
 
 [node name="Node3D4" type="Node3D" parent="NavigationRegion3D"]
 transform = Transform3D(-0.83706, 0, 0.54711, 0, 1, 0, -0.54711, 0, -0.83706, -9.05637, 4.76837e-07, -4.99678)
@@ -326,22 +312,25 @@ transform = Transform3D(-0.83706, 0, 0.54711, 0, 1, 0, -0.54711, 0, -0.83706, -9
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.741554, 2.38419e-07, 1.16659)
 layers = 0
 use_collision = true
-radius = 0.79991
+radius = 0.512
 height = 3.14845
+sides = 12
 
 [node name="CSGCylinder3D8" type="CSGCylinder3D" parent="NavigationRegion3D/Node3D4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.306271, 2.38419e-07, 0.452856)
 layers = 0
 use_collision = true
-radius = 0.79991
+radius = 0.512
 height = 3.14845
+sides = 12
 
 [node name="CSGCylinder3D5" type="CSGCylinder3D" parent="NavigationRegion3D/Node3D4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0366826, 2.38419e-07, -0.207627)
 layers = 0
 use_collision = true
-radius = 0.79991
+radius = 0.512
 height = 3.14845
+sides = 12
 
 [node name="TrayScene" parent="." instance=ExtResource("5_nllec")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 100, 0)
@@ -601,10 +590,12 @@ material = SubResource("StandardMaterial3D_gqh2v")
 
 [node name="CSGBox3D6" type="CSGBox3D" parent="Mesh (Assets)"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0767961, 3.52009, 5.91203)
+use_collision = true
 size = Vector3(27.6124, 7.11359, 1.40576)
 
 [node name="CSGBox3D9" type="CSGBox3D" parent="Mesh (Assets)"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.0235, 3.52009, -4.30864)
+use_collision = true
 size = Vector3(1.30727, 7.11359, 23.5594)
 material = SubResource("StandardMaterial3D_fpd3t")
 
@@ -630,6 +621,7 @@ size = Vector3(8.57217, 7.4812, 1.04797)
 
 [node name="CSGBox3D8" type="CSGBox3D" parent="Mesh (Assets)"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -10.9731, 3.38692, -5.98473)
+use_collision = true
 size = Vector3(26.9459, 7.29321, 1.04797)
 material = SubResource("StandardMaterial3D_05h6j")
 

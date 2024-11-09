@@ -5,6 +5,7 @@
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_nyny6"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0uwby"]
+radius = 0.256795
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vdyml"]
 size = Vector3(1, 2, 0.5)
