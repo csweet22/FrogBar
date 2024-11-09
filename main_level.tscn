@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://cv2oe30rc31yb"]
+[gd_scene load_steps=50 format=3 uid="uid://cv2oe30rc31yb"]
 
 [ext_resource type="PackedScene" uid="uid://bbbpykewcb80w" path="res://Entities/player.tscn" id="1_0yw4s"]
 [ext_resource type="Script" path="res://main_level.gd" id="1_xcfvw"]
@@ -16,9 +16,12 @@
 [ext_resource type="PackedScene" uid="uid://bji8n271yrlso" path="res://Models/rectangular lilypad table.glb" id="10_r2ri1"]
 [ext_resource type="PackedScene" uid="uid://dh88oks36xib5" path="res://Models/cattail light.glb" id="11_vwev4"]
 [ext_resource type="PackedScene" uid="uid://go4o7i1yvcj4" path="res://Models/generic ceiling lamp.glb" id="12_efkpu"]
+[ext_resource type="Texture2D" uid="uid://3n7rpoc7tfu3" path="res://Gfx/bottle1.png" id="12_m7bov"]
+[ext_resource type="Texture2D" uid="uid://gle3pl3p2tvp" path="res://Gfx/bottle1NOLOGO.png" id="13_7fb85"]
 [ext_resource type="PackedScene" uid="uid://3eip2yr6a74s" path="res://Models/marbleTopROUNDED.glb" id="13_ktc82"]
 [ext_resource type="Texture2D" uid="uid://bhuk7lyxljq07" path="res://Gfx/Rum&Croak.png" id="13_pnenf"]
 [ext_resource type="Texture2D" uid="uid://c0o6ebbl5dc1u" path="res://Gfx/SwampWater.png" id="14_4ug5f"]
+[ext_resource type="Texture2D" uid="uid://dxdsvvy82gj1v" path="res://Gfx/bottle 2.png" id="14_xv7am"]
 [ext_resource type="PackedScene" uid="uid://bpjbdglr0dl63" path="res://Models/smallRingWhole.glb" id="16_hbnwv"]
 [ext_resource type="PackedScene" uid="uid://u8cpx5558jsj" path="res://Models/concreteBarBase.glb" id="17_vexfk"]
 [ext_resource type="PackedScene" uid="uid://btsqjfsuxuxqq" path="res://Models/smallSuppDarkWood.glb" id="18_25nes"]
@@ -26,7 +29,6 @@
 [ext_resource type="PackedScene" uid="uid://bqedbi8c8g2ca" path="res://Models/Lilypad tray.glb" id="20_p1tj3"]
 [ext_resource type="Texture2D" uid="uid://ulfsfp47up3m" path="res://textures/WALL.png" id="21_ami3j"]
 [ext_resource type="Texture2D" uid="uid://b8o8fkofw4vaq" path="res://textures/spruce wood texture.png" id="22_67yav"]
-[ext_resource type="Texture2D" uid="uid://d0mtev4kkcdch" path="res://textures/dark wood texture.png" id="25_h03lk"]
 [ext_resource type="PackedScene" uid="uid://d4c0k0ltiul1l" path="res://Models/woodShelfSingular.glb" id="25_mrnfc"]
 [ext_resource type="PackedScene" uid="uid://b6h154jm640ny" path="res://Models/Door.glb" id="26_rxg3y"]
 [ext_resource type="PackedScene" uid="uid://b2lrcuvuhodhd" path="res://Models/wallAccentTALL.glb" id="27_bvxfg"]
@@ -60,10 +62,22 @@ albedo_color = Color(0.909804, 0.917647, 0.92549, 1)
 albedo_texture = ExtResource("21_ami3j")
 uv1_scale = Vector3(10, 1, 10)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rt6jc"]
+albedo_color = Color(0.247059, 0.278431, 0.301961, 1)
+albedo_texture = ExtResource("21_ami3j")
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fpd3t"]
 albedo_color = Color(0.247059, 0.278431, 0.301961, 1)
 albedo_texture = ExtResource("21_ami3j")
 uv1_scale = Vector3(1, 5, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ft0lg"]
+albedo_color = Color(0.909804, 0.917647, 0.92549, 1)
+albedo_texture = ExtResource("21_ami3j")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ubk30"]
+albedo_color = Color(0.247059, 0.278431, 0.301961, 1)
+albedo_texture = ExtResource("21_ami3j")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_05h6j"]
 albedo_color = Color(0.247059, 0.278431, 0.301961, 1)
@@ -74,8 +88,10 @@ uv1_scale = Vector3(5, 1, 1)
 albedo_texture = ExtResource("22_67yav")
 uv1_scale = Vector3(5, 5, 5)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_isevc"]
-albedo_texture = ExtResource("25_h03lk")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f1rik"]
+albedo_color = Color(0.909804, 0.917647, 0.92549, 1)
+albedo_texture = ExtResource("21_ami3j")
+uv1_scale = Vector3(5, 1, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_env28"]
 albedo_texture = ExtResource("7_146nd")
@@ -432,55 +448,259 @@ transform = Transform3D(0.37229, 0, 0.333767, 0, 0.5, 0, -0.333767, 0, 0.37229, 
 transform = Transform3D(-0.471579, 0, -0.166171, 0, 0.5, 0, 0.166171, 0, -0.471579, 9.01334, 0, -6.14486)
 
 [node name="Sprite3D" type="Sprite3D" parent="Mesh (Assets)"]
-transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, -5.29694, 1.73352, -6.99864)
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, -5.29694, 1.74534, -6.99864)
 billboard = 2
 shaded = true
 texture = ExtResource("8_fpp5l")
 
+[node name="SpriteBottleB" type="Sprite3D" parent="Mesh (Assets)"]
+transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, -3.54178, 1.89323, -11.5068)
+billboard = 2
+shaded = true
+texture = ExtResource("12_m7bov")
+
+[node name="SpriteBottleB2" type="Sprite3D" parent="Mesh (Assets)"]
+transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, 6.25314, 1.89323, -11.5068)
+billboard = 2
+shaded = true
+texture = ExtResource("12_m7bov")
+
+[node name="SpriteBottleB3" type="Sprite3D" parent="Mesh (Assets)"]
+transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, 4.77597, 1.89323, -11.5068)
+billboard = 2
+shaded = true
+texture = ExtResource("12_m7bov")
+
+[node name="SpriteBottleB4" type="Sprite3D" parent="Mesh (Assets)"]
+transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, 4.23026, 3.06743, -11.8163)
+billboard = 2
+shaded = true
+texture = ExtResource("12_m7bov")
+
+[node name="SpriteBottleB5" type="Sprite3D" parent="Mesh (Assets)"]
+transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, 4.5577, 3.09108, -11.8163)
+billboard = 2
+shaded = true
+texture = ExtResource("12_m7bov")
+
+[node name="SpriteBottleB6" type="Sprite3D" parent="Mesh (Assets)"]
+transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, 4.5577, 3.06743, -11.8163)
+billboard = 2
+shaded = true
+texture = ExtResource("12_m7bov")
+
+[node name="SpriteBottleB9" type="Sprite3D" parent="Mesh (Assets)"]
+transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, 5.41713, 3.06743, -11.8163)
+billboard = 2
+shaded = true
+texture = ExtResource("13_7fb85")
+
+[node name="SpriteBottleB13" type="Sprite3D" parent="Mesh (Assets)"]
+transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, 3.46191, 3.06743, -11.8163)
+billboard = 2
+shaded = true
+texture = ExtResource("13_7fb85")
+
+[node name="SpriteBottleB14" type="Sprite3D" parent="Mesh (Assets)"]
+transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, 6.64215, 1.87087, -11.7135)
+billboard = 2
+shaded = true
+texture = ExtResource("13_7fb85")
+
+[node name="SpriteBottleB15" type="Sprite3D" parent="Mesh (Assets)"]
+transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, 6.42534, 3.07199, -11.7135)
+billboard = 2
+shaded = true
+texture = ExtResource("13_7fb85")
+
+[node name="SpriteBottleB21" type="Sprite3D" parent="Mesh (Assets)"]
+transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, 5.19075, 1.92216, -11.7135)
+billboard = 2
+shaded = true
+texture = ExtResource("13_7fb85")
+
+[node name="SpriteBottleB7" type="Sprite3D" parent="Mesh (Assets)"]
+transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, 5.09688, 3.06797, -11.8163)
+billboard = 2
+shaded = true
+texture = ExtResource("14_xv7am")
+
+[node name="SpriteBottleB17" type="Sprite3D" parent="Mesh (Assets)"]
+transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, -5.91558, 3.06797, -11.8163)
+billboard = 2
+shaded = true
+texture = ExtResource("14_xv7am")
+
+[node name="SpriteBottleB19" type="Sprite3D" parent="Mesh (Assets)"]
+transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, -3.45298, 3.06797, -11.8163)
+billboard = 2
+shaded = true
+texture = ExtResource("14_xv7am")
+
+[node name="SpriteBottleB20" type="Sprite3D" parent="Mesh (Assets)"]
+transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, -5.51987, 3.06797, -11.8163)
+billboard = 2
+shaded = true
+texture = ExtResource("14_xv7am")
+
+[node name="SpriteBottleB22" type="Sprite3D" parent="Mesh (Assets)"]
+transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, -4.53302, 1.89662, -11.6124)
+billboard = 2
+shaded = true
+texture = ExtResource("14_xv7am")
+
+[node name="SpriteBottleB23" type="Sprite3D" parent="Mesh (Assets)"]
+transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, -4.22068, 1.89662, -11.4715)
+billboard = 2
+shaded = true
+texture = ExtResource("13_7fb85")
+
+[node name="SpriteBottleB30" type="Sprite3D" parent="Mesh (Assets)"]
+transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, 4.3335, 1.89662, -11.7396)
+billboard = 2
+shaded = true
+texture = ExtResource("13_7fb85")
+
+[node name="SpriteBottleB24" type="Sprite3D" parent="Mesh (Assets)"]
+transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, -4.00954, 1.89662, -11.7004)
+billboard = 2
+shaded = true
+texture = ExtResource("14_xv7am")
+
+[node name="SpriteBottleB25" type="Sprite3D" parent="Mesh (Assets)"]
+transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, -5.77749, 1.89662, -11.6076)
+billboard = 2
+shaded = true
+texture = ExtResource("13_7fb85")
+
+[node name="SpriteBottleB26" type="Sprite3D" parent="Mesh (Assets)"]
+transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, -5.33852, 1.89662, -11.7081)
+billboard = 2
+shaded = true
+texture = ExtResource("12_m7bov")
+
+[node name="SpriteBottleB29" type="Sprite3D" parent="Mesh (Assets)"]
+transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, -6.84664, 1.89662, -11.5508)
+billboard = 2
+shaded = true
+texture = ExtResource("12_m7bov")
+
+[node name="SpriteBottleB27" type="Sprite3D" parent="Mesh (Assets)"]
+transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, -6.16392, 1.89662, -11.7081)
+billboard = 2
+shaded = true
+texture = ExtResource("14_xv7am")
+
+[node name="SpriteBottleB28" type="Sprite3D" parent="Mesh (Assets)"]
+transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, -6.52833, 1.89662, -11.7081)
+billboard = 2
+shaded = true
+texture = ExtResource("14_xv7am")
+
+[node name="SpriteBottleB18" type="Sprite3D" parent="Mesh (Assets)"]
+transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, -6.87083, 3.06797, -11.8163)
+billboard = 2
+shaded = true
+texture = ExtResource("14_xv7am")
+
+[node name="SpriteBottleB16" type="Sprite3D" parent="Mesh (Assets)"]
+transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, 6.8522, 3.06797, -11.8163)
+billboard = 2
+shaded = true
+texture = ExtResource("14_xv7am")
+
+[node name="SpriteBottleB8" type="Sprite3D" parent="Mesh (Assets)"]
+transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, 5.82193, 3.06797, -11.8163)
+billboard = 2
+shaded = true
+texture = ExtResource("14_xv7am")
+
+[node name="SpriteBottleB10" type="Sprite3D" parent="Mesh (Assets)"]
+transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, 3.64897, 1.90582, -11.6248)
+billboard = 2
+shaded = true
+texture = ExtResource("14_xv7am")
+
+[node name="SpriteBottleB11" type="Sprite3D" parent="Mesh (Assets)"]
+transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, 4.03561, 1.90582, -11.6248)
+billboard = 2
+shaded = true
+texture = ExtResource("14_xv7am")
+
+[node name="SpriteBottleB12" type="Sprite3D" parent="Mesh (Assets)"]
+transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, 5.81059, 1.90582, -11.6248)
+billboard = 2
+shaded = true
+texture = ExtResource("14_xv7am")
+
+[node name="SpriteBottle" type="Sprite3D" parent="Mesh (Assets)"]
+transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, -5.17637, 3.0644, -11.7667)
+billboard = 2
+shaded = true
+texture = ExtResource("12_m7bov")
+
+[node name="SpriteBottle3" type="Sprite3D" parent="Mesh (Assets)"]
+transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, -4.15574, 3.0644, -11.7667)
+billboard = 2
+shaded = true
+texture = ExtResource("12_m7bov")
+
+[node name="SpriteBottle2" type="Sprite3D" parent="Mesh (Assets)"]
+transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, -3.79606, 3.0644, -11.7667)
+billboard = 2
+shaded = true
+texture = ExtResource("13_7fb85")
+
+[node name="SpriteBottle4" type="Sprite3D" parent="Mesh (Assets)"]
+transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, -6.37066, 3.0644, -11.7667)
+billboard = 2
+shaded = true
+texture = ExtResource("13_7fb85")
+
 [node name="Sprite3D4" type="Sprite3D" parent="Mesh (Assets)"]
-transform = Transform3D(0.0499263, 0, 0.0027144, 0, 0.05, 0, -0.0027144, 0, 0.0499263, -0.0762078, 1.73352, -6.79147)
+transform = Transform3D(0.0499263, 0, 0.0027144, 0, 0.05, 0, -0.0027144, 0, 0.0499263, -0.0762078, 1.74534, -6.79147)
 billboard = 2
 shaded = true
 texture = ExtResource("13_pnenf")
 
 [node name="Sprite3D7" type="Sprite3D" parent="Mesh (Assets)"]
-transform = Transform3D(0.0499263, 0, 0.0027144, 0, 0.05, 0, -0.0027144, 0, 0.0499263, 5.0189, 1.73352, -7.25884)
+transform = Transform3D(0.0499263, 0, 0.0027144, 0, 0.05, 0, -0.0027144, 0, 0.0499263, 5.0189, 1.74534, -7.25884)
 billboard = 2
 shaded = true
 texture = ExtResource("14_4ug5f")
 
 [node name="Sprite3D8" type="Sprite3D" parent="Mesh (Assets)"]
-transform = Transform3D(0.0499263, 0, 0.0027144, 0, 0.05, 0, -0.0027144, 0, 0.0499263, 5.45394, 1.73352, -7.25884)
+transform = Transform3D(0.0499263, 0, 0.0027144, 0, 0.05, 0, -0.0027144, 0, 0.0499263, 5.45394, 1.74534, -7.25884)
 billboard = 2
 shaded = true
 texture = ExtResource("14_4ug5f")
 
 [node name="Sprite3D9" type="Sprite3D" parent="Mesh (Assets)"]
-transform = Transform3D(0.0499263, 0, 0.0027144, 0, 0.05, 0, -0.0027144, 0, 0.0499263, 5.26657, 1.73352, -6.90575)
+transform = Transform3D(0.0499263, 0, 0.0027144, 0, 0.05, 0, -0.0027144, 0, 0.0499263, 5.26657, 1.74534, -6.90575)
 billboard = 2
 shaded = true
 texture = ExtResource("14_4ug5f")
 
 [node name="Sprite3D5" type="Sprite3D" parent="Mesh (Assets)"]
-transform = Transform3D(0.0499982, 0, 0.000424983, 0, 0.05, 0, -0.000424983, 0, 0.0499982, 0.254614, 1.73352, -7.08175)
+transform = Transform3D(0.0499982, 0, 0.000424983, 0, 0.05, 0, -0.000424983, 0, 0.0499982, 0.254614, 1.74534, -7.08175)
 billboard = 2
 shaded = true
 texture = ExtResource("13_pnenf")
 
 [node name="Sprite3D6" type="Sprite3D" parent="Mesh (Assets)"]
-transform = Transform3D(0.0499982, 0, 0.000424983, 0, 0.05, 0, -0.000424983, 0, 0.0499982, -0.217889, 1.73352, -7.32634)
+transform = Transform3D(0.0499982, 0, 0.000424983, 0, 0.05, 0, -0.000424983, 0, 0.0499982, -0.217889, 1.74534, -7.32634)
 billboard = 2
 shaded = true
 texture = ExtResource("13_pnenf")
 
 [node name="Sprite3D2" type="Sprite3D" parent="Mesh (Assets)"]
-transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, -5.07321, 1.73352, -7.35812)
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, -5.07321, 1.74534, -7.35812)
 billboard = 2
 shaded = true
 texture = ExtResource("8_fpp5l")
 
 [node name="Sprite3D3" type="Sprite3D" parent="Mesh (Assets)"]
-transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, -4.82236, 1.73352, -7.08755)
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, -4.82236, 1.74534, -7.08755)
 billboard = 2
 shaded = true
 texture = ExtResource("8_fpp5l")
@@ -501,28 +721,28 @@ transform = Transform3D(0.599999, 0, 0, 0, 0.6, 0, 0, 0, 0.599999, 6.74319, 2.11
 transform = Transform3D(0.599999, 0, 0, 0, 0.6, 0, 0, 0, 0.599999, -1.84829, 2.11025, 1.62412)
 
 [node name="generic ceiling lamp7" parent="Mesh (Assets)" instance=ExtResource("12_efkpu")]
-transform = Transform3D(0.599999, 0, 0, 0, 0.6, 0, 0, 0, 0.599999, -9.4954, 2.11025, 1.62412)
+transform = Transform3D(0.599999, 0, 0, 0, 0.6, 0, 0, 0, 0.599999, -9.30206, 2.11025, 1.62412)
 
 [node name="generic ceiling lamp8" parent="Mesh (Assets)" instance=ExtResource("12_efkpu")]
-transform = Transform3D(0.599999, 0, 0, 0, 0.6, 0, 0, 0, 0.599999, -9.4954, 2.11025, -6.67497)
+transform = Transform3D(0.599999, 0, 0, 0, 0.6, 0, 0, 0, 0.599999, -9.30231, 2.11025, -9.20365)
 
 [node name="generic ceiling lamp9" parent="Mesh (Assets)" instance=ExtResource("12_efkpu")]
-transform = Transform3D(0.599999, 0, 0, 0, 0.6, 0, 0, 0, 0.599999, 9.50872, 2.11025, -6.67497)
+transform = Transform3D(0.599999, 0, 0, 0, 0.6, 0, 0, 0, 0.599999, 9.18589, 2.11025, -9.12929)
 
 [node name="generic ceiling lamp5" parent="Mesh (Assets)" instance=ExtResource("12_efkpu")]
 transform = Transform3D(0.599999, 0, 0, 0, 0.6, 0, 0, 0, 0.599999, 3.93786, 2.11025, 1.62412)
 
 [node name="generic ceiling lamp6" parent="Mesh (Assets)" instance=ExtResource("12_efkpu")]
-transform = Transform3D(0.599999, 0, 0, 0, 0.6, 0, 0, 0, 0.599999, 9.50651, 2.11025, 1.62412)
+transform = Transform3D(0.599999, 0, 0, 0, 0.6, 0, 0, 0, 0.599999, 9.22944, 2.11025, 1.62412)
 
 [node name="cattail light2" parent="Mesh (Assets)" instance=ExtResource("11_vwev4")]
-transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 2.67988, 1.52655, -7.27813)
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 2.78362, 1.52655, -7.27813)
 
 [node name="cattail light3" parent="Mesh (Assets)" instance=ExtResource("11_vwev4")]
 transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 7.25547, 1.52655, -7.27813)
 
 [node name="cattail light4" parent="Mesh (Assets)" instance=ExtResource("11_vwev4")]
-transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, -7.34248, 1.52655, -7.27813)
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, -7.32206, 1.52655, -7.27813)
 
 [node name="cattail light5" parent="Mesh (Assets)" instance=ExtResource("11_vwev4")]
 transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, -2.76689, 1.52655, -7.27813)
@@ -629,6 +849,7 @@ material = SubResource("StandardMaterial3D_gqh2v")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0767961, 3.52009, 5.91203)
 use_collision = true
 size = Vector3(27.6124, 7.11359, 1.40576)
+material = SubResource("StandardMaterial3D_rt6jc")
 
 [node name="CSGBox3D9" type="CSGBox3D" parent="Mesh (Assets)"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.0235, 3.52009, -4.30864)
@@ -639,22 +860,16 @@ material = SubResource("StandardMaterial3D_fpd3t")
 [node name="CSGBox3D11" type="CSGBox3D" parent="Mesh (Assets)"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.51753, 3.52009, -15.5289)
 size = Vector3(8.88044, 7.11359, 1.11893)
-
-[node name="CSGBox3D2" type="CSGBox3D" parent="Mesh (Assets)"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2.70218, 5.95963, -2.4637)
-size = Vector3(19.9038, 2.15967, 1.04797)
-
-[node name="CSGBox3D7" type="CSGBox3D" parent="Mesh (Assets)"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -7.96411, 5.95963, -2.4637)
-size = Vector3(19.9038, 2.15967, 1.04797)
+material = SubResource("StandardMaterial3D_ft0lg")
 
 [node name="CSGBox3D12" type="CSGBox3D" parent="Mesh (Assets)"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -7.78585, 3.29293, -15.7532)
-size = Vector3(8.57217, 7.4812, 1.04797)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -8.24438, 3.29293, -15.7532)
+size = Vector3(8.57217, 7.4812, 0.130919)
 
 [node name="CSGBox3D13" type="CSGBox3D" parent="Mesh (Assets)"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.22529, 3.29293, -19.419)
 size = Vector3(8.57217, 7.4812, 1.04797)
+material = SubResource("StandardMaterial3D_ubk30")
 
 [node name="CSGBox3D8" type="CSGBox3D" parent="Mesh (Assets)"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -10.9731, 3.38692, -5.98473)
@@ -667,14 +882,25 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.1391
 size = Vector3(25.9372, 1.11584, 23.0602)
 material = SubResource("StandardMaterial3D_48vga")
 
-[node name="CSGBox3D4" type="CSGBox3D" parent="Mesh (Assets)"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.70639, 5.95963, -2.4637)
-size = Vector3(19.9038, 2.15967, 1.04797)
-
 [node name="CSGBox3D5" type="CSGBox3D" parent="Mesh (Assets)"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 8.06882, 5.95963, -2.4637)
 size = Vector3(19.9038, 2.15967, 1.04797)
-material = SubResource("StandardMaterial3D_isevc")
+material = SubResource("StandardMaterial3D_f1rik")
+
+[node name="CSGBox3D14" type="CSGBox3D" parent="Mesh (Assets)"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.78712, 5.95963, -2.4637)
+size = Vector3(19.9038, 2.15967, 1.04797)
+material = SubResource("StandardMaterial3D_f1rik")
+
+[node name="CSGBox3D15" type="CSGBox3D" parent="Mesh (Assets)"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2.71418, 5.95963, -2.4637)
+size = Vector3(19.9038, 2.15967, 1.04797)
+material = SubResource("StandardMaterial3D_f1rik")
+
+[node name="CSGBox3D16" type="CSGBox3D" parent="Mesh (Assets)"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -7.87924, 5.95963, -2.4637)
+size = Vector3(19.9038, 2.15967, 1.04797)
+material = SubResource("StandardMaterial3D_f1rik")
 
 [node name="Floor2" type="CSGBox3D" parent="Mesh (Assets)"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0330634, 0.516542, -7.01013)
@@ -775,7 +1001,16 @@ omni_range = 6.216
 omni_attenuation = 1.753
 
 [node name="OmniLight3D4" type="OmniLight3D" parent="Lights"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.55402, 3.3255, -6.67005)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.01597, 3.35774, -8.98892)
+light_color = Color(1, 0.69, 0.4, 1)
+light_energy = 1.711
+shadow_enabled = true
+shadow_blur = 2.075
+omni_range = 6.216
+omni_attenuation = 1.753
+
+[node name="OmniLight3D26" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.01597, 3.35774, 1.66968)
 light_color = Color(1, 0.69, 0.4, 1)
 light_energy = 1.711
 shadow_enabled = true
@@ -784,7 +1019,7 @@ omni_range = 6.216
 omni_attenuation = 1.753
 
 [node name="OmniLight3D5" type="OmniLight3D" parent="Lights"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.5012, 3.3255, -6.68057)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.17937, 3.3255, -8.85282)
 light_color = Color(1, 0.69, 0.4, 1)
 light_energy = 1.711
 shadow_enabled = true
@@ -793,7 +1028,7 @@ omni_range = 6.216
 omni_attenuation = 1.753
 
 [node name="OmniLight3D6" type="OmniLight3D" parent="Lights"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.5012, 3.3255, 1.81519)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.17896, 3.3255, 1.81519)
 light_color = Color(1, 0.69, 0.4, 1)
 light_energy = 1.711
 shadow_enabled = true
@@ -802,7 +1037,7 @@ omni_range = 6.216
 omni_attenuation = 1.753
 
 [node name="OmniLight3D7" type="OmniLight3D" parent="Lights"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.75261, 3.3255, 1.63362)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.89448, 3.02282, 1.65073)
 light_color = Color(1, 0.69, 0.4, 1)
 light_energy = 1.711
 shadow_enabled = true
@@ -820,21 +1055,85 @@ omni_range = 6.216
 omni_attenuation = 1.753
 
 [node name="OmniLight3D9" type="OmniLight3D" parent="Lights"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.30324, 3.06953, -7.21573)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.30324, 3.06953, -6.92864)
 light_color = Color(1, 0.69, 0.4, 1)
 light_energy = 1.711
 omni_range = 6.216
 omni_attenuation = 1.753
 
 [node name="OmniLight3D10" type="OmniLight3D" parent="Lights"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.94924, 3.06953, -6.73574)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.57916, 3.06953, -6.82807)
 light_color = Color(1, 0.69, 0.4, 1)
 light_energy = 1.711
 omni_range = 6.216
 omni_attenuation = 1.753
 
+[node name="OmniLight3D17" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.80488, 3.50823, -11.4173)
+light_color = Color(1, 0.69, 0.4, 1)
+omni_range = 6.216
+omni_attenuation = 1.753
+
+[node name="OmniLight3D18" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.9826, 3.50823, -11.4173)
+light_color = Color(1, 0.69, 0.4, 1)
+omni_range = 6.216
+omni_attenuation = 1.753
+
+[node name="OmniLight3D21" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.907, 0.922702, -6.53236)
+visible = false
+light_color = Color(0.873849, 0.506965, 5.77569e-07, 1)
+light_energy = 0.15
+omni_range = 6.216
+omni_attenuation = 1.753
+
+[node name="OmniLight3D22" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.8546, 0.922702, -6.53236)
+visible = false
+light_color = Color(0.873849, 0.506965, 5.77569e-07, 1)
+light_energy = 0.15
+omni_range = 6.216
+omni_attenuation = 1.753
+
+[node name="OmniLight3D23" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00570297, 0.922702, -6.53236)
+visible = false
+light_color = Color(0.873849, 0.506965, 5.77569e-07, 1)
+light_energy = 0.15
+omni_range = 6.216
+omni_attenuation = 1.753
+
+[node name="OmniLight3D24" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.97976, 0.922702, -6.53236)
+visible = false
+light_color = Color(0.873849, 0.506965, 5.77569e-07, 1)
+light_energy = 0.15
+omni_range = 6.216
+omni_attenuation = 1.753
+
+[node name="OmniLight3D25" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.90553, 0.922702, -6.53236)
+visible = false
+light_color = Color(0.873849, 0.506965, 5.77569e-07, 1)
+light_energy = 0.15
+omni_range = 6.216
+omni_attenuation = 1.753
+
+[node name="OmniLight3D19" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.95531, 3.50823, -11.4097)
+light_color = Color(1, 0.69, 0.4, 1)
+omni_range = 6.216
+omni_attenuation = 1.753
+
+[node name="OmniLight3D20" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.77759, 3.50823, -11.4097)
+light_color = Color(1, 0.69, 0.4, 1)
+omni_range = 6.216
+omni_attenuation = 1.753
+
 [node name="OmniLight3D11" type="OmniLight3D" parent="Lights"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.55411, 3.06953, -6.73574)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.73943, 3.06953, -6.73574)
 light_color = Color(1, 0.69, 0.4, 1)
 light_energy = 1.711
 omni_range = 6.216
@@ -887,6 +1186,22 @@ light_energy = 6.511
 shadow_enabled = true
 spot_range = 3.8362
 spot_angle = 30.63
+spot_angle_attenuation = 2.2974
+
+[node name="SpotLight3D4" type="SpotLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 1.03886, 3.72733, -10.4614)
+light_energy = 6.511
+shadow_enabled = true
+spot_range = 2.70283
+spot_angle = 48.1003
+spot_angle_attenuation = 2.2974
+
+[node name="SpotLight3D5" type="SpotLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, -0.904112, 3.72733, -10.4614)
+light_energy = 6.511
+shadow_enabled = true
+spot_range = 2.70283
+spot_angle = 48.1003
 spot_angle_attenuation = 2.2974
 
 [node name="SpotLight3D3" type="SpotLight3D" parent="Lights"]
