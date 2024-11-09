@@ -1,9 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cfo3dp7wdysi"]
+[gd_scene load_steps=4 format=3 uid="uid://cfo3dp7wdysi"]
 
 [ext_resource type="Script" path="res://Menus/main_menu.gd" id="1_cbett"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_h50at"]
-font_size = 81
+[ext_resource type="FontFile" uid="uid://bflwkulvwjoml" path="res://fonts/Carme-Regular.ttf" id="2_4tmo4"]
+[ext_resource type="LabelSettings" uid="uid://cfxutyvtlyqer" path="res://Menus/title_style.tres" id="2_25a2r"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -22,31 +21,39 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -198.5
-offset_top = -90.5
+offset_top = 185.0
 offset_right = 198.5
-offset_bottom = 90.5
+offset_bottom = 366.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 20
 
-[node name="TitleLabel" type="Label" parent="VBoxContainer"]
-layout_mode = 2
-text = "FROG BAR"
-label_settings = SubResource("LabelSettings_h50at")
-horizontal_alignment = 1
-
 [node name="StartButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 focus_neighbor_bottom = NodePath("../Handedness")
+theme_override_fonts/font = ExtResource("2_4tmo4")
+theme_override_font_sizes/font_size = 36
 text = "START GAME"
 
 [node name="Handedness" type="OptionButton" parent="VBoxContainer"]
 layout_mode = 2
 focus_neighbor_top = NodePath("../StartButton")
+theme_override_fonts/font = ExtResource("2_4tmo4")
+theme_override_font_sizes/font_size = 36
 selected = 0
 item_count = 2
 popup/item_0/text = "Right-Handed"
 popup/item_1/text = "Left-Handed"
 popup/item_1/id = 1
+
+[node name="TitleLabel" type="Label" parent="."]
+layout_mode = 2
+offset_left = 239.0
+offset_top = 301.5
+offset_right = 1681.0
+offset_bottom = 636.5
+text = "FROG BAR"
+label_settings = ExtResource("2_25a2r")
+horizontal_alignment = 1
 
 [connection signal="button_up" from="VBoxContainer/StartButton" to="." method="_on_start_button_button_up"]

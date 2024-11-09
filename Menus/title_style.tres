@@ -1,0 +1,7 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://cfxutyvtlyqer"]
+
+[ext_resource type="FontFile" uid="uid://beh5jjxcerf11" path="res://fonts/Felixti.TTF" id="1_jssou"]
+
+[resource]
+font = ExtResource("1_jssou")
+font_size = 286
