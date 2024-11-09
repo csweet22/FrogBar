@@ -14,6 +14,8 @@ signal score_changed(new_score: float)
 
 var tray_scene: Node3D
 
+@export var interact_spawn_drink: Label
+
 var active_order_count: int = 0:
 	set(value):
 		active_order_count = value
@@ -82,6 +84,8 @@ func start_timer():
 	$DisturbanceTimer.start(0.0)
 
 func on_game_end() -> void:
+	tray_scene.rotation_degrees.z = 0
+	tray_scene.can_tip = false
 	game_ended.emit()
 	tray_scene.spawn_money(20)
 	player.movement_disabled = true

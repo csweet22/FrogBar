@@ -19,6 +19,8 @@ var drinks: Array[RigidBody3D]
 
 var current_tilt_delta = 0.0
 
+var can_tip: bool = true
+
 @export var min_tilt_time: float = 3.0
 @export var max_tilt_time: float = 8.0
 var tilting_right: bool = true
@@ -50,8 +52,8 @@ func _process(delta: float) -> void:
 		current_tilt_delta -= tipping_speed * delta
 	
 	current_tilt_delta = clamp(current_tilt_delta, -tipping_speed, tipping_speed)
-	
-	tilt_tray(delta * current_tilt_delta)
+	if can_tip:
+		tilt_tray(delta * current_tilt_delta)
 	
 		
 		

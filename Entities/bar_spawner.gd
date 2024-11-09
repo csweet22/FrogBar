@@ -14,9 +14,11 @@ func on_interact(body: CharacterBody3D) -> void:
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body.is_in_group("player"):
+		GameManager.interact_spawn_drink.visible = true
 		GameManager.tray_scene.show_preview(drink_type)
 
 
 func _on_area_3d_body_exited(body: Node3D) -> void:
 	if body.is_in_group("player"):
+		GameManager.interact_spawn_drink.visible = false
 		GameManager.tray_scene.hide_preview()

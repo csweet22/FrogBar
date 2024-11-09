@@ -181,6 +181,9 @@ one_shot = true
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 unique_name_in_owner = true
+avoidance_enabled = true
+radius = 0.1
+max_neighbors = 3
 
 [node name="SpriteOrigin" type="Node3D" parent="."]
 
