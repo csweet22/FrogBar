@@ -1,10 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://cfo3dp7wdysi"]
+[gd_scene load_steps=8 format=3 uid="uid://cfo3dp7wdysi"]
 
 [ext_resource type="Script" path="res://Menus/main_menu.gd" id="1_cbett"]
 [ext_resource type="FontFile" uid="uid://bflwkulvwjoml" path="res://fonts/Carme-Regular.ttf" id="2_4tmo4"]
 [ext_resource type="Texture2D" uid="uid://drei5r45tkyud" path="res://mainmenu.png" id="2_wabae"]
 [ext_resource type="FontFile" uid="uid://beh5jjxcerf11" path="res://fonts/Felixti.TTF" id="4_ory6s"]
-[ext_resource type="Texture2D" path="res://logo.png" id="5_na4jk"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u5ejf"]
 
@@ -104,7 +103,6 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.89, 0.89)
 pivot_offset = Vector2(923, 0)
-texture = ExtResource("5_na4jk")
 
 [node name="TextureRect3" type="TextureRect" parent="."]
 visible = false
@@ -122,6 +120,5 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.89, 0.89)
 pivot_offset = Vector2(923, 0)
-texture = ExtResource("5_na4jk")
 
 [connection signal="button_up" from="VBoxContainer/StartButton" to="." method="_on_start_button_button_up"]
