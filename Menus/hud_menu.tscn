@@ -1,10 +1,50 @@
-[gd_scene load_steps=4 format=3 uid="uid://dt1algih62327"]
+[gd_scene load_steps=12 format=3 uid="uid://dt1algih62327"]
 
 [ext_resource type="Script" path="res://Menus/hud_menu.gd" id="1_dqlh7"]
 [ext_resource type="PackedScene" uid="uid://biq4nppl0wjwe" path="res://drink_order.tscn" id="2_j0jvk"]
+[ext_resource type="Texture2D" uid="uid://bpqnkrcv4il2i" path="res://controlsui/stick.png" id="3_8nn1c"]
+[ext_resource type="LabelSettings" uid="uid://cpq77cmnkoldp" path="res://fonts/small_text.tres" id="4_j8up3"]
+[ext_resource type="Texture2D" uid="uid://c4atn47g3nuvb" path="res://controlsui/both_up.png" id="5_aj7p7"]
+[ext_resource type="Texture2D" uid="uid://b2iip2drvrqfk" path="res://controlsui/right_down.png" id="6_ju6nu"]
+[ext_resource type="Texture2D" uid="uid://dfwfrnkd6mq6l" path="res://controlsui/left_down.png" id="7_6b58a"]
+[ext_resource type="Texture2D" uid="uid://b65ef25a7h7yg" path="res://controlsui/both_down.png" id="8_slp1o"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ju0bk"]
 font_size = 50
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_an7ef"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_aj7p7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ju6nu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_aj7p7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_6b58a")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2pfky"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_aj7p7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_slp1o")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
 
 [node name="HudMenu" type="Control" node_paths=PackedStringArray("score_label")]
 layout_mode = 3
@@ -75,19 +115,154 @@ size_flags_stretch_ratio = 0.45
 alignment = 2
 
 [node name="ControlsContainer" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(493.64, 60)
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -40.0
-offset_top = -40.0
+offset_left = -1274.0
+offset_top = -506.0
+offset_right = -5.78003
 grow_horizontal = 0
 grow_vertical = 0
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="Label" type="Label" parent="ControlsContainer"]
-layout_mode = 2
-text = "CONTROLS! WAWAWAWA"
+[node name="Control" type="Control" parent="."]
+z_index = 2000
+z_as_relative = false
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -57.0
+offset_top = -57.0
+offset_right = -17.0
+offset_bottom = -17.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Control" type="Control" parent="Control"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1733.0
+offset_top = -40.0
+offset_right = -1693.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="TextureRect" type="TextureRect" parent="Control/Control"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -165.0
+offset_top = -80.0
+offset_right = -104.0
+offset_bottom = -36.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("3_8nn1c")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="Control/Control"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -92.0
+offset_top = -75.0
+offset_right = -29.0
+offset_bottom = -43.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Move"
+label_settings = ExtResource("4_j8up3")
+
+[node name="Control2" type="Control" parent="Control"]
+z_index = 2000
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -49.0
+offset_top = -40.0
+offset_right = -9.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Label" type="Label" parent="Control/Control2"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -91.0
+offset_top = -75.0
+offset_right = 2.0
+offset_bottom = -43.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Tilt Tray"
+label_settings = ExtResource("4_j8up3")
+horizontal_alignment = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Control/Control2"]
+position = Vector2(-128, -16)
+scale = Vector2(0.0899795, 0.0899794)
+sprite_frames = SubResource("SpriteFrames_an7ef")
+autoplay = "default"
+frame_progress = 0.673391
+
+[node name="Control3" type="Control" parent="Control"]
+z_index = 2000
+z_as_relative = false
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -283.0
+offset_top = -40.0
+offset_right = -243.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Label" type="Label" parent="Control/Control3"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -91.0
+offset_top = -75.0
+offset_right = 2.0
+offset_bottom = -43.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Push"
+label_settings = ExtResource("4_j8up3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Control/Control3"]
+position = Vector2(-128, -16)
+scale = Vector2(0.0899795, 0.0899794)
+sprite_frames = SubResource("SpriteFrames_2pfky")
+autoplay = "default"
+frame_progress = 0.808468

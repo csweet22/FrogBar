@@ -1,0 +1,7 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://cpq77cmnkoldp"]
+
+[ext_resource type="FontFile" uid="uid://bflwkulvwjoml" path="res://fonts/Carme-Regular.ttf" id="1_jsawr"]
+
+[resource]
+font = ExtResource("1_jsawr")
+font_size = 26
