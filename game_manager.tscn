@@ -20,14 +20,14 @@ push_disturber = NodePath("PushDisturber")
 rack_up_tips = NodePath("RackUpTips")
 
 [node name="GameTimer" type="Timer" parent="."]
-wait_time = 60.0
+wait_time = 90.0
 one_shot = true
 
 [node name="DrinkRequestTimer" type="Timer" parent="."]
 wait_time = 6.0
 
 [node name="DisturbanceTimer" type="Timer" parent="."]
-wait_time = 13.0
+wait_time = 18.0
 
 [node name="ambience" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_rq8yg")
