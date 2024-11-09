@@ -182,7 +182,6 @@ one_shot = true
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 unique_name_in_owner = true
 avoidance_enabled = true
-radius = 0.1
 max_neighbors = 3
 
 [node name="SpriteOrigin" type="Node3D" parent="."]
@@ -313,7 +312,12 @@ volume_db = -9.0
 [node name="OrderUp" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("16_5fya3")
 
+[node name="MaxMovingTimer" type="Timer" parent="."]
+wait_time = 6.0
+autostart = true
+
 [connection signal="timeout" from="TalkingTimer" to="." method="_on_talking_timer_timeout"]
 [connection signal="animation_changed" from="SpriteOrigin/MainSprite" to="." method="_on_main_sprite_animation_changed"]
 [connection signal="finished" from="nuhuh" to="." method="_on_nuhuh_finished"]
 [connection signal="finished" from="Disturbance" to="." method="_on_disturbance_finished"]
+[connection signal="timeout" from="MaxMovingTimer" to="." method="_on_max_moving_timer_timeout"]

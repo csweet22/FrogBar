@@ -80,8 +80,11 @@ func nav_setup():
 	
 	nav.navigation_finished.connect(stop_moving)
 
+
+
 func set_new_target(): 
-	var target: Vector3 = Vector3( rng.randf_range(-3.0, 3.0), 0.0, rng.randf_range(-3.0, 3.0))
+	var target: Vector3 = Vector3( rng.randf_range(-7.0, 7.0), 0.0, rng.randf_range(-7.0, 7.0))
+	
 	nav.set_target_position( target )
 
 func _physics_process(delta: float) -> void:
@@ -313,3 +316,7 @@ func _on_disturbance_finished() -> void:
 			$Disturbance.stream = preload("res://Sounds/disturbance_E.mp3")
 	if drink_state == DrinkState.DISTURBANCE:
 		$Disturbance.play()
+
+
+func _on_max_moving_timer_timeout() -> void:
+	set_new_target()

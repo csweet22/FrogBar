@@ -11,10 +11,13 @@
 [ext_resource type="AudioStream" uid="uid://qju8ersjc0cv" path="res://Sounds/break_B.mp3" id="9_jci7v"]
 [ext_resource type="LabelSettings" uid="uid://1woxc21tdkvm" path="res://fonts/on_screen_medium.tres" id="10_5efm5"]
 
-[node name="GameManager" type="Node" node_paths=PackedStringArray("game_timer", "interact_spawn_drink")]
+[node name="GameManager" type="Node" node_paths=PackedStringArray("game_timer", "interact_spawn_drink", "deliver_drink", "push_disturber", "rack_up_tips")]
 script = ExtResource("1_malej")
 game_timer = NodePath("GameTimer")
 interact_spawn_drink = NodePath("InteractSpawnDrink")
+deliver_drink = NodePath("DeliverDrink")
+push_disturber = NodePath("PushDisturber")
+rack_up_tips = NodePath("RackUpTips")
 
 [node name="GameTimer" type="Timer" parent="."]
 wait_time = 60.0
@@ -71,6 +74,42 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Interact To Spawn Drink"
+label_settings = ExtResource("10_5efm5")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DeliverDrink" type="Label" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 57.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Deliver The Right Drink"
+label_settings = ExtResource("10_5efm5")
+horizontal_alignment = 1
+
+[node name="PushDisturber" type="Label" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 59.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Push the Disturber"
+label_settings = ExtResource("10_5efm5")
+horizontal_alignment = 1
+
+[node name="RackUpTips" type="Label" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Rack Up Tips"
 label_settings = ExtResource("10_5efm5")
 horizontal_alignment = 1
 vertical_alignment = 1

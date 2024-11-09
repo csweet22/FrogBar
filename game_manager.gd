@@ -15,6 +15,9 @@ signal score_changed(new_score: float)
 var tray_scene: Node3D
 
 @export var interact_spawn_drink: Label
+@export var deliver_drink: Label
+@export var push_disturber: Label
+@export var rack_up_tips: Label
 
 var active_order_count: int = 0:
 	set(value):
@@ -28,12 +31,20 @@ var hud: Control
 var first_drink_delivered: bool = false:
 	set(value):
 		if value and not first_drink_delivered:
+			$DeliverDrink.visible = false
+			$PushDisturber.visible = true
 			make_disturbance()
 		first_drink_delivered = value
 var first_disturbance_ended: bool = false:
 	set(value):
 		if value and not first_disturbance_ended:
 			start_timer()
+			$PushDisturber.visible = false
+			rack_up_tips.visible = true
+			get_tree().create_timer(3).timeout.connect(
+				func():
+					rack_up_tips.visible = false
+			)
 		first_disturbance_ended = value
 
 func _ready() -> void:
@@ -59,6 +70,7 @@ func get_score() -> float:
 	return score
 
 func start_game():
+	$DeliverDrink.visible = true
 	first_drink_delivered = false
 	first_disturbance_ended = false
 	active_order_count = 0
