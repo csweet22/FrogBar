@@ -42,6 +42,7 @@ shape = SubResource("BoxShape3D_ya700")
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.246072, 0)
 pixel_size = 0.0004
+shaded = true
 texture = ExtResource("2_dwnnv")
 
 [node name="Martini" type="CollisionShape3D" parent="."]

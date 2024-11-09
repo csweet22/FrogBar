@@ -13,7 +13,7 @@ height = 0.02
 
 [sub_resource type="Environment" id="Environment_eh6us"]
 background_mode = 1
-background_color = Color(0.77, 0.401683, 0.1386, 1)
+background_color = Color(0.977557, 0.686976, 0.515021, 1)
 background_energy_multiplier = 0.5
 
 [node name="TrayScene" type="Node3D"]
@@ -77,6 +77,7 @@ visible = false
 [node name="DrinkPreview" type="Sprite3D" parent="SpawnPoint"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.246, 0)
 pixel_size = 0.0004
+shaded = true
 texture = ExtResource("4_jyvg7")
 
 [connection signal="timeout" from="TiltTimer" to="." method="_on_tilt_timer_timeout"]
