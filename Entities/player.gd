@@ -4,7 +4,7 @@ extends CharacterBody3D
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 
-@export var rotation_speed = 2.0
+@export var rotation_speed = 2.5
 
 var can_push: bool = true
 
