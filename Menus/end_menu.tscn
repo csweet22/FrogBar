@@ -1,9 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://b3le7jjltin0v"]
+[gd_scene load_steps=5 format=3 uid="uid://b3le7jjltin0v"]
 
 [ext_resource type="Script" path="res://Menus/end_menu.gd" id="1_vqv43"]
+[ext_resource type="FontFile" uid="uid://beh5jjxcerf11" path="res://fonts/Felixti.TTF" id="2_lpmsq"]
+[ext_resource type="FontFile" uid="uid://bflwkulvwjoml" path="res://fonts/Carme-Regular.ttf" id="3_o0e40"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_g62sf"]
-font_size = 91
+[sub_resource type="LabelSettings" id="LabelSettings_rdcfw"]
+font = ExtResource("2_lpmsq")
+font_size = 161
 
 [node name="EndMenu" type="Control"]
 layout_mode = 3
@@ -24,6 +27,16 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.01758, 0.0172, 0.04, 0.678431)
 
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+offset_left = 441.0
+offset_top = 359.5
+offset_right = 1479.0
+offset_bottom = 548.5
+text = "SHIFT ENDED"
+label_settings = SubResource("LabelSettings_rdcfw")
+horizontal_alignment = 1
+
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
@@ -32,28 +45,26 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -288.0
-offset_top = -128.5
+offset_top = 29.0
 offset_right = 288.0
-offset_bottom = 128.5
+offset_bottom = 286.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 35
 alignment = 1
 
-[node name="Label" type="Label" parent="VBoxContainer"]
-layout_mode = 2
-text = "SHIFT ENDED"
-label_settings = SubResource("LabelSettings_g62sf")
-horizontal_alignment = 1
-
 [node name="Restart" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 focus_neighbor_bottom = NodePath("../MainMenu")
+theme_override_fonts/font = ExtResource("3_o0e40")
+theme_override_font_sizes/font_size = 50
 text = "PLAY AGAIN"
 
 [node name="MainMenu" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 focus_neighbor_top = NodePath("../Restart")
+theme_override_fonts/font = ExtResource("3_o0e40")
+theme_override_font_sizes/font_size = 50
 text = "BACK TO MAIN MENU"
 
 [connection signal="button_up" from="VBoxContainer/Restart" to="." method="_on_restart_button_up"]

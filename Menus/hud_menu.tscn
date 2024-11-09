@@ -234,7 +234,7 @@ position = Vector2(-128, -16)
 scale = Vector2(0.0899795, 0.0899794)
 sprite_frames = SubResource("SpriteFrames_an7ef")
 autoplay = "default"
-frame_progress = 0.932132
+frame_progress = 0.869827
 
 [node name="Control3" type="Control" parent="Control"]
 z_index = 2000
@@ -272,4 +272,4 @@ position = Vector2(-128, -16)
 scale = Vector2(0.0899795, 0.0899794)
 sprite_frames = SubResource("SpriteFrames_2pfky")
 autoplay = "default"
-frame_progress = 0.0672062
+frame_progress = 0.00490124
